@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package kelompok;
+package myTech;
 
 /**
  *
  * @author Muhammad Alfin Eka P
  */
-public class Admin extends javax.swing.JFrame {
+public class Login extends javax.swing.JFrame {
 
     /**
      * Creates new form Admin
      */
-    public Admin() {
+    public Login() {
         initComponents();
     }
 
