@@ -4,6 +4,9 @@
  */
 package myTech;
 
+import java.sql.*;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author USER
@@ -15,7 +18,43 @@ public class Supplier extends javax.swing.JInternalFrame {
      */
     public Supplier() {
         initComponents();
+        datatable("");
+        reset();        
     }
+        public void reset(){
+            txtalamat.setText("");
+            txtnama.setText("");
+            txtno.setText("");
+            txtid.setText("");
+            txtcreat.setText("");
+            
+        }
+        public void datatable(String string){
+            DefaultTableModel tbl=new DefaultTableModel();
+            tbl.addColumn("Alamat");
+            tbl.addColumn("Nama Supplier");
+            tbl.addColumn("No Telephone");
+            tbl.addColumn("Id Supplie");
+            tbl.addColumn("Created Ad");
+            table.setModel(tbl);
+            try{
+                Statement statement=(Statement)koneksi.GetConnection().createStatement();
+                ResultSet res=(ResultSet) statement.executeQuery("select * from tabmahasiswa");
+                while(res.next())
+                {
+                    tbl.addRow(new Object[]{
+                        res.getString("Alamat"),
+                        res.getString("Nama Supllier"),
+                        res.getString("No Telephone"),
+                        res.getString("Id Supllier"),
+                        res.getString("Created Ad")
+                    });
+                    table.setModel(tbl);
+                }
+            }catch (Exception e){
+                    JOptionPane.showMessageDialog(rootPane, "salah");
+            }
+        }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -27,24 +66,24 @@ public class Supplier extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        table = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        txtalamat = new javax.swing.JTextField();
+        txtno = new javax.swing.JTextField();
+        txtnama = new javax.swing.JTextField();
+        txtid = new javax.swing.JTextField();
+        txtcreat = new javax.swing.JTextField();
+        btambah = new javax.swing.JButton();
+        bcari = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        bhapus = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
+        bkeluar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -55,7 +94,7 @@ public class Supplier extends javax.swing.JInternalFrame {
                 "Alamat", "Nama Supllier", "No Telephone", "Id Supllier", "Created At"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(table);
 
         jLabel4.setText("Alamat");
 
@@ -63,18 +102,23 @@ public class Supplier extends javax.swing.JInternalFrame {
 
         jLabel6.setText("No Telephone");
 
-        jButton1.setText("Tambah");
+        btambah.setText("Tambah");
+        btambah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btambahActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Cari");
+        bcari.setText("Cari");
 
         jLabel1.setFont(new java.awt.Font("Lucida Fax", 1, 12)); // NOI18N
         jLabel1.setText("SUPPLIER");
 
-        jButton3.setText("Hapus");
+        bhapus.setText("Hapus");
 
         jLabel2.setText("Id Supllier");
 
-        jButton4.setText("Keluar");
+        bkeluar.setText("Keluar");
 
         jLabel3.setText("Nama Supllier");
 
@@ -88,15 +132,15 @@ public class Supplier extends javax.swing.JInternalFrame {
                         .addGap(46, 46, 46)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1)
+                                .addComponent(btambah)
                                 .addGap(7, 7, 7)
-                                .addComponent(jButton2)
+                                .addComponent(bcari)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton3)
+                                .addComponent(bhapus)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton4))
+                                .addComponent(bkeluar))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtcreat, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -112,10 +156,10 @@ public class Supplier extends javax.swing.JInternalFrame {
                                             .addGap(24, 24, 24)))
                                     .addGap(18, 18, 18)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)))))
+                                        .addComponent(txtalamat, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtid, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtnama, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtno, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 789, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -132,30 +176,30 @@ public class Supplier extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtalamat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtnama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtcreat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
-                            .addComponent(jButton2)
-                            .addComponent(jButton3)
-                            .addComponent(jButton4)))
+                            .addComponent(btambah)
+                            .addComponent(bcari)
+                            .addComponent(bhapus)
+                            .addComponent(bkeluar)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
@@ -163,12 +207,31 @@ public class Supplier extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btambahActionPerformed
+        // TODO add your handling code here:
+        String alamat = txtalamat.getText();
+        String nama = txtnama.getText();
+        String notelephone = txtno.getText();
+        String idsupplier = txtid.getText();
+        String createdad = txtcreat.getText();
+        try{
+            Statement statement=(Statement)conek.GetConnection().createStatement();
+            statement.executeUpdate("insert into supllier VALUES"
+                    + "('"+alamat+"', '"+nama+"', '"+notelephone+"', '"+idsupplier+"', '"+createdad+"')");
+            datatable("SELECT * FROM tabmahasiswa");
+        reset();               
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+    }//GEN-LAST:event_btambahActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton bcari;
+    private javax.swing.JButton bhapus;
+    private javax.swing.JButton bkeluar;
+    private javax.swing.JButton btambah;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -176,11 +239,11 @@ public class Supplier extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTable table;
+    private javax.swing.JTextField txtalamat;
+    private javax.swing.JTextField txtcreat;
+    private javax.swing.JTextField txtid;
+    private javax.swing.JTextField txtnama;
+    private javax.swing.JTextField txtno;
     // End of variables declaration//GEN-END:variables
 }
