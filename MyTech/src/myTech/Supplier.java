@@ -37,8 +37,9 @@ public class Supplier extends javax.swing.JInternalFrame {
             tbl.addColumn("Id Supplie");
             tbl.addColumn("Created Ad");
             table.setModel(tbl);
+            Koneksi cn = new Koneksi();
             try{
-                Statement statement=(Statement)koneksi.GetConnection().createStatement();
+                Statement statement=cn.GetConnection().createStatement();
                 ResultSet res=(ResultSet) statement.executeQuery("select * from tabmahasiswa");
                 while(res.next())
                 {

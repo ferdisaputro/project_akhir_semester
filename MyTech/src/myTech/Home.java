@@ -3,18 +3,23 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package myTech;
-
 /**
  *
  * @author Muhammad Alfin Eka P
  */
 public class Home extends javax.swing.JFrame {
-
+    static private admin.UserAdmin userAdmin;
     /**
      * Creates new form Button
      */
-    public Home() {
+    public Home(admin.UserAdmin userAdmin) {
         initComponents();
+        if (userAdmin != null) {
+            this.userAdmin = userAdmin;
+            System.out.println(this.userAdmin.getId());
+            System.out.println(this.userAdmin.getName());
+            System.out.println(this.userAdmin.getUsername());
+        }
     }
 
     /**
@@ -189,11 +194,16 @@ public class Home extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Home().setVisible(true);
+                if (userAdmin == null) {
+                    Login login = new Login();
+                    login.setSize(450, 350);
+                    login.setVisible(true);
+                } else {
+                    new Home(userAdmin).setVisible(true);
+                }
             }
         });
     }
