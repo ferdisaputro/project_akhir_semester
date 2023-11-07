@@ -354,27 +354,25 @@ public class Barang extends javax.swing.JInternalFrame {
         String hargabeli = txthargabeli.getText();
         String kategori = txtkategori.getText();
         String deskripsi = txtstok.getText();
-        
-            try{
-                Statement statement = koneksi.GetConnection().createStatement();
-                statement.executeUpdate
-                    ("DELETE FROM barang WHERE id_barang = '" + idbarang + "'");
-                JOptionPane.showMessageDialog
-                    (null, "data berhasil dihapus");
-                datatable("SELECT * FROM barang");
-                txtidbarang.setText("");
-                txtnamabarang.setText("");
-                txthargajual.setText("");
-                txthargabeli.setText("");
-                txtkategori.setText("");
-                txtstok.setText("");
-                txtdeskripsi.setText("");
-                txtsatuan.setText("");
-            } catch (Exception t){
-                JOptionPane.showMessageDialog
-                (null, "Data gagal dihapus" +t);
-            }
-        // TODO add your handling code here:
+        try{
+            Statement statement = koneksi.GetConnection().createStatement();
+            statement.executeUpdate
+                ("DELETE FROM barang WHERE id_barang = '" + idbarang + "'");
+            JOptionPane.showMessageDialog
+                (null, "data berhasil dihapus");
+            datatable("SELECT * FROM barang");
+            txtidbarang.setText("");
+            txtnamabarang.setText("");
+            txthargajual.setText("");
+            txthargabeli.setText("");
+            txtkategori.setText("");
+            txtstok.setText("");
+            txtdeskripsi.setText("");
+            txtsatuan.setText("");
+        } catch (Exception t){
+            JOptionPane.showMessageDialog
+            (null, "Data gagal dihapus" +t);
+        }
     }//GEN-LAST:event_bhapusActionPerformed
 
     private void bkeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bkeluarActionPerformed
@@ -405,7 +403,7 @@ public class Barang extends javax.swing.JInternalFrame {
         txthargabeli.setText("");
         txtstok.setText("");
         txtdeskripsi.setText("");
-        txtsatuan.setText("");
+//        txtsatuan.setText("");
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
