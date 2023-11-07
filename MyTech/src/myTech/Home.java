@@ -19,6 +19,7 @@ public class Home extends javax.swing.JFrame {
             System.out.println(this.userAdmin.getId());
             System.out.println(this.userAdmin.getName());
             System.out.println(this.userAdmin.getUsername());
+            userName.setText(userAdmin.getName());
         }
     }
 
@@ -33,6 +34,7 @@ public class Home extends javax.swing.JFrame {
 
         jSeparator1 = new javax.swing.JSeparator();
         jMenuItem3 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
         mainContainer = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu6 = new javax.swing.JMenu();
@@ -45,8 +47,13 @@ public class Home extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        userName = new javax.swing.JMenu();
 
         jMenuItem3.setText("jMenuItem3");
+
+        jMenu3.setText("jMenu3");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -125,6 +132,13 @@ public class Home extends javax.swing.JFrame {
         jMenu4.add(jMenuItem4);
 
         jMenuBar1.add(jMenu4);
+
+        jMenu1.setText("                   ");
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Halo");
+        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(userName);
 
         setJMenuBar(jMenuBar1);
 
@@ -209,6 +223,9 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
@@ -223,5 +240,6 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPanel mainContainer;
+    private javax.swing.JMenu userName;
     // End of variables declaration//GEN-END:variables
 }
