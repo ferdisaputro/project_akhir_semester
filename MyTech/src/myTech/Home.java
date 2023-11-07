@@ -155,9 +155,9 @@ public class Home extends javax.swing.JFrame {
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         // TODO add your handling code here:
-        Admin admin = new Admin();
-        mainContainer.add(admin);
-        admin.setVisible(true);
+        Supplier supplier = new Supplier();
+        mainContainer.add(supplier);
+        supplier.setVisible(true);
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
