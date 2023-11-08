@@ -38,7 +38,7 @@ public class Supplier extends javax.swing.JInternalFrame {
             tbl.addColumn("Created Ad");
             table.setModel(tbl);
             try{
-                Statement statement=koneksi.getConnection().createStatement();
+                Statement statement=koneksi.GetConnection().createStatement();
                 ResultSet res=(ResultSet) statement.executeQuery("select * from tabmahasiswa");
                 while(res.next())
                 {
@@ -240,7 +240,7 @@ public class Supplier extends javax.swing.JInternalFrame {
         String idsupplier = txtid.getText();
         String createdad = txtcreat.getText();
         try{
-            Statement statement=koneksi.getConnection().createStatement();
+            Statement statement=koneksi.GetConnection().createStatement();
             statement.executeUpdate("insert into supllier VALUES"
                     + "('"+alamat+"', '"+nama+"', '"+notelephone+"', '"+idsupplier+"', '"+createdad+"')");
             datatable("SELECT * FROM tabmahasiswa");
@@ -254,7 +254,7 @@ public class Supplier extends javax.swing.JInternalFrame {
     private void bcariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bcariActionPerformed
         // TODO add your handling code here:
         try {
-            Statement statement=koneksi.getConnection().createStatement();
+            Statement statement=koneksi.GetConnection().createStatement();
             ResultSet res = (ResultSet) statement.executeQuery("select * from supplier where " + "alamat='" + bcari.getText() + "'");
             DefaultTableModel tbl = new DefaultTableModel();
             tbl.addColumn("alamat");
@@ -283,7 +283,7 @@ public class Supplier extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         String alamat = txtalamat.getText();
         try {
-            Statement statement=koneksi.getConnection().createStatement();
+            Statement statement=koneksi.GetConnection().createStatement();
             statement.executeUpdate("DELETE from supplier where npm=('" + alamat + "');" );          
             JOptionPane.showMessageDialog(null, "data berhasil di HAPUS");
             txtalamat.setText("");
@@ -311,7 +311,7 @@ public class Supplier extends javax.swing.JInternalFrame {
         String idsupplier = txtid.getText();
         String createdat = txtcreat.getText();
         try {
-        Statement statement = (Statement) koneksi.getConnection().createStatement();
+        Statement statement = (Statement) koneksi.GetConnection().createStatement();
         String query = "UPDATE supplier SET "
             + "alamat = '" + alamat + "', "
             + "nama = '" + nama + "', "
