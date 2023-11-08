@@ -53,6 +53,10 @@ public class Admin extends javax.swing.JInternalFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
 
+        setClosable(true);
+        setMaximizable(true);
+        setResizable(true);
+
         jLabel15.setText("password");
 
         jLabel16.setText("email");
