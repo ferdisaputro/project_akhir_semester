@@ -39,7 +39,7 @@ public class Supplier extends javax.swing.JInternalFrame {
             table.setModel(tbl);
             try{
                 Statement statement=koneksi.GetConnection().createStatement();
-                ResultSet res=(ResultSet) statement.executeQuery("select * from tabmahasiswa");
+                ResultSet res=(ResultSet) statement.executeQuery("select * from supplier");
                 while(res.next())
                 {
                     tbl.addRow(new Object[]{
@@ -52,7 +52,7 @@ public class Supplier extends javax.swing.JInternalFrame {
                     table.setModel(tbl);
                 }
             }catch (Exception e){
-                    JOptionPane.showMessageDialog(rootPane, "salah");
+                    JOptionPane.showMessageDialog(rootPane, ""+e);
             }
         }
 
@@ -241,7 +241,7 @@ public class Supplier extends javax.swing.JInternalFrame {
         String createdad = txtcreat.getText();
         try{
             Statement statement=koneksi.GetConnection().createStatement();
-            statement.executeUpdate("insert into supllier VALUES"
+            statement.executeUpdate("insert into supplier(alamat, nama, no_telephone) VALUES"
                     + "('"+alamat+"', '"+nama+"', '"+notelephone+"', '"+idsupplier+"', '"+createdad+"')");
             datatable("SELECT * FROM tabmahasiswa");
         reset();               
