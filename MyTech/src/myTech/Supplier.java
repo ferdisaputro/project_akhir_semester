@@ -5,6 +5,7 @@
 package myTech;
 
 import java.sql.*;
+import java.time.LocalDate;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 /**
@@ -25,34 +26,36 @@ public class Supplier extends javax.swing.JInternalFrame {
             txtalamat.setText("");
             txtnama.setText("");
             txtno.setText("");
-            txtid.setText("");
-            txtcreat.setText("");
+            txtemail.setText("");
+            txtidsupplier.setText("");
             
         }
         public void datatable(String string){
             DefaultTableModel tbl=new DefaultTableModel();
+            tbl.addColumn("Id Suppier");
+            tbl.addColumn("Nama");
+            tbl.addColumn("Email");
             tbl.addColumn("Alamat");
-            tbl.addColumn("Nama Supplier");
-            tbl.addColumn("No Telephone");
-            tbl.addColumn("Id Supplie");
-            tbl.addColumn("Created Ad");
+            tbl.addColumn("Nomor Telephone");
             table.setModel(tbl);
+            Koneksi cn = new Koneksi();
             try{
                 Statement statement=koneksi.getConnection().createStatement();
                 ResultSet res=(ResultSet) statement.executeQuery("select * from tabmahasiswa");
+
                 while(res.next())
                 {
                     tbl.addRow(new Object[]{
-                        res.getString("Alamat"),
-                        res.getString("Nama Supllier"),
-                        res.getString("No Telephone"),
-                        res.getString("Id Supllier"),
-                        res.getString("Created Ad")
+                        res.getString("id_supplier"),
+                        res.getString("nama"),
+                        res.getString("email"),
+                        res.getString("alamat"),
+                        res.getString("no_telephone"),
                     });
                     table.setModel(tbl);
                 }
             }catch (Exception e){
-                    JOptionPane.showMessageDialog(rootPane, "salah");
+                    JOptionPane.showMessageDialog(rootPane, "error " + e);
             }
         }
 
@@ -68,13 +71,11 @@ public class Supplier extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         txtalamat = new javax.swing.JTextField();
         txtno = new javax.swing.JTextField();
         txtnama = new javax.swing.JTextField();
-        txtid = new javax.swing.JTextField();
-        txtcreat = new javax.swing.JTextField();
+        txtemail = new javax.swing.JTextField();
         btambah = new javax.swing.JButton();
         bcari = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -83,25 +84,34 @@ public class Supplier extends javax.swing.JInternalFrame {
         bkeluar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         bupdate = new javax.swing.JButton();
-
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Alamat", "Nama Supllier", "No Telephone", "Id Supllier", "Created At"
+                "Id supplier", "Nama Supllier", "Email", "Nomor Telephone", "Alamat", "Created At"
             }
         ));
         jScrollPane1.setViewportView(table);
 
         jLabel4.setText("Alamat");
 
-        jLabel5.setText("Created At");
-
         jLabel6.setText("No Telephone");
+
+        txtnama.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtnamaActionPerformed(evt);
+            }
+        });
+
+        txtemail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtemailActionPerformed(evt);
+            }
+        });
 
         btambah.setText("Tambah");
         btambah.addActionListener(new java.awt.event.ActionListener() {
@@ -127,7 +137,7 @@ public class Supplier extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel2.setText("Id Supllier");
+        jLabel2.setText("Email");
 
         bkeluar.setText("Keluar");
         bkeluar.addActionListener(new java.awt.event.ActionListener() {
@@ -198,27 +208,28 @@ public class Supplier extends javax.swing.JInternalFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtalamat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
+                            .addComponent(txtidsupplier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(txtnama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtnama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
+                            .addComponent(txtalamat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtcreat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))
-                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btambah)
                             .addComponent(bcari)
@@ -233,18 +244,17 @@ public class Supplier extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btambahActionPerformed
-        // TODO add your handling code here:
         String alamat = txtalamat.getText();
         String nama = txtnama.getText();
         String notelephone = txtno.getText();
-        String idsupplier = txtid.getText();
-        String createdad = txtcreat.getText();
+        String idsupplier = txtemail.getText();
+        LocalDate currentDate = LocalDate.now();
         try{
             Statement statement=koneksi.getConnection().createStatement();
             statement.executeUpdate("insert into supllier VALUES"
                     + "('"+alamat+"', '"+nama+"', '"+notelephone+"', '"+idsupplier+"', '"+createdad+"')");
             datatable("SELECT * FROM tabmahasiswa");
-        reset();               
+            reset();               
         }catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
@@ -327,8 +337,10 @@ public class Supplier extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_bupdateActionPerformed
 
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bcari;
+    private javax.swing.JButton bcari1;
     private javax.swing.JButton bhapus;
     private javax.swing.JButton bkeluar;
     private javax.swing.JButton btambah;
@@ -342,8 +354,8 @@ public class Supplier extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable table;
     private javax.swing.JTextField txtalamat;
-    private javax.swing.JTextField txtcreat;
-    private javax.swing.JTextField txtid;
+    private javax.swing.JTextField txtemail;
+    private javax.swing.JTextField txtidsupplier;
     private javax.swing.JTextField txtnama;
     private javax.swing.JTextField txtno;
     // End of variables declaration//GEN-END:variables

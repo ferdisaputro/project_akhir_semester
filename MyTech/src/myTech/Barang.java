@@ -4,17 +4,54 @@
  */
 package myTech;
 
-/**
- *
- * @author USER
- */
-public class Barang extends javax.swing.JInternalFrame {
+import java.sql.*;
+import java.awt.HeadlessException;
+import java.time.LocalDate;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
-    /**
-     * Creates new form Barang
-     */
+
+public class Barang extends javax.swing.JInternalFrame {
+    Koneksi koneksi = new Koneksi();
+    private Object tabel;
+    private String title;
+
     public Barang() {
         initComponents();
+        datatable("SELECT * FROM barang");       
+    }
+    private void datatable(String select_from_barang) {
+        DefaultTableModel tbl=new DefaultTableModel();
+        tbl.addColumn("Id Barang");
+        tbl.addColumn("Nama Barang");
+        tbl.addColumn("Kategori");
+        tbl.addColumn("Harga Jual");
+        tbl.addColumn("Harga Beli");
+        tbl.addColumn("Stok");
+        tbl.addColumn("Deskripsi");
+        tbl.addColumn("Satuan");
+        tablebarang.setModel(tbl);
+        try{
+            Statement statement = koneksi.GetConnection().createStatement();
+            ResultSet res = statement.executeQuery
+                (select_from_barang);
+            while(res.next())
+            {
+                tbl.addRow(new Object[]{
+                    res.getString("id_barang"),
+                    res.getString("nama"),
+                    res.getString("id_kategori"),
+                    res.getString("harga_jual"),
+                    res.getString("harga_beli"),
+                    res.getString("jumlah_stok"),
+                    res.getString("deskripsi"),
+                    res.getString("satuan"),
+                });
+                tablebarang.setModel(tbl);
+            }
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(rootPane,"salah" +e);
+        }
     }
 
     /**
@@ -28,27 +65,35 @@ public class Barang extends javax.swing.JInternalFrame {
 
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        txtidbarang = new javax.swing.JTextField();
+        txtnamabarang = new javax.swing.JTextField();
+        txthargajual = new javax.swing.JTextField();
+        txthargabeli = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        txtkategori = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        txtstok = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btambah = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        bcari = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        bhapus = new javax.swing.JButton();
+        bkeluar = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        tablebarang = new javax.swing.JTable();
+        txtdeskripsi = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        txtsatuan = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+
+        setClosable(true);
+        setResizable(true);
 
         jLabel6.setText("Kategori");
 
-        jLabel7.setText("Deskripsi");
+        jLabel7.setText("Stok");
 
         jLabel1.setFont(new java.awt.Font("Lucida Bright", 0, 12)); // NOI18N
         jLabel1.setText("BARANG");
@@ -57,30 +102,74 @@ public class Barang extends javax.swing.JInternalFrame {
 
         jLabel3.setText("Nama Barang");
 
-        jButton1.setText("Tambah");
+        btambah.setText("Tambah");
+        btambah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btambahActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Harga Jual");
 
-        jButton2.setText("Cari");
+        bcari.setText("Cari");
+        bcari.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bcariActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("Harga Beli");
 
-        jButton3.setText("Hapus");
+        bhapus.setText("Hapus");
+        bhapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bhapusActionPerformed(evt);
+            }
+        });
 
-        jButton4.setText("Keluar");
+        bkeluar.setText("Keluar");
+        bkeluar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bkeluarActionPerformed(evt);
+            }
+        });
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        tablebarang.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Id Barang", "Nama Barang", "Harga Jual", "Harga Beli", "Kategori", "Deskripsi"
+                "Id Barang", "Nama Barang", "Kategori", "Harga Jual", "Harga Beli", "Jumlah Stok", "Deskripsi", "Satuan"
             }
-        ));
-        jScrollPane3.setViewportView(jTable3);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, true, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tablebarang.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                tablebarangMouseReleased(evt);
+            }
+        });
+        jScrollPane3.setViewportView(tablebarang);
+
+        jLabel8.setText("Deskripsi");
+
+        jLabel9.setText("Satuan");
+
+        jButton1.setText("Reset");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -91,36 +180,57 @@ public class Barang extends javax.swing.JInternalFrame {
                 .addComponent(jLabel1)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
+                .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(146, 146, 146)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButton1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel4)
-                                .addComponent(jLabel5)
-                                .addComponent(jLabel6)
-                                .addComponent(jLabel7)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 769, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(103, 103, 103)
+                                        .addComponent(txtkategori, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtnamabarang, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtidbarang, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel7)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(103, 103, 103)
+                                                .addComponent(txtstok, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel5)
+                                            .addGap(45, 45, 45)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(txthargajual, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(txthargabeli, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel8)
+                                            .addGap(50, 50, 50)
+                                            .addComponent(txtdeskripsi, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel9)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(txtsatuan, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btambah)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(bcari)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(bhapus)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(bkeluar)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 745, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(56, 56, 56))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -132,46 +242,177 @@ public class Barang extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtidbarang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(9, 9, 9)
+                            .addComponent(txtnamabarang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(txtkategori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txthargajual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(9, 9, 9)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txthargabeli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(25, 25, 25)
+                            .addComponent(txtstok, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
-                            .addComponent(jButton2)
-                            .addComponent(jButton3)
-                            .addComponent(jButton4)))
+                            .addComponent(txtdeskripsi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtsatuan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(28, 28, 28)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btambah)
+                            .addComponent(bcari)
+                            .addComponent(bhapus)
+                            .addComponent(bkeluar)))
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btambahActionPerformed
+        String idbarang = txtidbarang.getText();
+        String namabarang = txtnamabarang.getText();
+        String kategori = txtkategori.getText();
+        String hargajual = txthargajual.getText();
+        String hargabeli = txthargabeli.getText();
+        String stok = txtstok.getText();
+        String deskripsi = txtdeskripsi.getText();
+        String satuan = txtsatuan.getText();
+        LocalDate currentDate = LocalDate.now();
+        try{
+            Statement statement = koneksi.GetConnection().createStatement();
+            statement.executeUpdate("insert into "
+                    + "barang(nama, id_kategori, harga_jual, harga_beli, jumlah_stok, deskripsi, satuan, created_at) "
+                    + "VALUES ('" + namabarang + "', '"+kategori+"', '" + hargajual + "', '" 
+                    + hargabeli + "', '" + stok +"', '" + deskripsi + "', '"+ satuan +"', '"+ currentDate +"')"); 
+            datatable("SELECT * FROM barang");
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btambahActionPerformed
+
+    private void bcariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bcariActionPerformed
+        String idbarang = txtidbarang.getText();
+        String namabarang = txtnamabarang.getText();
+        
+        try{
+                Statement statement = koneksi.GetConnection().createStatement();
+                ResultSet res = statement.executeQuery
+                    ("SELECT * from barang where id_barang LIKE '%" + idbarang + "%' AND nama LIKE '%"+namabarang+"%'");
+                DefaultTableModel tbl = new DefaultTableModel();
+                tbl.addColumn("Id Barang");
+                tbl.addColumn("Nama Barang");
+                tbl.addColumn("Kategori");
+                tbl.addColumn("Harga Jual");
+                tbl.addColumn("Harga Beli");
+                tbl.addColumn("Stok");
+                tbl.addColumn("Deskripsi");
+                tbl.addColumn("Satuan");
+                tablebarang.setModel(tbl);
+
+                while(res.next()){
+                    tbl.addRow(new Object[]{
+                        res.getString("id_barang"),
+                        res.getString("nama"),
+                        res.getString("id_kategori"),
+                        res.getString("harga_jual"),
+                        res.getString("harga_beli"),
+                        res.getString("jumlah_stok"),
+                        res.getString("deskripsi"),
+                        res.getString("satuan"),
+                    });
+                    tablebarang.setModel(tbl);
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(rootPane, "salah" +e);
+            }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bcariActionPerformed
+
+    private void bhapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bhapusActionPerformed
+        String idbarang = txtidbarang.getText();
+        String namabarang = txtnamabarang.getText();
+        String hargajual = txthargajual.getText();
+        String hargabeli = txthargabeli.getText();
+        String kategori = txtkategori.getText();
+        String deskripsi = txtstok.getText();
+        try{
+            Statement statement = koneksi.GetConnection().createStatement();
+            statement.executeUpdate
+                ("DELETE FROM barang WHERE id_barang = '" + idbarang + "'");
+            JOptionPane.showMessageDialog
+                (null, "data berhasil dihapus");
+            datatable("SELECT * FROM barang");
+            txtidbarang.setText("");
+            txtnamabarang.setText("");
+            txthargajual.setText("");
+            txthargabeli.setText("");
+            txtkategori.setText("");
+            txtstok.setText("");
+            txtdeskripsi.setText("");
+            txtsatuan.setText("");
+        } catch (Exception t){
+            JOptionPane.showMessageDialog
+            (null, "Data gagal dihapus" +t);
+        }
+    }//GEN-LAST:event_bhapusActionPerformed
+
+    private void bkeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bkeluarActionPerformed
+            dispose();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bkeluarActionPerformed
+
+    private void tablebarangMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablebarangMouseReleased
+        // TODO add your handling code here:
+        int row = tablebarang.getSelectedRow();
+        DefaultTableModel table = (DefaultTableModel) tablebarang.getModel();
+        txtidbarang.setText(table.getValueAt(row, 0).toString());
+        txtnamabarang.setText(table.getValueAt(row, 1).toString());
+        txtkategori.setText(table.getValueAt(row, 2).toString());
+        txthargajual.setText(table.getValueAt(row, 3).toString());
+        txthargabeli.setText(table.getValueAt(row, 4).toString());
+        txtstok.setText(table.getValueAt(row, 5).toString());
+        txtdeskripsi.setText(table.getValueAt(row, 6).toString());
+        txtsatuan.setText(table.getValueAt(row, 7).toString());
+    }//GEN-LAST:event_tablebarangMouseReleased
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        txtidbarang.setText("");
+        txtnamabarang.setText("");
+        txtkategori.setText("");
+        txthargajual.setText("");
+        txthargabeli.setText("");
+        txtstok.setText("");
+        txtdeskripsi.setText("");
+//        txtsatuan.setText("");
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bcari;
+    private javax.swing.JButton bhapus;
+    private javax.swing.JButton bkeluar;
+    private javax.swing.JButton btambah;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -179,13 +420,19 @@ public class Barang extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTable tablebarang;
+    private javax.swing.JTextField txtdeskripsi;
+    private javax.swing.JTextField txthargabeli;
+    private javax.swing.JTextField txthargajual;
+    private javax.swing.JTextField txtidbarang;
+    private javax.swing.JTextField txtkategori;
+    private javax.swing.JTextField txtnamabarang;
+    private javax.swing.JTextField txtsatuan;
+    private javax.swing.JTextField txtstok;
     // End of variables declaration//GEN-END:variables
+
+
 }

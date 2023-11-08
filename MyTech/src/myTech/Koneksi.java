@@ -25,7 +25,7 @@ public class Koneksi {
             JOptionPane.showMessageDialog(null, "koneksi Database Gagal !"+e);
         }
     }
-    Connection getConnection(){
+    Connection GetConnection(){
         try{
              Class.forName("com.mysql.cj.jdbc.Driver");
            conn = DriverManager.getConnection("jdbc:mysql://localhost/penjualan","root","");
