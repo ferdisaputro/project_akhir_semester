@@ -5,6 +5,7 @@
 package myTech;
 
 import java.sql.*;
+import java.time.LocalDate;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 /**
@@ -26,16 +27,16 @@ public class Supplier extends javax.swing.JInternalFrame {
             txtnama.setText("");
             txtno.setText("");
             txtid.setText("");
-            txtcreat.setText("");
+            txtemail.setText("");
             
         }
         public void datatable(String string){
             DefaultTableModel tbl=new DefaultTableModel();
-            tbl.addColumn("Alamat");
+            tbl.addColumn("Id Supplier");
             tbl.addColumn("Nama Supplier");
             tbl.addColumn("No Telephone");
-            tbl.addColumn("Id Supplie");
-            tbl.addColumn("Created Ad");
+            tbl.addColumn("Email");
+            tbl.addColumn("Alamat");
             table.setModel(tbl);
             try{
                 Statement statement=koneksi.GetConnection().createStatement();
@@ -43,11 +44,12 @@ public class Supplier extends javax.swing.JInternalFrame {
                 while(res.next())
                 {
                     tbl.addRow(new Object[]{
-                        res.getString("Alamat"),
-                        res.getString("Nama Supllier"),
-                        res.getString("No Telephone"),
-                        res.getString("Id Supllier"),
-                        res.getString("Created Ad")
+                        res.getString("id_supplier"),
+                        res.getString("Nama"),
+                        res.getString("email"),
+                        res.getString("no_telephone"),
+                        res.getString("alamat"),
+                        res.getString("created_at"),
                     });
                     table.setModel(tbl);
                 }
@@ -74,7 +76,7 @@ public class Supplier extends javax.swing.JInternalFrame {
         txtno = new javax.swing.JTextField();
         txtnama = new javax.swing.JTextField();
         txtid = new javax.swing.JTextField();
-        txtcreat = new javax.swing.JTextField();
+        txtemail = new javax.swing.JTextField();
         btambah = new javax.swing.JButton();
         bcari = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -95,11 +97,16 @@ public class Supplier extends javax.swing.JInternalFrame {
                 "Alamat", "Nama Supllier", "No Telephone", "Id Supllier", "Created At"
             }
         ));
+        table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                tableMouseReleased(evt);
+            }
+        });
         jScrollPane1.setViewportView(table);
 
         jLabel4.setText("Alamat");
 
-        jLabel5.setText("Created At");
+        jLabel5.setText("email");
 
         jLabel6.setText("No Telephone");
 
@@ -153,80 +160,77 @@ public class Supplier extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(185, 185, 185)
-                        .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel5)
+                                        .addComponent(jLabel6)
+                                        .addComponent(jLabel3)
+                                        .addComponent(jLabel4))
+                                    .addGap(24, 24, 24)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(txtnama, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtno, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtalamat, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel2)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtid, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(21, 21, 21)
                                 .addComponent(btambah)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(bupdate)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(bupdate)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(bcari, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(bhapus)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(bkeluar)
-                                .addGap(23, 23, 23))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(46, 46, 46)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtcreat, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel2)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel5)
-                                                .addComponent(jLabel6)
-                                                .addComponent(jLabel3)
-                                                .addComponent(jLabel4))
-                                            .addGap(24, 24, 24)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                .addComponent(txtalamat, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(txtid, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(txtnama, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(txtno, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 789, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                                .addComponent(bkeluar)))))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 789, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(8, 8, 8)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtalamat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2)
+                            .addComponent(txtid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
                             .addComponent(txtnama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel6)
+                            .addComponent(txtno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(9, 9, 9)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel5)
+                            .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtcreat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))
-                        .addGap(18, 18, 18)
+                            .addComponent(txtalamat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))
+                        .addGap(46, 46, 46)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btambah)
+                            .addComponent(bupdate)
                             .addComponent(bcari)
                             .addComponent(bhapus)
                             .addComponent(bkeluar)
-                            .addComponent(bupdate)))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(37, Short.MAX_VALUE))
+                            .addComponent(btambah))))
+                .addContainerGap(76, Short.MAX_VALUE))
         );
 
         pack();
@@ -238,12 +242,13 @@ public class Supplier extends javax.swing.JInternalFrame {
         String nama = txtnama.getText();
         String notelephone = txtno.getText();
         String idsupplier = txtid.getText();
-        String createdad = txtcreat.getText();
+        String email = txtemail.getText();
+        LocalDate currentDate = LocalDate.now();
         try{
             Statement statement=koneksi.GetConnection().createStatement();
-            statement.executeUpdate("insert into supplier(alamat, nama, no_telephone) VALUES"
-                    + "('"+alamat+"', '"+nama+"', '"+notelephone+"', '"+idsupplier+"', '"+createdad+"')");
-            datatable("SELECT * FROM tabmahasiswa");
+            statement.executeUpdate("insert into supplier(alamat, nama, no_telephone, email, created_at) VALUES"
+                    + "('"+alamat+"', '"+nama+"', '"+notelephone+"', '"+email+"', '"+currentDate+"')");
+            datatable("SELECT * FROM supplier");
         reset();               
         }catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
@@ -253,27 +258,28 @@ public class Supplier extends javax.swing.JInternalFrame {
 
     private void bcariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bcariActionPerformed
         // TODO add your handling code here:
-        try {
-            Statement statement=koneksi.GetConnection().createStatement();
-            ResultSet res = (ResultSet) statement.executeQuery("select * from supplier where " + "alamat='" + bcari.getText() + "'");
-            DefaultTableModel tbl = new DefaultTableModel();
-            tbl.addColumn("alamat");
-            tbl.addColumn("nama");
-            tbl.addColumn("no telephone");
+            DefaultTableModel tbl=new DefaultTableModel();
             tbl.addColumn("id supplier");
-            tbl.addColumn("created ad");
-            
+            tbl.addColumn("Nama Supplier");
+            tbl.addColumn("No Telephone");
+            tbl.addColumn("email");
+            tbl.addColumn("alamat");
             table.setModel(tbl);
-            while (res.next()) {
-                tbl.addRow(new Object[]{
-                            res.getString("alamat"),
-                            res.getString("nama"),
-                            res.getString("no telephone"),
-                            res.getString("id supplier"),
-                        });
-                table.setModel(tbl);
-                
-            }
+            try{
+                Statement statement=koneksi.GetConnection().createStatement();
+                ResultSet res=(ResultSet) statement.executeQuery("select * from supplier where id_supplier = '"+ txtid.getText() +"'");
+                while(res.next())
+                {
+                    tbl.addRow(new Object[]{
+                        res.getString("id_supplier"),
+                        res.getString("Nama"),
+                        res.getString("email"),
+                        res.getString("no_telephone"),
+                        res.getString("alamat"),
+                        res.getString("created_at"),
+                    });
+                    table.setModel(tbl);
+                }
         }catch (Exception e) {
             JOptionPane.showMessageDialog(rootPane, "salah");
         }
@@ -284,13 +290,13 @@ public class Supplier extends javax.swing.JInternalFrame {
         String alamat = txtalamat.getText();
         try {
             Statement statement=koneksi.GetConnection().createStatement();
-            statement.executeUpdate("DELETE from supplier where npm=('" + alamat + "');" );          
+            statement.executeUpdate("DELETE from supplier where id_supplier=('" + txtid.getText() + "');" );          
             JOptionPane.showMessageDialog(null, "data berhasil di HAPUS");
             txtalamat.setText("");
             txtnama.setText("");
             txtno.setText("");
             txtid.setText("");
-            txtcreat.setText("");
+            txtemail.setText("");
             txtalamat.requestFocus();
         }catch (Exception t) {
             JOptionPane.showMessageDialog(null, "Data gagal di HAPUS");
@@ -309,15 +315,14 @@ public class Supplier extends javax.swing.JInternalFrame {
         String nama = txtnama.getText();
         String notelephone = txtno.getText();
         String idsupplier = txtid.getText();
-        String createdat = txtcreat.getText();
+        String email = txtemail.getText();
         try {
-        Statement statement = (Statement) koneksi.GetConnection().createStatement();
+        Statement statement = koneksi.GetConnection().createStatement();
         String query = "UPDATE supplier SET "
             + "alamat = '" + alamat + "', "
             + "nama = '" + nama + "', "
-            + "notelephone = '" + notelephone + "', "
-            + "idsupplier = '" + idsupplier + "', "
-            + "createdat = '" + createdat + "' WHERE alamat = '" + alamat + "'";
+            + "no_telephone = '" + notelephone + "', "
+            + "email = '" + email + "' WHERE id_supplier = '" + idsupplier + "'";
         statement.executeUpdate(query);
         datatable("");
         reset();
@@ -325,6 +330,17 @@ public class Supplier extends javax.swing.JInternalFrame {
         JOptionPane.showMessageDialog(null, e);
     }
     }//GEN-LAST:event_bupdateActionPerformed
+
+    private void tableMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseReleased
+        // TODO add your handling code here:
+         int row = table.getSelectedRow();
+        DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
+        txtid.setText(table.getValueAt(row, 0).toString());
+        txtnama.setText(table.getValueAt(row, 1).toString());
+        txtno.setText(table.getValueAt(row, 2).toString());
+        txtemail.setText(table.getValueAt(row, 3).toString());
+        txtalamat.setText(table.getValueAt(row, 4).toString());
+    }//GEN-LAST:event_tableMouseReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -342,7 +358,7 @@ public class Supplier extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable table;
     private javax.swing.JTextField txtalamat;
-    private javax.swing.JTextField txtcreat;
+    private javax.swing.JTextField txtemail;
     private javax.swing.JTextField txtid;
     private javax.swing.JTextField txtnama;
     private javax.swing.JTextField txtno;
