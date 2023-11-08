@@ -12,10 +12,6 @@ import javax.swing.*;
  * @author USER
  */
 public class Koneksi {
-
-    static Object GetConnection() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
     Connection conn;
     public Koneksi(){
         try{
