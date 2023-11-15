@@ -37,6 +37,7 @@ public class Jual extends javax.swing.JInternalFrame {
             int amount = Integer.parseInt((String)tablebarangfiks.getValueAt(i,3));
             total += amount;
         }
+        
         txttotal.setText(""+total);
     }
     private void datatable(String select_from_jual) {
@@ -418,16 +419,4 @@ public class Jual extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtuang;
     // End of variables declaration//GEN-END:variables
 
-  private void datatable() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-  }
-
-    private void intComponents() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    private void initComponents() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }
-

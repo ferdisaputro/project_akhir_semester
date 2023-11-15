@@ -52,7 +52,7 @@ public class Kategori extends javax.swing.JInternalFrame {
     void tambah () {
         try {
             stat = cn.GetConnection().createStatement();
-            sql = "INSERT INTO kategori(nama) VALUES ('"+ nama.getText() +"')";
+            sql = "INSERT INTO kategori(nama) VALUES ('"+ txtkategori.getText() +"')";
             stat.executeUpdate(sql);
             JOptionPane.showMessageDialog(null, "Data berhasil disimpan");
             reset();
@@ -63,14 +63,14 @@ public class Kategori extends javax.swing.JInternalFrame {
     }
     
     void reset(){
-        nama.setText("");
-        idKategori.setText("");
+        txtkategori.setText("");
+        txtidkategori.setText("");
     }
     
     void hapus () {
         try {
             stat = cn.GetConnection().createStatement();
-            sql = "DELETE FROM kategori WHERE id_kategori = '"+ idKategori.getText() +"'";
+            sql = "DELETE FROM kategori WHERE id_kategori = '"+ txtidkategori.getText() +"'";
             stat.executeUpdate(sql);
             JOptionPane.showMessageDialog(null, "Data berhasil dihapus");
             reset();
@@ -81,14 +81,14 @@ public class Kategori extends javax.swing.JInternalFrame {
     }
     
     void cari() {
-        sql = "SELECT * FROM kategori WHERE id_kategori LIKE '%"+ idKategori.getText() +"%' AND nama LIKE '%"+ nama.getText() +"%'";
+        sql = "SELECT * FROM kategori WHERE id_kategori LIKE '%"+ txtidkategori.getText() +"%' AND nama LIKE '%"+ txtkategori.getText() +"%'";
         tampil(sql);
     }
     
     void edit () {
         try {
             stat = cn.GetConnection().createStatement();
-            sql = "UPDATE kategori SET nama = '"+ nama.getText() +"' where id_kategori = '"+ idKategori.getText() +"'";
+            sql = "UPDATE kategori SET nama = '"+ txtkategori.getText() +"' where id_kategori = '"+ txtidkategori.getText() +"'";
             stat.executeUpdate(sql);
             JOptionPane.showMessageDialog(null, "Update berhasil");
             reset();
@@ -107,25 +107,25 @@ public class Kategori extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        idKategori = new javax.swing.JTextField();
-        nama = new javax.swing.JTextField();
+        txtidkategori = new javax.swing.JTextField();
+        txtkategori = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        btambah = new javax.swing.JButton();
+        bedit = new javax.swing.JButton();
+        bcari = new javax.swing.JButton();
+        bhapus = new javax.swing.JButton();
+        bkeluar = new javax.swing.JButton();
+        breset = new javax.swing.JButton();
 
         setClosable(true);
         setMaximizable(true);
         setResizable(true);
 
-        idKategori.setEditable(false);
+        txtidkategori.setEditable(false);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("KATEGORI");
@@ -152,45 +152,45 @@ public class Kategori extends javax.swing.JInternalFrame {
 
         jLabel3.setText("kategori");
 
-        jButton1.setText("tambah");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btambah.setText("tambah");
+        btambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btambahActionPerformed(evt);
             }
         });
 
-        jButton2.setText("edit");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        bedit.setText("edit");
+        bedit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                beditActionPerformed(evt);
             }
         });
 
-        jButton3.setText("cari");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        bcari.setText("cari");
+        bcari.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                bcariActionPerformed(evt);
             }
         });
 
-        jButton4.setText("hapus");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        bhapus.setText("hapus");
+        bhapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                bhapusActionPerformed(evt);
             }
         });
 
-        jButton5.setText("keluar");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        bkeluar.setText("keluar");
+        bkeluar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                bkeluarActionPerformed(evt);
             }
         });
 
-        jButton6.setText("reset");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        breset.setText("reset");
+        breset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                bresetActionPerformed(evt);
             }
         });
 
@@ -210,21 +210,21 @@ public class Kategori extends javax.swing.JInternalFrame {
                             .addComponent(jLabel3))
                         .addGap(42, 42, 42)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(nama, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
-                            .addComponent(idKategori, javax.swing.GroupLayout.Alignment.LEADING)))
+                            .addComponent(txtkategori, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
+                            .addComponent(txtidkategori, javax.swing.GroupLayout.Alignment.LEADING)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(breset, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btambah, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(bedit, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(bcari, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(bhapus, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton5)))
+                        .addComponent(bkeluar)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE)
                 .addGap(23, 23, 23))
@@ -240,78 +240,78 @@ public class Kategori extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(idKategori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtidkategori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(nama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtkategori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
-                            .addComponent(jButton2)
-                            .addComponent(jButton3)
-                            .addComponent(jButton4)
-                            .addComponent(jButton5))
+                            .addComponent(btambah)
+                            .addComponent(bedit)
+                            .addComponent(bcari)
+                            .addComponent(bhapus)
+                            .addComponent(bkeluar))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton6)))
+                        .addComponent(breset)))
                 .addContainerGap(43, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void bcariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bcariActionPerformed
         // TODO add your handling code here:
         cari();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_bcariActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void bhapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bhapusActionPerformed
         // TODO add your handling code here:
         hapus();
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_bhapusActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void bkeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bkeluarActionPerformed
         // TODO add your handling code here:
         dispose();
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_bkeluarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btambahActionPerformed
         // TODO add your handling code here:
         tambah();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btambahActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void beditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_beditActionPerformed
         // TODO add your handling code here:
         edit();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_beditActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void bresetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bresetActionPerformed
         // TODO add your handling code here:
         reset();
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_bresetActionPerformed
 
     private void tableMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseReleased
         // TODO add your handling code here:
         int row = table.getSelectedRow();
         tableModel = (DefaultTableModel) table.getModel();
-        idKategori.setText(tableModel.getValueAt(row, 0).toString());
-        nama.setText(tableModel.getValueAt(row, 1).toString());
+        txtidkategori.setText(tableModel.getValueAt(row, 0).toString());
+        txtkategori.setText(tableModel.getValueAt(row, 1).toString());
     }//GEN-LAST:event_tableMouseReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField idKategori;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton bcari;
+    private javax.swing.JButton bedit;
+    private javax.swing.JButton bhapus;
+    private javax.swing.JButton bkeluar;
+    private javax.swing.JButton breset;
+    private javax.swing.JButton btambah;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField nama;
     private javax.swing.JTable table;
+    private javax.swing.JTextField txtidkategori;
+    private javax.swing.JTextField txtkategori;
     // End of variables declaration//GEN-END:variables
 }

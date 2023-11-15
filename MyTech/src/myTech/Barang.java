@@ -113,8 +113,8 @@ public class Barang extends javax.swing.JInternalFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         txtsatuan = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        breset = new javax.swing.JButton();
+        bsimpan = new javax.swing.JButton();
         txtkategori = new javax.swing.JComboBox<>();
 
         setClosable(true);
@@ -124,6 +124,12 @@ public class Barang extends javax.swing.JInternalFrame {
         jLabel6.setText("Kategori");
 
         jLabel7.setText("Stok");
+
+        txtidbarang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtidbarangActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Lucida Bright", 0, 12)); // NOI18N
         jLabel1.setText("BARANG");
@@ -200,23 +206,28 @@ public class Barang extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton1.setText("Reset");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        breset.setText("Reset");
+        breset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                bresetActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Simpan");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        bsimpan.setText("Simpan");
+        bsimpan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                bsimpanActionPerformed(evt);
             }
         });
 
         txtkategori.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 txtkategoriItemStateChanged(evt);
+            }
+        });
+        txtkategori.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtkategoriActionPerformed(evt);
             }
         });
 
@@ -232,7 +243,7 @@ public class Barang extends javax.swing.JInternalFrame {
                 .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(breset)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -269,7 +280,7 @@ public class Barang extends javax.swing.JInternalFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btambah)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton2)
+                                .addComponent(bsimpan)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(bcari)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -325,10 +336,10 @@ public class Barang extends javax.swing.JInternalFrame {
                             .addComponent(bcari)
                             .addComponent(bhapus)
                             .addComponent(bkeluar)
-                            .addComponent(jButton2)))
+                            .addComponent(bsimpan)))
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(breset)
                 .addContainerGap(48, Short.MAX_VALUE))
         );
 
@@ -436,12 +447,12 @@ public class Barang extends javax.swing.JInternalFrame {
         txtsatuan.setText(table.getValueAt(row, 7).toString());
     }//GEN-LAST:event_tablebarangMouseReleased
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void bresetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bresetActionPerformed
         // TODO add your handling code here:
         reset();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_bresetActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void bsimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bsimpanActionPerformed
         // TODO add your handling code here:
         
         String idbarang1 = txtidbarang.getText();
@@ -470,7 +481,7 @@ public class Barang extends javax.swing.JInternalFrame {
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "gagal "+e);
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_bsimpanActionPerformed
 
     private void txtkategoriItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_txtkategoriItemStateChanged
         // TODO add your handling code here:
@@ -480,14 +491,22 @@ public class Barang extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtsatuanActionPerformed
 
+    private void txtkategoriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtkategoriActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtkategoriActionPerformed
+
+    private void txtidbarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtidbarangActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtidbarangActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bcari;
     private javax.swing.JButton bhapus;
     private javax.swing.JButton bkeluar;
+    private javax.swing.JButton breset;
+    private javax.swing.JButton bsimpan;
     private javax.swing.JButton btambah;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

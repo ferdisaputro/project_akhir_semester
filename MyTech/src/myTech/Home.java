@@ -117,6 +117,11 @@ public class Home extends javax.swing.JFrame {
         jMenu5.add(jMenuItem1);
 
         jMenuItem2.setText("Pembelian");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu5.add(jMenuItem2);
 
         jMenuBar1.add(jMenu5);
@@ -180,6 +185,13 @@ public class Home extends javax.swing.JFrame {
         mainContainer.add(kategori);
         kategori.setVisible(true);
     }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        Beli pembelian = new Beli();
+        mainContainer.add(pembelian);
+        pembelian.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
