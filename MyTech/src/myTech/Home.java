@@ -3,6 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package myTech;
+
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Muhammad Alfin Eka P
@@ -151,7 +154,10 @@ public class Home extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        
+        JOptionPane.showMessageDialog(null, "true");
+        Jual penjualan = new Jual();
+        mainContainer.add(penjualan);
+        penjualan.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
