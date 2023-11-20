@@ -140,6 +140,18 @@ public class Beli extends javax.swing.JInternalFrame {
             }
         });
 
+        txtuang.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                txtuangCaretUpdate(evt);
+            }
+        });
+        txtuang.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                txtuangInputMethodTextChanged(evt);
+            }
+        });
         txtuang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtuangActionPerformed(evt);
@@ -298,7 +310,7 @@ public class Beli extends javax.swing.JInternalFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)))))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -537,18 +549,24 @@ public class Beli extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtuangKeyTyped
 
     private void txtkembalianKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtkembalianKeyTyped
-        int uangpembayaran = Integer.parseInt(txtuang.getText());
-        int total = Integer.parseInt(txttotal.getText());
-        int uangkembalian = uangpembayaran - total;
-        txtkembalian.setText(String.valueOf(uangkembalian)); 
-        
-        
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_txtkembalianKeyTyped
 
     private void txtidbarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtidbarangActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtidbarangActionPerformed
+
+    private void txtuangInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_txtuangInputMethodTextChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtuangInputMethodTextChanged
+
+    private void txtuangCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtuangCaretUpdate
+        // TODO add your handling code here:
+        int uangpembayaran = Integer.parseInt(txtuang.getText());
+        int total = Integer.parseInt(txttotal.getText());
+        int uangkembalian = uangpembayaran - total;
+        txtkembalian.setText(String.valueOf(uangkembalian)); 
+    }//GEN-LAST:event_txtuangCaretUpdate
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -25,7 +25,6 @@ public class Jual extends javax.swing.JInternalFrame {
     public Jual() {
         initComponents();
         datatable("");
-        autosum ();
     }
 
     
@@ -154,10 +153,7 @@ public class Jual extends javax.swing.JInternalFrame {
 
         tablebarangfiks.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Id Barang", "Nama Barang", "Harga Satuan", "Jumlah Barang", "Subtotal"
@@ -198,10 +194,7 @@ public class Jual extends javax.swing.JInternalFrame {
 
         tablebarangsementara.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "Id Barang", "Nama Barang", "Kategori", "Harga Jual", "Harga Beli", "Jumlah Stock", "Deskripsi", "Satuan"
@@ -213,13 +206,6 @@ public class Jual extends javax.swing.JInternalFrame {
             }
         });
         jScrollPane3.setViewportView(tablebarangsementara);
-        if (tablebarangsementara.getColumnModel().getColumnCount() > 0) {
-            tablebarangsementara.getColumnModel().getColumn(0).setHeaderValue("Id Barang");
-            tablebarangsementara.getColumnModel().getColumn(2).setHeaderValue("Kategori");
-            tablebarangsementara.getColumnModel().getColumn(4).setHeaderValue("Harga Beli");
-            tablebarangsementara.getColumnModel().getColumn(5).setHeaderValue("Jumlah Stock");
-            tablebarangsementara.getColumnModel().getColumn(6).setHeaderValue("Deskripsi");
-        }
 
         jLabel8.setText("Nama Barang");
 

@@ -154,7 +154,6 @@ public class Home extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        JOptionPane.showMessageDialog(null, "true");
         Jual penjualan = new Jual();
         mainContainer.add(penjualan);
         penjualan.setVisible(true);
