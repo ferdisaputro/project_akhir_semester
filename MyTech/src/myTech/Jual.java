@@ -464,9 +464,9 @@ public class Jual extends javax.swing.JInternalFrame {
 
     private void txttotalpembayaranKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txttotalpembayaranKeyTyped
         // TODO add your handling code here:
-        int totalharga = Integer.parseInt(txttotalharga.getText());
+        int totalharga1 = Integer.parseInt(txttotalharga.getText());
         int diskon = Integer.parseInt(txtdiskon.getText());
-        int totalpembayaran = totalharga - diskon;
+        int totalpembayaran = totalharga1 - diskon;
         txttotalpembayaran.setText(""+totalpembayaran);   
     }//GEN-LAST:event_txttotalpembayaranKeyTyped
 
