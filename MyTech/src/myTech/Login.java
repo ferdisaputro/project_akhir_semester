@@ -20,15 +20,14 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
-//        username.setBackground (new Color(0,0,0,0));
-//        password.setBackground (new Color(0,0,0,0));
-//        showPassword.setBackground(new Color(0,0,0,0));
-//        jButton1.setBackground(new Color(0,0,0,0));
-//        username.setBorder (null);
-//        password.setBorder (null);
-//        showPassword.setBorder(null);
-//        jButton1.setBorder(null);
-        
+        username.setBackground (new Color(0,0,0,0));
+        password.setBackground (new Color(0,0,0,0));
+        showPassword.setBackground(new Color(0,0,0,0));
+        jButton1.setBackground(new Color(0,0,0,0));
+        username.setBorder (null);
+        password.setBorder (null);
+        showPassword.setBorder(null);
+        jButton1.setBorder(null);
     }
 
     /**
@@ -49,9 +48,15 @@ public class Login extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        username.setForeground(new Color(0,0,0,0));
+        username.setForeground(new java.awt.Color(255, 255, 255));
         username.setBorder(null);
-        getContentPane().add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 360, 70));
+        username.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        username.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usernameActionPerformed(evt);
+            }
+        });
+        getContentPane().add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 340, 70));
 
         jButton1.setForeground(new Color(0,0,0,0));
         jButton1.setText("Login");
@@ -61,7 +66,7 @@ public class Login extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 610, 360, 30));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 600, 360, 50));
 
         showPassword.setForeground(new Color(0,0,0,0));
         showPassword.setBorder(null);
@@ -72,13 +77,13 @@ public class Login extends javax.swing.JFrame {
         });
         getContentPane().add(showPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 480, 20, 30));
 
-        password.setForeground(new Color(0,0,0,0));
+        password.setForeground(new java.awt.Color(255, 255, 255));
         password.setBorder(null);
-        getContentPane().add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 390, 360, 70));
+        getContentPane().add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 390, 340, 70));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_component_asset/Login.png"))); // NOI18N
         jLabel1.setText("    ");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 180, 560, 380));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 800));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -113,6 +118,10 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usernameActionPerformed
 
     /**
      * @param args the command line arguments
