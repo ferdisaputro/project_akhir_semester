@@ -4,6 +4,7 @@
  */
 package myTech;
 
+import java.awt.Color;
 import java.sql.*;
 import javax.swing.JOptionPane;
 
@@ -19,6 +20,14 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        username.setBackground (new Color(0,0,0,0));
+        password.setBackground (new Color(0,0,0,0));
+        showPassword.setBackground(new Color(0,0,0,0));
+        jButton1.setBackground(new Color(0,0,0,0));
+        username.setBorder (null);
+        password.setBorder (null);
+        showPassword.setBorder(null);
+        jButton1.setBorder(null);
     }
 
     /**
@@ -32,84 +41,72 @@ public class Login extends javax.swing.JFrame {
 
         username = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         showPassword = new javax.swing.JCheckBox();
         password = new javax.swing.JPasswordField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        username.setForeground(new java.awt.Color(255, 255, 255));
+        username.setBorder(null);
+        username.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        username.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usernameActionPerformed(evt);
+            }
+        });
+        getContentPane().add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 340, 70));
+
+        jButton1.setForeground(new Color(0,0,0,0));
         jButton1.setText("Login");
+        jButton1.setBorder(null);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 600, 360, 50));
 
-        jLabel1.setText("Username :");
-
-        jLabel2.setText("Password  :");
-
-        showPassword.setText("Show Password");
+        showPassword.setForeground(new Color(0,0,0,0));
+        showPassword.setBorder(null);
         showPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 showPasswordActionPerformed(evt);
             }
         });
+        getContentPane().add(showPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 480, 20, 30));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(83, 83, 83)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(showPassword)
-                    .addComponent(jButton1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(username, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
-                            .addComponent(password))))
-                .addContainerGap(89, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(108, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(1, 1, 1)
-                .addComponent(showPassword)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
-                .addGap(78, 78, 78))
-        );
+        password.setForeground(new java.awt.Color(255, 255, 255));
+        password.setBorder(null);
+        getContentPane().add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 390, 340, 70));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_component_asset/Login.png"))); // NOI18N
+        jLabel1.setText("    ");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 800));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void showPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showPasswordActionPerformed
+        // TODO add your handling code here:
+        if(showPassword.isSelected()) password.setEchoChar((char)0);
+        else password.setEchoChar('*');
+    }//GEN-LAST:event_showPasswordActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
             stat = cn.GetConnection().createStatement();
             String sql = "SELECT * FROM admin WHERE username = "
-                    + "'"+username.getText()+"' AND "
-                    + "password = '"+password.getText()+"';";
+            + "'"+username.getText()+"' AND "
+            + "password = '"+password.getText()+"';";
             ResultSet res = stat.executeQuery(sql);
             if (res.next()) {
                 admin.UserAdmin userAdmin = new admin.UserAdmin(
-                        res.getInt("id_admin"), 
-                        res.getString("nama"), 
-                        res.getString("username")
-                    );
+                    res.getInt("id_admin"),
+                    res.getString("nama"),
+                    res.getString("username")
+                );
                 Home home = new Home(userAdmin);
                 home.setSize(1200, 700);
                 home.setVisible(true);
@@ -122,11 +119,9 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void showPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showPasswordActionPerformed
+    private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed
         // TODO add your handling code here:
-        if(showPassword.isSelected()) password.setEchoChar((char)0);
-        else password.setEchoChar('*');
-    }//GEN-LAST:event_showPasswordActionPerformed
+    }//GEN-LAST:event_usernameActionPerformed
 
     /**
      * @param args the command line arguments
@@ -166,7 +161,6 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPasswordField password;
     private javax.swing.JCheckBox showPassword;
     private javax.swing.JTextField username;

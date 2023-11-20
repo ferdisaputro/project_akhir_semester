@@ -151,9 +151,17 @@ public class Jual extends javax.swing.JInternalFrame {
             }
         });
 
-        txtuang.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtuangActionPerformed(evt);
+        tablebarangfiks.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Id Barang", "Nama Barang", "Harga Satuan", "Jumlah Barang", "Subtotal"
+            }
+        ));
+        tablebarangfiks.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                tablebarangfiksMouseReleased(evt);
             }
         });
 
@@ -185,10 +193,7 @@ public class Jual extends javax.swing.JInternalFrame {
 
         tablebarangsementara.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "Id Barang", "Nama Barang", "Kategori", "Harga Jual", "Harga Beli", "Jumlah Stock", "Deskripsi", "Satuan"
@@ -200,13 +205,6 @@ public class Jual extends javax.swing.JInternalFrame {
             }
         });
         jScrollPane3.setViewportView(tablebarangsementara);
-        if (tablebarangsementara.getColumnModel().getColumnCount() > 0) {
-            tablebarangsementara.getColumnModel().getColumn(0).setHeaderValue("Id Barang");
-            tablebarangsementara.getColumnModel().getColumn(2).setHeaderValue("Kategori");
-            tablebarangsementara.getColumnModel().getColumn(4).setHeaderValue("Harga Beli");
-            tablebarangsementara.getColumnModel().getColumn(5).setHeaderValue("Jumlah Stock");
-            tablebarangsementara.getColumnModel().getColumn(6).setHeaderValue("Deskripsi");
-        }
 
         jLabel8.setText("Nama Barang");
 
@@ -521,4 +519,3 @@ public class Jual extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
 
 }
-

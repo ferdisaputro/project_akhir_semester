@@ -120,6 +120,11 @@ public class Home extends javax.swing.JFrame {
         jMenu5.add(jMenuItem1);
 
         jMenuItem2.setText("Pembelian");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu5.add(jMenuItem2);
 
         jMenuBar1.add(jMenu5);
@@ -149,7 +154,6 @@ public class Home extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        JOptionPane.showMessageDialog(null, "true");
         Jual penjualan = new Jual();
         mainContainer.add(penjualan);
         penjualan.setVisible(true);
@@ -157,6 +161,9 @@ public class Home extends javax.swing.JFrame {
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // TODO add your handling code here:
+        Laporan laporan = new Laporan();
+        mainContainer.add(laporan);
+        laporan.setVisible(true);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
@@ -186,6 +193,13 @@ public class Home extends javax.swing.JFrame {
         mainContainer.add(kategori);
         kategori.setVisible(true);
     }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        Beli pembelian = new Beli();
+        mainContainer.add(pembelian);
+        pembelian.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
