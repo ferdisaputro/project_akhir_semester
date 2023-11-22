@@ -5,6 +5,7 @@
  */
 package myTech;
 
+import java.awt.event.MouseEvent;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.logging.Level;
@@ -30,8 +31,8 @@ public class Jual extends javax.swing.JInternalFrame {
     
     private void autosum (){
         int total = 0;
-        for (int i = 0; i <tablebarangfiks.getRowCount(); i++){
-            int amount = Integer.parseInt((String)tablebarangfiks.getValueAt(i,4));
+        for (int i = 0; i <tablebarangfiks1.getRowCount(); i++){
+            int amount = Integer.parseInt((String)tablebarangfiks1.getValueAt(i,4));
             total += amount;
         }
         txttotalharga.setText(""+total);
@@ -132,7 +133,7 @@ public class Jual extends javax.swing.JInternalFrame {
         txttotalpembayaran = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tablebarangfiks = new javax.swing.JTable();
+        tablebarangfiks1 = new javax.swing.JTable();
 
         jLabel1.setText("PENJUALAN");
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -151,17 +152,9 @@ public class Jual extends javax.swing.JInternalFrame {
             }
         });
 
-        tablebarangfiks.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Id Barang", "Nama Barang", "Harga Satuan", "Jumlah Barang", "Subtotal"
-            }
-        ));
-        tablebarangfiks.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                tablebarangfiksMouseReleased(evt);
+        txtuang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtuangActionPerformed(evt);
             }
         });
 
@@ -242,7 +235,7 @@ public class Jual extends javax.swing.JInternalFrame {
 
         jLabel13.setText("total pembayaran");
 
-        tablebarangfiks.setModel(new javax.swing.table.DefaultTableModel(
+        tablebarangfiks1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -250,9 +243,14 @@ public class Jual extends javax.swing.JInternalFrame {
                 "Id Barang", "Nama Barang", "Harga Satuan", "Jumlah Barang", "Subtotal"
             }
         ));
-        tablebarangfiks.setMinimumSize(new java.awt.Dimension(120, 80));
-        tablebarangfiks.setPreferredSize(new java.awt.Dimension(600, 80));
-        jScrollPane1.setViewportView(tablebarangfiks);
+        tablebarangfiks1.setMinimumSize(new java.awt.Dimension(120, 80));
+        tablebarangfiks1.setPreferredSize(new java.awt.Dimension(600, 80));
+        tablebarangfiks1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                tablebarangfiks1MouseReleased(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tablebarangfiks1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -409,7 +407,7 @@ public class Jual extends javax.swing.JInternalFrame {
         
         int subtotal = hargasatuan*jumlahbarang;
         
-        DefaultTableModel tbl= (DefaultTableModel) tablebarangfiks.getModel();
+        DefaultTableModel tbl= (DefaultTableModel) tablebarangfiks1.getModel();
         tbl.addRow(new Object[]{
             String.valueOf(idbarang),
             namabarang,
@@ -428,8 +426,8 @@ public class Jual extends javax.swing.JInternalFrame {
         int jumlahbarang = Integer.parseInt(txtjumlahbarang.getText());
         int subtotal = hargasatuan*jumlahbarang;
         
-        int row = tablebarangfiks.getSelectedRow();
-        DefaultTableModel table = (DefaultTableModel) tablebarangfiks.getModel();
+        int row = tablebarangfiks1.getSelectedRow();
+        DefaultTableModel table = (DefaultTableModel) tablebarangfiks1.getModel();
         table.removeRow(row);
 
     }//GEN-LAST:event_bhapusActionPerformed
@@ -486,6 +484,11 @@ public class Jual extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtuangActionPerformed
 
+    private void tablebarangfiks1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablebarangfiks1MouseReleased
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_tablebarangfiks1MouseReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bhapus;
@@ -504,7 +507,7 @@ public class Jual extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable tablebarangfiks;
+    private javax.swing.JTable tablebarangfiks1;
     private javax.swing.JTable tablebarangsementara;
     private com.github.lgooddatepicker.components.DatePicker tglpenjualan;
     private javax.swing.JTextField txtdiskon;
