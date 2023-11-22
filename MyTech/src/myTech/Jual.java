@@ -17,7 +17,8 @@ import javax.swing.table.DefaultTableModel;
  * @author USER
  */
 public class Jual extends javax.swing.JInternalFrame {
-    String string;
+    Koneksi koneksi = new Koneksi();
+    String sql;
     /**
      * Creates new form Jual
      */

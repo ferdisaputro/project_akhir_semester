@@ -58,10 +58,10 @@ public class Home extends javax.swing.JFrame {
 
         jMenu3.setText("jMenu3");
 
-        mainContainer.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        mainContainer.setLayout(new java.awt.BorderLayout());
+        getContentPane().add(mainContainer, java.awt.BorderLayout.CENTER);
 
         jMenu6.setText("Data Master");
 
