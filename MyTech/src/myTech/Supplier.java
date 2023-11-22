@@ -4,6 +4,7 @@
  */
 package myTech;
 
+import java.awt.Color;
 import java.sql.*;
 import java.time.LocalDate;
 import javax.swing.JOptionPane;
@@ -20,7 +21,9 @@ public class Supplier extends javax.swing.JInternalFrame {
     public Supplier() {
         initComponents();
         datatable("");
-        reset();        
+        reset();   
+        txtid.setBackground (new Color(0,0,0,0));
+        txtid.setBorder (null);
     }
         public void reset(){
             txtalamat.setText("");
@@ -68,9 +71,6 @@ public class Supplier extends javax.swing.JInternalFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         txtalamat = new javax.swing.JTextField();
         txtno = new javax.swing.JTextField();
         txtnama = new javax.swing.JTextField();
@@ -78,12 +78,16 @@ public class Supplier extends javax.swing.JInternalFrame {
         txtemail = new javax.swing.JTextField();
         btambah = new javax.swing.JButton();
         bcari = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         bhapus = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         bkeluar = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
         bupdate = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        setClosable(true);
+        setMaximizable(true);
+        setResizable(true);
 
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -103,11 +107,14 @@ public class Supplier extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(table);
 
-        jLabel4.setText("Alamat");
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 140, 789, 245));
+        getContentPane().add(txtalamat, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 470, 147, -1));
+        getContentPane().add(txtno, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 380, 147, -1));
+        getContentPane().add(txtnama, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 147, -1));
 
-        jLabel5.setText("email");
-
-        jLabel6.setText("No Telephone");
+        txtid.setBorder(null);
+        getContentPane().add(txtid, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 147, -1));
+        getContentPane().add(txtemail, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, 147, -1));
 
         btambah.setText("Tambah");
         btambah.addActionListener(new java.awt.event.ActionListener() {
@@ -115,6 +122,7 @@ public class Supplier extends javax.swing.JInternalFrame {
                 btambahActionPerformed(evt);
             }
         });
+        getContentPane().add(btambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 660, -1, -1));
 
         bcari.setText("Cari");
         bcari.addActionListener(new java.awt.event.ActionListener() {
@@ -122,9 +130,7 @@ public class Supplier extends javax.swing.JInternalFrame {
                 bcariActionPerformed(evt);
             }
         });
-
-        jLabel1.setText("SUPPLIER");
-        jLabel1.setFont(new java.awt.Font("Lucida Fax", 1, 12)); // NOI18N
+        getContentPane().add(bcari, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 660, 51, -1));
 
         bhapus.setText("Hapus");
         bhapus.addActionListener(new java.awt.event.ActionListener() {
@@ -132,8 +138,7 @@ public class Supplier extends javax.swing.JInternalFrame {
                 bhapusActionPerformed(evt);
             }
         });
-
-        jLabel2.setText("Id Supllier");
+        getContentPane().add(bhapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 670, -1, -1));
 
         bkeluar.setText("Keluar");
         bkeluar.addActionListener(new java.awt.event.ActionListener() {
@@ -141,8 +146,7 @@ public class Supplier extends javax.swing.JInternalFrame {
                 bkeluarActionPerformed(evt);
             }
         });
-
-        jLabel3.setText("Nama Supllier");
+        getContentPane().add(bkeluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 730, -1, -1));
 
         bupdate.setText("Update");
         bupdate.addActionListener(new java.awt.event.ActionListener() {
@@ -150,94 +154,11 @@ public class Supplier extends javax.swing.JInternalFrame {
                 bupdateActionPerformed(evt);
             }
         });
+        getContentPane().add(bupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 660, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(185, 185, 185)
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(46, 46, 46)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(txtalamat, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel6)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(txtno, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addGap(24, 24, 24)
-                                        .addComponent(txtnama, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(txtid, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(120, 120, 120))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btambah)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(bupdate)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(bcari, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(bhapus)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(bkeluar)
-                        .addGap(18, 18, 18)))
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 789, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(8, 8, 8)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(txtnama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtalamat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(bupdate)
-                            .addComponent(bcari)
-                            .addComponent(bhapus)
-                            .addComponent(bkeluar)
-                            .addComponent(btambah))
-                        .addGap(25, 25, 25)))
-                .addContainerGap(88, Short.MAX_VALUE))
-        );
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_component_asset/revisi supplier.png"))); // NOI18N
+        jLabel7.setText("jLabel7");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -354,12 +275,7 @@ public class Supplier extends javax.swing.JInternalFrame {
     private javax.swing.JButton bkeluar;
     private javax.swing.JButton btambah;
     private javax.swing.JButton bupdate;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable table;
     private javax.swing.JTextField txtalamat;

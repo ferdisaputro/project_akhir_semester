@@ -1,4 +1,4 @@
-/*
+        /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
@@ -58,20 +58,10 @@ public class Home extends javax.swing.JFrame {
 
         jMenu3.setText("jMenu3");
 
+        mainContainer.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        javax.swing.GroupLayout mainContainerLayout = new javax.swing.GroupLayout(mainContainer);
-        mainContainer.setLayout(mainContainerLayout);
-        mainContainerLayout.setHorizontalGroup(
-            mainContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 752, Short.MAX_VALUE)
-        );
-        mainContainerLayout.setVerticalGroup(
-            mainContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 401, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(mainContainer, java.awt.BorderLayout.CENTER);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jMenu6.setText("Data Master");
 
@@ -99,7 +89,7 @@ public class Home extends javax.swing.JFrame {
         });
         jMenu6.add(jMenuItem7);
 
-        jMenuItem8.setText("Kategory");
+        jMenuItem8.setText("Kategori");
         jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem8ActionPerformed(evt);
