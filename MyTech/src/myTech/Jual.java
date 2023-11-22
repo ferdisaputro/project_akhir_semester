@@ -132,6 +132,11 @@ public class Jual extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tablebarangfiks1 = new javax.swing.JTable();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
+
         jLabel1.setText("PENJUALAN");
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
 

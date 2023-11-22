@@ -128,7 +128,7 @@ public class Admin extends javax.swing.JInternalFrame {
                 tambahActionPerformed(evt);
             }
         });
-        getContentPane().add(tambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 670, 130, 30));
+        getContentPane().add(tambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 580, 130, 40));
 
         hapus.setText("hapus");
         hapus.setBorder(null);
@@ -137,7 +137,7 @@ public class Admin extends javax.swing.JInternalFrame {
                 hapusActionPerformed(evt);
             }
         });
-        getContentPane().add(hapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 660, 130, 40));
+        getContentPane().add(hapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 580, 130, 40));
 
         keluar.setText("keluar");
         keluar.setBorder(null);
@@ -146,7 +146,7 @@ public class Admin extends javax.swing.JInternalFrame {
                 keluarActionPerformed(evt);
             }
         });
-        getContentPane().add(keluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 740, 150, 30));
+        getContentPane().add(keluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 650, 140, 30));
 
         jButton7.setText("edit");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -163,7 +163,7 @@ public class Admin extends javax.swing.JInternalFrame {
                 cariActionPerformed(evt);
             }
         });
-        getContentPane().add(cari, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 660, 120, 40));
+        getContentPane().add(cari, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 580, 130, 40));
 
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -183,7 +183,7 @@ public class Admin extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(table);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 130, 710, 490));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 50, 710, 490));
 
         IDADMIN.setBorder(null);
         IDADMIN.addActionListener(new java.awt.event.ActionListener() {
@@ -191,30 +191,30 @@ public class Admin extends javax.swing.JInternalFrame {
                 IDADMINActionPerformed(evt);
             }
         });
-        getContentPane().add(IDADMIN, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, 298, 30));
+        getContentPane().add(IDADMIN, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 40, 290, 30));
 
         NAMAADMIN.setBorder(null);
-        getContentPane().add(NAMAADMIN, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 298, 30));
+        getContentPane().add(NAMAADMIN, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 110, 290, 30));
 
         USERNAME.setBorder(null);
-        getContentPane().add(USERNAME, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 298, 30));
+        getContentPane().add(USERNAME, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 290, 30));
 
         PASSWORD.setBorder(null);
-        getContentPane().add(PASSWORD, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, 298, 30));
+        getContentPane().add(PASSWORD, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 290, 30));
 
         NOTELPON.setBorder(null);
-        getContentPane().add(NOTELPON, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 400, 298, 30));
+        getContentPane().add(NOTELPON, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 290, 30));
 
         TTL.setBackground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(TTL, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 470, 300, 30));
+        getContentPane().add(TTL, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 380, 290, 30));
 
         ALAMAT.setBorder(null);
-        getContentPane().add(ALAMAT, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 532, 298, 30));
+        getContentPane().add(ALAMAT, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 450, 290, 30));
 
-        Reset.setBackground(new java.awt.Color(255, 255, 255));
         Reset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_component_asset/revisi admin.png"))); // NOI18N
         Reset.setText("jLabel1");
-        getContentPane().add(Reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1280, -1));
+        Reset.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(Reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -80, 1280, -1));
 
         Breset.setText("Reset");
         Breset.addActionListener(new java.awt.event.ActionListener() {
@@ -222,7 +222,7 @@ public class Admin extends javax.swing.JInternalFrame {
                 BresetActionPerformed(evt);
             }
         });
-        getContentPane().add(Breset, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 670, 100, 30));
+        getContentPane().add(Breset, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 570, 100, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

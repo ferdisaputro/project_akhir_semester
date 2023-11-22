@@ -21,9 +21,7 @@ public class Supplier extends javax.swing.JInternalFrame {
     public Supplier() {
         initComponents();
         datatable("");
-        reset();   
-        txtid.setBackground (new Color(0,0,0,0));
-        txtid.setBorder (null);
+        reset();
     }
         public void reset(){
             txtalamat.setText("");
@@ -83,11 +81,10 @@ public class Supplier extends javax.swing.JInternalFrame {
         bupdate = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
 
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         setClosable(true);
         setMaximizable(true);
         setResizable(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -107,14 +104,42 @@ public class Supplier extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(table);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 140, 789, 245));
-        getContentPane().add(txtalamat, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 470, 147, -1));
-        getContentPane().add(txtno, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 380, 147, -1));
-        getContentPane().add(txtnama, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 147, -1));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, 710, 300));
 
+        txtalamat.setBackground(new java.awt.Color(0, 0, 0));
+        txtalamat.setForeground(new java.awt.Color(255, 255, 255));
+        txtalamat.setBorder(null);
+        getContentPane().add(txtalamat, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 380, 290, 30));
+
+        txtno.setBackground(new java.awt.Color(0, 0, 0));
+        txtno.setForeground(new java.awt.Color(255, 255, 255));
+        txtno.setBorder(null);
+        getContentPane().add(txtno, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, 290, 30));
+
+        txtnama.setBackground(new java.awt.Color(0, 0, 0));
+        txtnama.setForeground(new java.awt.Color(255, 255, 255));
+        txtnama.setBorder(null);
+        txtnama.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtnamaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtnama, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 290, 30));
+
+        txtid.setBackground(new java.awt.Color(0, 0, 0));
+        txtid.setForeground(new java.awt.Color(255, 255, 255));
         txtid.setBorder(null);
-        getContentPane().add(txtid, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 147, -1));
-        getContentPane().add(txtemail, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, 147, -1));
+        getContentPane().add(txtid, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 290, 30));
+
+        txtemail.setBackground(new java.awt.Color(0, 0, 0));
+        txtemail.setForeground(new java.awt.Color(255, 255, 255));
+        txtemail.setBorder(null);
+        txtemail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtemailActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtemail, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, 290, 30));
 
         btambah.setText("Tambah");
         btambah.addActionListener(new java.awt.event.ActionListener() {
@@ -122,7 +147,7 @@ public class Supplier extends javax.swing.JInternalFrame {
                 btambahActionPerformed(evt);
             }
         });
-        getContentPane().add(btambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 660, -1, -1));
+        getContentPane().add(btambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 580, 130, 40));
 
         bcari.setText("Cari");
         bcari.addActionListener(new java.awt.event.ActionListener() {
@@ -130,7 +155,7 @@ public class Supplier extends javax.swing.JInternalFrame {
                 bcariActionPerformed(evt);
             }
         });
-        getContentPane().add(bcari, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 660, 51, -1));
+        getContentPane().add(bcari, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 580, 130, 40));
 
         bhapus.setText("Hapus");
         bhapus.addActionListener(new java.awt.event.ActionListener() {
@@ -138,7 +163,7 @@ public class Supplier extends javax.swing.JInternalFrame {
                 bhapusActionPerformed(evt);
             }
         });
-        getContentPane().add(bhapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 670, -1, -1));
+        getContentPane().add(bhapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(1075, 580, 130, 40));
 
         bkeluar.setText("Keluar");
         bkeluar.addActionListener(new java.awt.event.ActionListener() {
@@ -146,7 +171,7 @@ public class Supplier extends javax.swing.JInternalFrame {
                 bkeluarActionPerformed(evt);
             }
         });
-        getContentPane().add(bkeluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 730, -1, -1));
+        getContentPane().add(bkeluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 650, 140, 30));
 
         bupdate.setText("Update");
         bupdate.addActionListener(new java.awt.event.ActionListener() {
@@ -154,11 +179,12 @@ public class Supplier extends javax.swing.JInternalFrame {
                 bupdateActionPerformed(evt);
             }
         });
-        getContentPane().add(bupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 660, -1, -1));
+        getContentPane().add(bupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 580, 130, 40));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_component_asset/revisi supplier.png"))); // NOI18N
         jLabel7.setText("jLabel7");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jLabel7.setBorder(null);
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -80, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -267,6 +293,14 @@ public class Supplier extends javax.swing.JInternalFrame {
         txtno.setText(tableModel.getValueAt(row, 3).toString());
         txtalamat.setText(tableModel.getValueAt(row, 4).toString());
     }//GEN-LAST:event_tableMouseReleased
+
+    private void txtnamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnamaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtnamaActionPerformed
+
+    private void txtemailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtemailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtemailActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
