@@ -101,6 +101,10 @@ public class Admin extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
 
+        setClosable(true);
+        setMaximizable(true);
+        setResizable(true);
+
         jLabel15.setText("password");
 
         jLabel19.setText("alamat");

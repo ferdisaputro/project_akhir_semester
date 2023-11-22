@@ -85,6 +85,10 @@ public class Supplier extends javax.swing.JInternalFrame {
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        setClosable(true);
+        setMaximizable(true);
+        setResizable(true);
+
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},

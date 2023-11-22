@@ -73,6 +73,7 @@ public class Barang extends javax.swing.JInternalFrame {
         tbl.addColumn("Stok");
         tbl.addColumn("Deskripsi");
         tbl.addColumn("Satuan");
+        tbl.addColumn("Created At");
         tablebarang.setModel(tbl);
         try{
             Statement statement = koneksi.GetConnection().createStatement();
@@ -94,6 +95,7 @@ public class Barang extends javax.swing.JInternalFrame {
                     res.getString("jumlah_stok"),
                     res.getString("deskripsi"),
                     res.getString("satuan"),
+                    res.getString("created_at"),
                 });
                 tablebarang.setModel(tbl);
             }
