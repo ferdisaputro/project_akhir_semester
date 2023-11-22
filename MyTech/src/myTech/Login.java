@@ -20,14 +20,6 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
-        username.setBackground (new Color(0,0,0,0));
-        password.setBackground (new Color(0,0,0,0));
-        showPassword.setBackground(new Color(0,0,0,0));
-        jButton1.setBackground(new Color(0,0,0,0));
-        username.setBorder (null);
-        password.setBorder (null);
-        showPassword.setBorder(null);
-        jButton1.setBorder(null);
     }
 
     /**

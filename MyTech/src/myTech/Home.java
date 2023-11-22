@@ -58,20 +58,10 @@ public class Home extends javax.swing.JFrame {
 
         jMenu3.setText("jMenu3");
 
+        mainContainer.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        javax.swing.GroupLayout mainContainerLayout = new javax.swing.GroupLayout(mainContainer);
-        mainContainer.setLayout(mainContainerLayout);
-        mainContainerLayout.setHorizontalGroup(
-            mainContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 752, Short.MAX_VALUE)
-        );
-        mainContainerLayout.setVerticalGroup(
-            mainContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 401, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(mainContainer, java.awt.BorderLayout.CENTER);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jMenu6.setText("Data Master");
 
