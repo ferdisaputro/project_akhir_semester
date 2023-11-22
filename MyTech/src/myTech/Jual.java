@@ -9,7 +9,7 @@ package myTech;
  * @author USER
  */
 public class Jual extends javax.swing.JInternalFrame {
-
+    String string;
     /**
      * Creates new form Jual
      */
