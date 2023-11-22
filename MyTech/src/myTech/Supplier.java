@@ -23,7 +23,23 @@ public class Supplier extends javax.swing.JInternalFrame {
         datatable("");
         reset();   
         txtid.setBackground (new Color(0,0,0,0));
+        txtnama.setBackground (new Color(0,0,0,0));
+        txtemail.setBackground (new Color(0,0,0,0));
+        txtno.setBackground (new Color(0,0,0,0));
+        btambah.setBackground (new Color(0,0,0,0));
+        bupdate.setBackground (new Color(0,0,0,0));
+        bcari.setBackground (new Color(0,0,0,0));
+        bhapus.setBackground (new Color(0,0,0,0));
+        bkeluar.setBackground (new Color(0,0,0,0));
         txtid.setBorder (null);
+        txtnama.setBorder (null);
+        txtemail.setBorder (null);
+        txtno.setBorder (null);
+        btambah.setBorder (null);
+        bupdate.setBorder (null);
+        bcari.setBorder (null);
+        bhapus.setBorder (null);
+        bkeluar.setBorder (null);
     }
         public void reset(){
             txtalamat.setText("");
@@ -103,54 +119,68 @@ public class Supplier extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(table);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 140, 789, 245));
-        getContentPane().add(txtalamat, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 470, 147, -1));
-        getContentPane().add(txtno, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 380, 147, -1));
-        getContentPane().add(txtnama, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 147, -1));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, 750, 520));
+
+        txtalamat.setBorder(null);
+        getContentPane().add(txtalamat, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 466, 290, 30));
+
+        txtno.setBorder(null);
+        getContentPane().add(txtno, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 380, 290, 30));
+
+        txtnama.setBorder(null);
+        getContentPane().add(txtnama, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 290, 30));
 
         txtid.setBorder(null);
-        getContentPane().add(txtid, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 147, -1));
-        getContentPane().add(txtemail, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, 147, -1));
+        getContentPane().add(txtid, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 290, 30));
+
+        txtemail.setBorder(null);
+        txtemail.setCaretColor(new java.awt.Color(255, 255, 255));
+        getContentPane().add(txtemail, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 290, 290, 30));
 
         btambah.setText("Tambah");
+        btambah.setBorder(null);
         btambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btambahActionPerformed(evt);
             }
         });
-        getContentPane().add(btambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 660, -1, -1));
+        getContentPane().add(btambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 660, 130, 40));
 
         bcari.setText("Cari");
+        bcari.setBorder(null);
         bcari.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bcariActionPerformed(evt);
             }
         });
-        getContentPane().add(bcari, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 660, 51, -1));
+        getContentPane().add(bcari, new org.netbeans.lib.awtextra.AbsoluteConstraints(871, 660, 130, 40));
 
         bhapus.setText("Hapus");
+        bhapus.setBorder(null);
         bhapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bhapusActionPerformed(evt);
             }
         });
-        getContentPane().add(bhapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 670, -1, -1));
+        getContentPane().add(bhapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 660, 130, 40));
 
         bkeluar.setText("Keluar");
+        bkeluar.setBorder(null);
         bkeluar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bkeluarActionPerformed(evt);
             }
         });
-        getContentPane().add(bkeluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 730, -1, -1));
+        getContentPane().add(bkeluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 730, 140, 30));
 
         bupdate.setText("Update");
+        bupdate.setBorder(null);
         bupdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bupdateActionPerformed(evt);
             }
         });
-        getContentPane().add(bupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 660, -1, -1));
+        getContentPane().add(bupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 660, 130, 40));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_component_asset/revisi supplier.png"))); // NOI18N
         jLabel7.setText("jLabel7");
