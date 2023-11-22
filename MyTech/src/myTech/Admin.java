@@ -121,11 +121,6 @@ public class Admin extends javax.swing.JInternalFrame {
         setResizable(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-<<<<<<< HEAD
-        tambah.setText("tambah");
-        tambah.setBorder(null);
-        tambah.addActionListener(new java.awt.event.ActionListener() {
-=======
         setClosable(true);
         setMaximizable(true);
         setResizable(true);
@@ -142,7 +137,6 @@ public class Admin extends javax.swing.JInternalFrame {
 
         jButton6.setText("tambah");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
->>>>>>> dfd67afef3d12696686b685da3549f23722074d2
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tambahActionPerformed(evt);
             }
