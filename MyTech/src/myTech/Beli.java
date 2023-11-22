@@ -257,7 +257,7 @@ public class Beli extends javax.swing.JInternalFrame {
                 CsupplierActionPerformed(evt);
             }
         });
-        getContentPane().add(Csupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 102, 210, 40));
+        getContentPane().add(Csupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 102, 200, 40));
 
         jLabel3.setText("Nama Barang");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 110, -1, -1));
