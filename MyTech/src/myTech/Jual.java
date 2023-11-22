@@ -151,17 +151,9 @@ public class Jual extends javax.swing.JInternalFrame {
             }
         });
 
-        tablebarangfiks.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Id Barang", "Nama Barang", "Harga Satuan", "Jumlah Barang", "Subtotal"
-            }
-        ));
-        tablebarangfiks.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                tablebarangfiksMouseReleased(evt);
+        txtuang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtuangActionPerformed(evt);
             }
         });
 
@@ -252,6 +244,11 @@ public class Jual extends javax.swing.JInternalFrame {
         ));
         tablebarangfiks.setMinimumSize(new java.awt.Dimension(120, 80));
         tablebarangfiks.setPreferredSize(new java.awt.Dimension(600, 80));
+        tablebarangfiks.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                tablebarangfiksMouseReleased(evt);
+            }
+        });
         jScrollPane1.setViewportView(tablebarangfiks);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -485,6 +482,10 @@ public class Jual extends javax.swing.JInternalFrame {
     private void txtuangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtuangActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtuangActionPerformed
+
+    private void tablebarangfiksMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablebarangfiksMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tablebarangfiksMouseReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
