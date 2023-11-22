@@ -121,9 +121,28 @@ public class Admin extends javax.swing.JInternalFrame {
         setResizable(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+<<<<<<< HEAD
         tambah.setText("tambah");
         tambah.setBorder(null);
         tambah.addActionListener(new java.awt.event.ActionListener() {
+=======
+        setClosable(true);
+        setMaximizable(true);
+        setResizable(true);
+
+        jLabel15.setText("password");
+
+        jLabel19.setText("alamat");
+
+        jLabel14.setText("username");
+
+        jLabel11.setText("Admin");
+
+        jLabel17.setText("no telephone");
+
+        jButton6.setText("tambah");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+>>>>>>> dfd67afef3d12696686b685da3549f23722074d2
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tambahActionPerformed(evt);
             }

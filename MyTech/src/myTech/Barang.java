@@ -4,6 +4,7 @@
  */
 package myTech;
 
+import java.awt.Color;
 import java.sql.*;
 import java.awt.HeadlessException;
 import java.time.LocalDate;
@@ -21,6 +22,34 @@ public class Barang extends javax.swing.JInternalFrame {
         initComponents();
         datatable("");
         setKategori();
+        txtidbarang.setBackground(new Color (0,0,0,0));
+        txtidbarang.setBorder(null);
+        txtnamabarang.setBackground(new Color (0,0,0,0));
+        txtnamabarang.setBorder(null);
+        txtkategori.setBackground(new Color (0,0,0,0));
+        txtkategori.setBorder(null);
+        txthargajual.setBackground(new Color (0,0,0,0));
+        txthargajual.setBorder(null);
+        txthargabeli.setBackground(new Color (0,0,0,0));
+        txthargabeli.setBorder(null);
+        txtstok.setBackground(new Color (0,0,0,0));
+        txtstok.setBorder(null);
+        txtdeskripsi.setBackground(new Color (0,0,0,0));
+        txtdeskripsi.setBorder(null);
+        txtsatuan.setBackground(new Color (0,0,0,0));
+        txtsatuan.setBorder(null);
+        btambah.setBackground(new Color (0,0,0,0));
+        btambah.setBorder(null);
+        bcari.setBackground(new Color (0,0,0,0));
+        bcari.setBorder(null);
+        bsimpan.setBackground(new Color (0,0,0,0));
+        bsimpan.setBorder(null);
+        bhapus.setBackground(new Color (0,0,0,0));
+        bhapus.setBorder(null);
+        breset.setBackground(new Color (0,0,0,0));
+        breset.setBorder(null);
+        bkeluar.setBackground(new Color (0,0,0,0));
+        bkeluar.setBorder(null);
     }
     
     void setKategori () {
@@ -44,6 +73,7 @@ public class Barang extends javax.swing.JInternalFrame {
         tbl.addColumn("Stok");
         tbl.addColumn("Deskripsi");
         tbl.addColumn("Satuan");
+        tbl.addColumn("Created At");
         tablebarang.setModel(tbl);
         try{
             Statement statement = koneksi.GetConnection().createStatement();
@@ -65,6 +95,7 @@ public class Barang extends javax.swing.JInternalFrame {
                     res.getString("jumlah_stok"),
                     res.getString("deskripsi"),
                     res.getString("satuan"),
+                    res.getString("created_at"),
                 });
                 tablebarang.setModel(tbl);
             }
@@ -91,84 +122,88 @@ public class Barang extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         txtidbarang = new javax.swing.JTextField();
         txtnamabarang = new javax.swing.JTextField();
         txthargajual = new javax.swing.JTextField();
         txthargabeli = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         txtstok = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
         btambah = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
         bcari = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
         bhapus = new javax.swing.JButton();
         bkeluar = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         tablebarang = new javax.swing.JTable();
         txtdeskripsi = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         txtsatuan = new javax.swing.JTextField();
         breset = new javax.swing.JButton();
         bsimpan = new javax.swing.JButton();
         txtkategori = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
 
         setClosable(true);
         setMaximizable(true);
         setResizable(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel6.setText("Kategori");
-
-        jLabel7.setText("Stok");
-
+        txtidbarang.setBorder(null);
         txtidbarang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtidbarangActionPerformed(evt);
             }
         });
+        getContentPane().add(txtidbarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 290, 30));
 
-        jLabel1.setFont(new java.awt.Font("Lucida Bright", 0, 12)); // NOI18N
-        jLabel1.setText("BARANG");
+        txtnamabarang.setBorder(null);
+        getContentPane().add(txtnamabarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 290, 30));
 
-        jLabel2.setText("Id Barang");
+        txthargajual.setBorder(null);
+        getContentPane().add(txthargajual, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, 290, 30));
 
-        jLabel3.setText("Nama Barang");
+        txthargabeli.setBorder(null);
+        getContentPane().add(txthargabeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 400, 290, 30));
 
+        txtstok.setBorder(null);
+        getContentPane().add(txtstok, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 470, 290, 30));
+
+        btambah.setForeground(new java.awt.Color(255, 255, 255));
         btambah.setText("Tambah");
+        btambah.setBorder(null);
         btambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btambahActionPerformed(evt);
             }
         });
+        getContentPane().add(btambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 670, 130, 30));
 
-        jLabel4.setText("Harga Jual");
-
+        bcari.setForeground(new java.awt.Color(255, 255, 255));
         bcari.setText("Cari");
+        bcari.setBorder(null);
         bcari.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bcariActionPerformed(evt);
             }
         });
+        getContentPane().add(bcari, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 670, 130, 30));
 
-        jLabel5.setText("Harga Beli");
-
+        bhapus.setForeground(new java.awt.Color(255, 255, 255));
         bhapus.setText("Hapus");
+        bhapus.setBorder(null);
         bhapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bhapusActionPerformed(evt);
             }
         });
+        getContentPane().add(bhapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 670, 130, 30));
 
+        bkeluar.setForeground(new java.awt.Color(255, 255, 255));
         bkeluar.setText("Keluar");
+        bkeluar.setBorder(null);
         bkeluar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bkeluarActionPerformed(evt);
             }
         });
+        getContentPane().add(bkeluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 740, 140, 30));
 
         tablebarang.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -189,6 +224,8 @@ public class Barang extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        tablebarang.setGridColor(new java.awt.Color(255, 255, 255));
+        tablebarang.setSelectionBackground(new java.awt.Color(102, 0, 204));
         tablebarang.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 tablebarangMouseReleased(evt);
@@ -196,30 +233,45 @@ public class Barang extends javax.swing.JInternalFrame {
         });
         jScrollPane3.setViewportView(tablebarang);
 
-        jLabel8.setText("Deskripsi");
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 160, 688, 450));
 
-        jLabel9.setText("Satuan");
+        txtdeskripsi.setBorder(null);
+        txtdeskripsi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtdeskripsiActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtdeskripsi, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 540, 290, 30));
 
+        txtsatuan.setBorder(null);
         txtsatuan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtsatuanActionPerformed(evt);
             }
         });
+        getContentPane().add(txtsatuan, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 600, 290, 30));
 
+        breset.setForeground(new java.awt.Color(255, 255, 255));
         breset.setText("Reset");
+        breset.setBorder(null);
         breset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bresetActionPerformed(evt);
             }
         });
+        getContentPane().add(breset, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 670, 140, 30));
 
+        bsimpan.setForeground(new java.awt.Color(255, 255, 255));
         bsimpan.setText("Simpan");
+        bsimpan.setBorder(null);
         bsimpan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bsimpanActionPerformed(evt);
             }
         });
+        getContentPane().add(bsimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 670, 120, 30));
 
+        txtkategori.setBorder(null);
         txtkategori.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 txtkategoriItemStateChanged(evt);
@@ -230,118 +282,11 @@ public class Barang extends javax.swing.JInternalFrame {
                 txtkategoriActionPerformed(evt);
             }
         });
+        getContentPane().add(txtkategori, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 262, 290, 30));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(185, 185, 185)
-                .addComponent(jLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(breset)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addGap(57, 57, 57)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtnamabarang, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtidbarang, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtkategori, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel7))
-                                .addGap(43, 43, 43)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtstok)
-                                    .addComponent(txthargabeli)
-                                    .addComponent(txthargajual, javax.swing.GroupLayout.Alignment.TRAILING)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel9))
-                                .addGap(50, 50, 50)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtsatuan)
-                                    .addComponent(txtdeskripsi)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btambah)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(bsimpan)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(bcari)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(bhapus)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(bkeluar)))
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 688, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(56, 56, 56))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(txtidbarang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(txtnamabarang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(txtkategori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(txthargajual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(txthargabeli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(txtstok, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtdeskripsi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtsatuan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btambah)
-                            .addComponent(bcari)
-                            .addComponent(bhapus)
-                            .addComponent(bkeluar)
-                            .addComponent(bsimpan)))
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(breset)
-                .addContainerGap(48, Short.MAX_VALUE))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_component_asset/revisi barang.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -499,6 +444,10 @@ public class Barang extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtidbarangActionPerformed
 
+    private void txtdeskripsiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdeskripsiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtdeskripsiActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bcari;
@@ -508,14 +457,6 @@ public class Barang extends javax.swing.JInternalFrame {
     private javax.swing.JButton bsimpan;
     private javax.swing.JButton btambah;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable tablebarang;
     private javax.swing.JTextField txtdeskripsi;
