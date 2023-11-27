@@ -56,33 +56,36 @@ public class Login extends javax.swing.JFrame {
                 usernameActionPerformed(evt);
             }
         });
-        getContentPane().add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 340, 70));
+        getContentPane().add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 340, 70));
 
         jButton1.setForeground(new Color(0,0,0,0));
-        jButton1.setText("Login");
         jButton1.setBorder(null);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 600, 360, 50));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 600, 360, 50));
 
+        showPassword.setBackground(new java.awt.Color(255, 255, 255));
         showPassword.setForeground(new Color(0,0,0,0));
         showPassword.setBorder(null);
+        showPassword.setMargin(new java.awt.Insets(4, 4, 4, 4));
+        showPassword.setPreferredSize(new java.awt.Dimension(20, 20));
         showPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 showPasswordActionPerformed(evt);
             }
         });
-        getContentPane().add(showPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 480, 20, 30));
+        getContentPane().add(showPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 500, 20, 20));
 
         password.setForeground(new java.awt.Color(255, 255, 255));
         password.setBorder(null);
-        getContentPane().add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 390, 340, 70));
+        getContentPane().add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 420, 340, 70));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_component_asset/Login.png"))); // NOI18N
         jLabel1.setText("    ");
+        jLabel1.setPreferredSize(new java.awt.Dimension(1280, 800));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 800));
 
         pack();
