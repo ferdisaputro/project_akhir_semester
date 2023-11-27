@@ -18,13 +18,15 @@ import javax.swing.table.DefaultTableModel;
  * @author USER
  */
 public class Jual extends javax.swing.JInternalFrame {
+    private static admin.UserAdmin admin;
     Koneksi koneksi = new Koneksi();
     String sql;
     /**
      * Creates new form jual
      */
-    public Jual() {
+    public Jual(admin.UserAdmin admin) {
         initComponents();
+        this.admin = admin;
         datatable("");
     }
 
@@ -36,6 +38,8 @@ public class Jual extends javax.swing.JInternalFrame {
             total += amount;
         }
         txttotalharga.setText(""+total);
+        int diskon = Integer.parseInt(txtdiskon.getText());
+        txttotalpembayaran.setText(""+(total-diskon));
     }
     private void datatable(String select_from_jual) {
         
@@ -75,6 +79,20 @@ public class Jual extends javax.swing.JInternalFrame {
         }catch (Exception e){
             JOptionPane.showMessageDialog(rootPane,"salah" +e);
         }
+    }
+    
+    void uangUpdate() {
+        int totalPembayaran = Integer.parseInt(txttotalpembayaran.getText());
+        int uang = Integer.parseInt(txtuang.getText());
+        int kembalian = uang-totalPembayaran;
+        txtkembalian.setText(String.valueOf(kembalian));
+    }
+    
+    void diskonUpdate() {
+        int totalHarga = Integer.parseInt(txttotalharga.getText());
+        int diskon = Integer.parseInt(txtdiskon.getText());
+        int totalPembayaran = totalHarga - diskon;
+        txttotalpembayaran.setText(String.valueOf(totalPembayaran));
     }
         /**
          * This method is called from within the constructor to initialize the form.
@@ -135,12 +153,31 @@ public class Jual extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tablebarangfiks1 = new javax.swing.JTable();
 
+        setClosable(true);
+
         jLabel1.setText("PENJUALAN");
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
 
         jLabel7.setText("uang kembalian");
 
         bproses.setText("proses");
+        bproses.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bprosesActionPerformed(evt);
+            }
+        });
+
+        txtdiskon.setText("0");
+        txtdiskon.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                txtdiskonCaretUpdate(evt);
+            }
+        });
+        txtdiskon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtdiskonActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("diskon");
 
@@ -152,6 +189,11 @@ public class Jual extends javax.swing.JInternalFrame {
             }
         });
 
+        txtuang.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                txtuangCaretUpdate(evt);
+            }
+        });
         txtuang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtuangActionPerformed(evt);
@@ -404,8 +446,9 @@ public class Jual extends javax.swing.JInternalFrame {
         String namabarang = txtnamabarang.getText();
         int hargasatuan = Integer.parseInt(txthargasatuan.getText());
         int jumlahbarang = Integer.parseInt(txtjumlahbarang.getText());
+        int diskon = Integer.parseInt(txtdiskon.getText());
         
-        int subtotal = hargasatuan*jumlahbarang;
+        int subtotal = hargasatuan*jumlahbarang-diskon;
         
         DefaultTableModel tbl= (DefaultTableModel) tablebarangfiks1.getModel();
         tbl.addRow(new Object[]{
@@ -424,12 +467,16 @@ public class Jual extends javax.swing.JInternalFrame {
         String namabarang = txtnamabarang.getText();
         int hargasatuan = Integer.parseInt(txthargasatuan.getText());
         int jumlahbarang = Integer.parseInt(txtjumlahbarang.getText());
-        int subtotal = hargasatuan*jumlahbarang;
+        int diskon = Integer.parseInt(txtdiskon.getText());
+        
+        int subtotal = hargasatuan*jumlahbarang-diskon;
         
         int row = tablebarangfiks1.getSelectedRow();
         DefaultTableModel table = (DefaultTableModel) tablebarangfiks1.getModel();
         table.removeRow(row);
-
+        autosum();
+        uangUpdate();
+        diskonUpdate();
     }//GEN-LAST:event_bhapusActionPerformed
 
     private void txttotalhargaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txttotalhargaActionPerformed
@@ -488,6 +535,59 @@ public class Jual extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_tablebarangfiks1MouseReleased
+
+    private void txtdiskonCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtdiskonCaretUpdate
+        diskonUpdate();
+    }//GEN-LAST:event_txtdiskonCaretUpdate
+
+    private void txtuangCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtuangCaretUpdate
+        // TODO add your handling code here:
+        uangUpdate();
+    }//GEN-LAST:event_txtuangCaretUpdate
+
+    private void bprosesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bprosesActionPerformed
+        int idAdmin = admin.getId();
+        String total = txttotalpembayaran.getText();
+        String diskon = txtdiskon.getText() == ""? "0" : txtdiskon.getText();
+        String uang = txtuang.getText();
+        String kembalian = txtkembalian.getText();
+        String tglTransaksi = tglpenjualan.getDateStringOrEmptyString();
+        Statement stat;
+        if (tglTransaksi == "") {
+            JOptionPane.showMessageDialog(null, "Tanggal Transaksi tidak boleh kosong");
+            return;
+        }
+        try {
+            stat = koneksi.GetConnection().createStatement();
+            sql = "INSERT INTO penjualan(id_admin, total, uang, diskon, kembalian, tanggal_transaksi) VALUES "
+                    + "('"+idAdmin+"','"+total+"','"+uang+"','"+diskon+"','"+kembalian+"','"+tglTransaksi+"')";
+            stat.executeUpdate(sql, stat.RETURN_GENERATED_KEYS);
+            ResultSet res = stat.getGeneratedKeys();
+            if (res.next()) {
+                String idPenjualan = res.getString(1);
+                DefaultTableModel tableModel = (DefaultTableModel) tablebarangfiks1.getModel();
+                for (int i = 0; i < tableModel.getRowCount(); i++) {
+                    String idBarang = tableModel.getValueAt(i, 0).toString();
+                    String jumlahBarang = tableModel.getValueAt(i, 3).toString();
+                    String subTotal = tableModel.getValueAt(i, 4).toString();
+                    sql = "INSERT INTO detail_penjualan(id_penjualan, id_barang, jumlah_barang, sub_total) VALUES "
+                            + "('"+idPenjualan+"','"+idBarang+"','"+jumlahBarang+"','"+subTotal+"')";
+                    if (stat.executeUpdate(sql) > 0) {
+                        sql = "UPDATE barang SET jumlah_stok = jumlah_stok - "+jumlahBarang+" where id_barang = "+idBarang;
+                        stat.executeUpdate(sql);
+                    }
+                }
+            }
+            JOptionPane.showMessageDialog(null, "Transaksi berhasil diproses");
+            datatable("");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Transaksi gagal diproses "+e);
+        }
+    }//GEN-LAST:event_bprosesActionPerformed
+
+    private void txtdiskonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdiskonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtdiskonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

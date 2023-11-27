@@ -20,6 +20,7 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        setExtendedState(Login.MAXIMIZED_BOTH);
         username.setBackground (new Color(0,0,0,0));
         password.setBackground (new Color(0,0,0,0));
         showPassword.setBackground(new Color(0,0,0,0));
@@ -110,6 +111,7 @@ public class Login extends javax.swing.JFrame {
                 Home home = new Home(userAdmin);
                 home.setSize(1200, 700);
                 home.setVisible(true);
+                home.setExtendedState(Home.MAXIMIZED_BOTH);
                 dispose();
             } else {
                 JOptionPane.showMessageDialog(null, "Username/password salah");

@@ -41,8 +41,6 @@ public class Beli extends javax.swing.JInternalFrame {
         txtuang.setBorder(null);
         txtkembalian.setBackground(new Color (0,0,0,0));
         txtkembalian.setBorder(null);
-        tglpembelian.setBackground(new Color (0,0,0,0));
-        tglpembelian.setBorder(null);
         btambah.setBackground(new Color (0,0,0,0));
         btambah.setBorder(null);
         Csupplier.setBackground(new Color (0,0,0,0));
@@ -57,7 +55,7 @@ public class Beli extends javax.swing.JInternalFrame {
         try {
             Statement stat = koneksi.GetConnection().createStatement();
             ResultSet res = stat.executeQuery("SELECT * FROM supplier");
-            while(res.next()) Csupplier.addItem(res.getString("nama"));
+            while(res.next()) Csupplier.addItem(res.getString("id_supplier").concat(". "+res.getString("nama")));
         } catch(Exception e) {
             JOptionPane.showMessageDialog(null, "error "+e);
         }
@@ -111,6 +109,14 @@ public class Beli extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(rootPane,"salah" +e);
         }
     }    
+    
+    void reset() {
+        DefaultTableModel tableModel = (DefaultTableModel) tablebarangfiks.getModel();
+        tableModel.setRowCount(0);
+        txtuang.setText("");
+        txtkembalian.setText("");
+        txttotal.setText("");
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -122,7 +128,6 @@ public class Beli extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         txttotal = new javax.swing.JTextField();
         txtuang = new javax.swing.JTextField();
         txtnamabarang = new javax.swing.JTextField();
@@ -131,19 +136,15 @@ public class Beli extends javax.swing.JInternalFrame {
         btambah = new javax.swing.JButton();
         bproses = new javax.swing.JButton();
         Csupplier = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tablebarangsementara = new javax.swing.JTable();
         txthargasatuan = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tablebarangfiks = new javax.swing.JTable();
         bhapus = new javax.swing.JButton();
         tglpembelian = new com.github.lgooddatepicker.components.DatePicker();
         jLabel18 = new javax.swing.JLabel();
         txtidbarang = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
 
         setClosable(true);
@@ -151,10 +152,7 @@ public class Beli extends javax.swing.JInternalFrame {
 
         jLabel1.setText("PEMBELIAN");
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(562, 23, -1, 17));
-
-        jLabel2.setText("Nama Supplier");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, -20, -1, 17));
 
         txttotal.setBorder(null);
         txttotal.setForeground(new java.awt.Color(255, 255, 255));
@@ -163,7 +161,7 @@ public class Beli extends javax.swing.JInternalFrame {
                 txttotalActionPerformed(evt);
             }
         });
-        getContentPane().add(txttotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 532, 340, 30));
+        getContentPane().add(txttotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 450, 340, 30));
 
         txtuang.setBorder(null);
         txtuang.setForeground(new java.awt.Color(255, 255, 255));
@@ -192,7 +190,7 @@ public class Beli extends javax.swing.JInternalFrame {
                 txtuangKeyTyped(evt);
             }
         });
-        getContentPane().add(txtuang, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 610, 340, 30));
+        getContentPane().add(txtuang, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 520, 340, 30));
 
         txtnamabarang.setBorder(null);
         txtnamabarang.setForeground(new java.awt.Color(255, 255, 255));
@@ -201,7 +199,7 @@ public class Beli extends javax.swing.JInternalFrame {
                 txtnamabarangActionPerformed(evt);
             }
         });
-        getContentPane().add(txtnamabarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(803, 102, 100, 40));
+        getContentPane().add(txtnamabarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 20, 100, 30));
 
         txtkembalian.setBorder(null);
         txtkembalian.setForeground(new java.awt.Color(255, 255, 255));
@@ -221,7 +219,7 @@ public class Beli extends javax.swing.JInternalFrame {
                 txtkembalianKeyTyped(evt);
             }
         });
-        getContentPane().add(txtkembalian, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 682, 340, 30));
+        getContentPane().add(txtkembalian, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 600, 340, 30));
 
         txtjumlahbarang.setBorder(null);
         txtjumlahbarang.setForeground(new java.awt.Color(255, 255, 255));
@@ -230,7 +228,7 @@ public class Beli extends javax.swing.JInternalFrame {
                 txtjumlahbarangActionPerformed(evt);
             }
         });
-        getContentPane().add(txtjumlahbarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 102, 105, 40));
+        getContentPane().add(txtjumlahbarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 20, 105, 30));
 
         btambah.setBorder(null);
         btambah.setForeground(new java.awt.Color(255, 255, 255));
@@ -239,7 +237,7 @@ public class Beli extends javax.swing.JInternalFrame {
                 btambahActionPerformed(evt);
             }
         });
-        getContentPane().add(btambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 103, 40, 40));
+        getContentPane().add(btambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 20, 40, 40));
 
         bproses.setBorder(null);
         bproses.setForeground(new java.awt.Color(255, 255, 255));
@@ -248,7 +246,7 @@ public class Beli extends javax.swing.JInternalFrame {
                 bprosesActionPerformed(evt);
             }
         });
-        getContentPane().add(bproses, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 683, 140, 30));
+        getContentPane().add(bproses, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 600, 140, 30));
 
         Csupplier.setBorder(null);
         Csupplier.setForeground(new java.awt.Color(255, 255, 255));
@@ -257,13 +255,7 @@ public class Beli extends javax.swing.JInternalFrame {
                 CsupplierActionPerformed(evt);
             }
         });
-        getContentPane().add(Csupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 102, 200, 40));
-
-        jLabel3.setText("Nama Barang");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 110, -1, -1));
-
-        jLabel8.setText("jumlah barang");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 110, -1, -1));
+        getContentPane().add(Csupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 220, 30));
 
         tablebarangsementara.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -294,14 +286,11 @@ public class Beli extends javax.swing.JInternalFrame {
         });
         jScrollPane3.setViewportView(tablebarangsementara);
 
-        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 530, 550));
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 540, 550));
 
         txthargasatuan.setBorder(null);
         txthargasatuan.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(txthargasatuan, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 102, 105, 40));
-
-        jLabel9.setText("Harga satuan");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 110, -1, -1));
+        getContentPane().add(txthargasatuan, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 20, 105, 30));
 
         tablebarangfiks.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -326,7 +315,7 @@ public class Beli extends javax.swing.JInternalFrame {
         });
         jScrollPane4.setViewportView(tablebarangfiks);
 
-        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 170, 530, 230));
+        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 90, 550, 230));
 
         bhapus.setBorder(null);
         bhapus.setForeground(new java.awt.Color(255, 255, 255));
@@ -335,10 +324,13 @@ public class Beli extends javax.swing.JInternalFrame {
                 bhapusActionPerformed(evt);
             }
         });
-        getContentPane().add(bhapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 450, 140, 30));
+        getContentPane().add(bhapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 360, 140, 40));
 
+        tglpembelian.setBackground(new java.awt.Color(255, 255, 255));
+        tglpembelian.setBorder(null);
         tglpembelian.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(tglpembelian, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 101, 330, 40));
+        tglpembelian.setOpaque(false);
+        getContentPane().add(tglpembelian, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 340, 30));
 
         jLabel18.setText("Tanggal Transaksi Pembelian");
         getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, 166, -1));
@@ -350,13 +342,11 @@ public class Beli extends javax.swing.JInternalFrame {
                 txtidbarangActionPerformed(evt);
             }
         });
-        getContentPane().add(txtidbarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 102, 100, 40));
-
-        jLabel4.setText("Id Barang");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 110, -1, -1));
+        getContentPane().add(txtidbarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 20, 100, 30));
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_component_asset/revisi pembelian.png"))); // NOI18N
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jLabel10.setOpaque(true);
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -60, -1, 750));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -417,6 +407,7 @@ public class Beli extends javax.swing.JInternalFrame {
         int row = tablebarangfiks.getSelectedRow();
         DefaultTableModel table = (DefaultTableModel) tablebarangfiks.getModel();
         table.removeRow(row);
+        autosum();
     }//GEN-LAST:event_bhapusActionPerformed
 
     private void txttotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txttotalActionPerformed
@@ -452,38 +443,40 @@ public class Beli extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtuangActionPerformed
 
     private void bprosesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bprosesActionPerformed
-        int uangpembayaran = Integer.parseInt(txtuang.getText());
-        int total = Integer.parseInt(txttotal.getText());
-        int uangkembalian = Integer.parseInt(txtkembalian.getText());
-        LocalDate tgltransaksi = tglpembelian.getDate();
-        int jumlahbarang = Integer.parseInt(txtjumlahbarang.getText());
-        int subtotal = Integer.getInteger(sql);
+        String uangpembayaran = txtuang.getText();
+        String total = txttotal.getText();
+        String uangkembalian = txtkembalian.getText();
+        String tgltransaksi = tglpembelian.getDateStringOrEmptyString();
+        if (tgltransaksi.equals("")) {
+            JOptionPane.showMessageDialog(null, "Tanggal tidak boleh kosong");
+            return;
+        }
         LocalDate currentDate = LocalDate.now();
+        String id_supplier = Csupplier.getSelectedItem().toString().split(". ")[0];
 
         Koneksi cn = new Koneksi();
         try {
            Statement statement = koneksi.GetConnection().createStatement();
-           statement.executeUpdate("insert into pembelian(total,uang,kembalian,tanggal_transaksi) "
-                   + "VALUES ('"+total+"','"+uangpembayaran+"','"+uangkembalian+"','"+tgltransaksi+"')"); 
-           ResultSet res =  statement.executeQuery("SELECT * FROM pembelian WHERE total = '"+total+"' AND uang = '"+uangpembayaran+"' AND kembalian = '"+uangkembalian+"' AND tanggal_transaksi = '"+tgltransaksi+"'"); 
-            if (res.next()) {
-                String idpembelian = res.getString("id_pembelian");
-                
+           statement.executeUpdate("insert into pembelian(id_supplier,total,uang,kembalian,tanggal_transaksi) "
+                   + "VALUES ('"+id_supplier+"','"+total+"','"+uangpembayaran+"','"+uangkembalian+"','"+tgltransaksi+"')", Statement.RETURN_GENERATED_KEYS); 
+           ResultSet generatedKey = statement.getGeneratedKeys();
+            if (generatedKey.next()) {
+                String idpembelian = generatedKey.getString(1);
                 for (int i = 0; i <tablebarangfiks.getRowCount(); i++){
-                String idbarang = tablebarangfiks.getValueAt(i,0).toString();
-                String namabarang = tablebarangfiks.getValueAt(i,1).toString();
-                String jumlahbarang1 = tablebarangfiks.getValueAt(i,3).toString();
-                String subtotal1 = tablebarangfiks.getValueAt(i,4).toString();
-                } 
+                    String idbarang = tablebarangfiks.getValueAt(i,0).toString();
+                    int jumlahbarang = Integer.valueOf(tablebarangfiks.getValueAt(i,3).toString());
+                    String subtotal = tablebarangfiks.getValueAt(i,4).toString();
+                    statement.executeUpdate("insert into detail_pembelian(id_pembelian, id_barang,jumlah_barang,sub_total,created_at) "
+                        + "VALUES ('"+idpembelian+"','"+idbarang+"','"+jumlahbarang+"','"+subtotal+"','"+currentDate+"')");
+                    statement.executeUpdate("update barang set jumlah_stok = jumlah_stok + "+jumlahbarang+" where id_barang = '"+idbarang+"'");
+                }
             }
-            statement.executeUpdate("insert into detail_pembelian(jumlah_barang,sub_total,created_at) "
-                   + "VALUES ('"+jumlahbarang+"','"+subtotal+"','"+currentDate+"')");
-        datatable("");
+            JOptionPane.showMessageDialog(null, "Pembelian berhasil");
+            reset();
+            datatable("");
         } catch(Exception e) {
            JOptionPane.showMessageDialog(null, e);
         }
-        dispose();
-        // TODO add your handling code here:
     }//GEN-LAST:event_bprosesActionPerformed
 
     private void txtuangKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtuangKeyTyped
@@ -505,8 +498,8 @@ public class Beli extends javax.swing.JInternalFrame {
 
     private void txtuangCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtuangCaretUpdate
         // TODO add your handling code here:
-        int uangpembayaran = Integer.parseInt(txtuang.getText());
-        int total = Integer.parseInt(txttotal.getText());
+        int uangpembayaran = Integer.valueOf(txtuang.getText());
+        int total = Integer.valueOf(txttotal.getText());
         int uangkembalian = uangpembayaran - total;
         txtkembalian.setText(String.valueOf(uangkembalian)); 
     }//GEN-LAST:event_txtuangCaretUpdate
@@ -524,11 +517,6 @@ public class Beli extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable tablebarangfiks;

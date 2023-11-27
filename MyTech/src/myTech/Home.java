@@ -17,11 +17,9 @@ public class Home extends javax.swing.JFrame {
      */
     public Home(admin.UserAdmin userAdmin) {
         initComponents();
+        setExtendedState(Home.MAXIMIZED_BOTH);
         if (userAdmin != null) {
             this.userAdmin = userAdmin;
-            System.out.println(this.userAdmin.getId());
-            System.out.println(this.userAdmin.getName());
-            System.out.println(this.userAdmin.getUsername());
             userName.setText(userAdmin.getName());
         }
     }
@@ -144,7 +142,7 @@ public class Home extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        Jual penjualan = new Jual();
+        Jual penjualan = new Jual(this.userAdmin);
         mainContainer.add(penjualan);
         penjualan.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
@@ -225,6 +223,7 @@ public class Home extends javax.swing.JFrame {
                     Login login = new Login();
                     login.setSize(450, 350);
                     login.setVisible(true);
+                    login.setExtendedState(Login.MAXIMIZED_BOTH);
                 } else {
                     new Home(userAdmin).setVisible(true);
                 }
