@@ -99,64 +99,54 @@ public class Admin extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton6 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        breset = new javax.swing.JButton();
+        tambah = new javax.swing.JButton();
+        hapus = new javax.swing.JButton();
+        keluar = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        cari = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
-        ALAMAT = new javax.swing.JTextField();
         IDADMIN = new javax.swing.JTextField();
         NAMAADMIN = new javax.swing.JTextField();
         USERNAME = new javax.swing.JTextField();
         PASSWORD = new javax.swing.JTextField();
         NOTELPON = new javax.swing.JTextField();
         TTL = new com.github.lgooddatepicker.components.DatePicker();
-        csupplier = new javax.swing.JLabel();
-        ckategori = new javax.swing.JLabel();
-        cbarang = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        ALAMAT = new javax.swing.JTextField();
+        Reset = new javax.swing.JLabel();
+        Breset = new javax.swing.JButton();
 
         setClosable(true);
         setMaximizable(true);
         setResizable(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton6.setText("tambah");
-        jButton6.setBorder(null);
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        tambah.setText("tambah");
+        tambah.setBorder(null);
+        tambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tambahActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 540, 110, 30));
+        getContentPane().add(tambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 580, 130, 40));
 
-        jButton9.setText("hapus");
-        jButton9.setBorder(null);
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        hapus.setText("hapus");
+        hapus.setBorder(null);
+        hapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 hapusActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(842, 540, 110, 30));
+        getContentPane().add(hapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 580, 130, 40));
 
-        jButton10.setText("keluar");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
+        keluar.setText("keluar");
+        keluar.setBorder(null);
+        keluar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 keluarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 600, 110, 30));
-
-        breset.setText("reset");
-        breset.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bresetActionPerformed(evt);
-            }
-        });
-        getContentPane().add(breset, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 540, 110, 30));
+        getContentPane().add(keluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 650, 140, 30));
 
         jButton7.setText("edit");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -164,16 +154,16 @@ public class Admin extends javax.swing.JInternalFrame {
                 jButton7ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 590, 100, 30));
+        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1340, 1008, -1, -1));
 
-        jButton8.setText("cari");
-        jButton8.setBorder(null);
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        cari.setText("cari");
+        cari.setBorder(null);
+        cari.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cariActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 540, 110, 30));
+        getContentPane().add(cari, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 580, 130, 40));
 
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -193,8 +183,7 @@ public class Admin extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(table);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 140, 620, 370));
-        getContentPane().add(ALAMAT, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 490, 240, -1));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 50, 710, 490));
 
         IDADMIN.setBorder(null);
         IDADMIN.addActionListener(new java.awt.event.ActionListener() {
@@ -202,39 +191,38 @@ public class Admin extends javax.swing.JInternalFrame {
                 IDADMINActionPerformed(evt);
             }
         });
-        getContentPane().add(IDADMIN, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 240, -1));
-        getContentPane().add(NAMAADMIN, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 240, -1));
-        getContentPane().add(USERNAME, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 240, -1));
-        getContentPane().add(PASSWORD, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, 240, -1));
-        getContentPane().add(NOTELPON, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 370, 240, -1));
-        getContentPane().add(TTL, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 430, 250, -1));
+        getContentPane().add(IDADMIN, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 40, 290, 30));
 
-        csupplier.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        csupplier.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                csupplierMouseClicked(evt);
+        NAMAADMIN.setBorder(null);
+        getContentPane().add(NAMAADMIN, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 110, 290, 30));
+
+        USERNAME.setBorder(null);
+        getContentPane().add(USERNAME, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 290, 30));
+
+        PASSWORD.setBorder(null);
+        getContentPane().add(PASSWORD, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 290, 30));
+
+        NOTELPON.setBorder(null);
+        getContentPane().add(NOTELPON, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 290, 30));
+
+        TTL.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(TTL, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 380, 290, 30));
+
+        ALAMAT.setBorder(null);
+        getContentPane().add(ALAMAT, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 450, 290, 30));
+
+        Reset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_component_asset/revisi admin.png"))); // NOI18N
+        Reset.setText("jLabel1");
+        Reset.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(Reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -80, 1280, -1));
+
+        Breset.setText("Reset");
+        Breset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BresetActionPerformed(evt);
             }
         });
-        getContentPane().add(csupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 66, 110, 20));
-
-        ckategori.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        ckategori.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ckategoriMouseClicked(evt);
-            }
-        });
-        getContentPane().add(ckategori, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 70, 110, 20));
-
-        cbarang.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        cbarang.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                cbarangMouseClicked(evt);
-            }
-        });
-        getContentPane().add(cbarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 66, 130, 20));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_component_asset/Admin Fiks.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 700));
+        getContentPane().add(Breset, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 570, 100, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -343,32 +331,10 @@ public class Admin extends javax.swing.JInternalFrame {
         ALAMAT.setText(tableModel.getValueAt(row, 5).toString());
     }//GEN-LAST:event_tableMouseReleased
 
-    private void bresetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bresetActionPerformed
+    private void BresetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BresetActionPerformed
         // TODO add your handling code here:
         reset();
-    }//GEN-LAST:event_bresetActionPerformed
-
-    private void cbarangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbarangMouseClicked
-        // TODO add your handling code here:
-        Barang a = new Barang();
-        a.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_cbarangMouseClicked
-
-    private void csupplierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_csupplierMouseClicked
-        // TODO add your handling code here:
-        Supplier a = new Supplier();
-        a.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_csupplierMouseClicked
-
-    private void ckategoriMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ckategoriMouseClicked
-        // TODO add your handling code here:
-        Kategori a = new Kategori();
-        a.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_ckategoriMouseClicked
-
+    }//GEN-LAST:event_BresetActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -381,16 +347,9 @@ public class Admin extends javax.swing.JInternalFrame {
     private javax.swing.JLabel Reset;
     private com.github.lgooddatepicker.components.DatePicker TTL;
     private javax.swing.JTextField USERNAME;
-    private javax.swing.JButton breset;
-    private javax.swing.JLabel cbarang;
-    private javax.swing.JLabel ckategori;
-    private javax.swing.JLabel csupplier;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton cari;
+    private javax.swing.JButton hapus;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton keluar;
     private javax.swing.JTable table;
