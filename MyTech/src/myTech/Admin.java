@@ -74,58 +74,48 @@ public class Admin extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel15 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
-        jLabel13 = new javax.swing.JLabel();
         jButton10 = new javax.swing.JButton();
-        jLabel12 = new javax.swing.JLabel();
+        breset = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
-        jLabel18 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
+        ALAMAT = new javax.swing.JTextField();
         IDADMIN = new javax.swing.JTextField();
         NAMAADMIN = new javax.swing.JTextField();
         USERNAME = new javax.swing.JTextField();
         PASSWORD = new javax.swing.JTextField();
         NOTELPON = new javax.swing.JTextField();
         TTL = new com.github.lgooddatepicker.components.DatePicker();
-        ALAMAT = new javax.swing.JTextField();
+        csupplier = new javax.swing.JLabel();
+        ckategori = new javax.swing.JLabel();
+        cbarang = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setClosable(true);
         setMaximizable(true);
         setResizable(true);
-
-        jLabel15.setText("password");
-
-        jLabel19.setText("alamat");
-
-        jLabel14.setText("username");
-
-        jLabel11.setText("Admin");
-
-        jLabel17.setText("no telephone");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton6.setText("tambah");
+        jButton6.setBorder(null);
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 540, 110, 30));
 
         jButton9.setText("hapus");
+        jButton9.setBorder(null);
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
             }
         });
-
-        jLabel13.setText("nama admin");
+        getContentPane().add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(842, 540, 110, 30));
 
         jButton10.setText("keluar");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
@@ -133,8 +123,15 @@ public class Admin extends javax.swing.JInternalFrame {
                 jButton10ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 600, 110, 30));
 
-        jLabel12.setText("Id admin");
+        breset.setText("reset");
+        breset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bresetActionPerformed(evt);
+            }
+        });
+        getContentPane().add(breset, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 540, 110, 30));
 
         jButton7.setText("edit");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -142,15 +139,16 @@ public class Admin extends javax.swing.JInternalFrame {
                 jButton7ActionPerformed(evt);
             }
         });
-
-        jLabel18.setText("tanggal lahir");
+        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 590, 100, 30));
 
         jButton8.setText("cari");
+        jButton8.setBorder(null);
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 540, 110, 30));
 
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -170,104 +168,48 @@ public class Admin extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(table);
 
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 140, 620, 370));
+        getContentPane().add(ALAMAT, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 490, 240, -1));
+
+        IDADMIN.setBorder(null);
         IDADMIN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 IDADMINActionPerformed(evt);
             }
         });
+        getContentPane().add(IDADMIN, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 240, -1));
+        getContentPane().add(NAMAADMIN, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 240, -1));
+        getContentPane().add(USERNAME, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 240, -1));
+        getContentPane().add(PASSWORD, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, 240, -1));
+        getContentPane().add(NOTELPON, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 370, 240, -1));
+        getContentPane().add(TTL, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 430, 250, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton10))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel14)
-                            .addComponent(jLabel17)
-                            .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(56, 56, 56)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(NOTELPON, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
-                            .addComponent(PASSWORD, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(USERNAME, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(NAMAADMIN, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(IDADMIN, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ALAMAT)
-                            .addComponent(TTL, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(666, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(150, 150, 150)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 286, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 617, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap()))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(IDADMIN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NAMAADMIN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(USERNAME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(PASSWORD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel17)
-                    .addComponent(NOTELPON, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TTL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel18))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ALAMAT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel19))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton6)
-                    .addComponent(jButton7)
-                    .addComponent(jButton8)
-                    .addComponent(jButton9)
-                    .addComponent(jButton10))
-                .addContainerGap(32, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jLabel11)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(23, Short.MAX_VALUE)))
-        );
+        csupplier.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        csupplier.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                csupplierMouseClicked(evt);
+            }
+        });
+        getContentPane().add(csupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 66, 110, 20));
+
+        ckategori.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ckategori.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ckategoriMouseClicked(evt);
+            }
+        });
+        getContentPane().add(ckategori, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 70, 110, 20));
+
+        cbarang.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cbarang.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cbarangMouseClicked(evt);
+            }
+        });
+        getContentPane().add(cbarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 66, 130, 20));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_component_asset/Admin Fiks.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 700));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -376,6 +318,32 @@ public class Admin extends javax.swing.JInternalFrame {
         ALAMAT.setText(tableModel.getValueAt(row, 5).toString());
     }//GEN-LAST:event_tableMouseReleased
 
+    private void bresetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bresetActionPerformed
+        // TODO add your handling code here:
+        reset();
+    }//GEN-LAST:event_bresetActionPerformed
+
+    private void cbarangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbarangMouseClicked
+        // TODO add your handling code here:
+        Barang a = new Barang();
+        a.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_cbarangMouseClicked
+
+    private void csupplierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_csupplierMouseClicked
+        // TODO add your handling code here:
+        Supplier a = new Supplier();
+        a.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_csupplierMouseClicked
+
+    private void ckategoriMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ckategoriMouseClicked
+        // TODO add your handling code here:
+        Kategori a = new Kategori();
+        a.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_ckategoriMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ALAMAT;
@@ -385,19 +353,16 @@ public class Admin extends javax.swing.JInternalFrame {
     private javax.swing.JTextField PASSWORD;
     private com.github.lgooddatepicker.components.DatePicker TTL;
     private javax.swing.JTextField USERNAME;
+    private javax.swing.JButton breset;
+    private javax.swing.JLabel cbarang;
+    private javax.swing.JLabel ckategori;
+    private javax.swing.JLabel csupplier;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable table;
     // End of variables declaration//GEN-END:variables
