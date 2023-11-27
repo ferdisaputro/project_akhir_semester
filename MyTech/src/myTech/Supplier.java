@@ -102,6 +102,9 @@ public class Supplier extends javax.swing.JInternalFrame {
         ckategori = new javax.swing.JLabel();
         ckaregori = new javax.swing.JLabel();
 
+        setClosable(true);
+        setMaximizable(true);
+        setResizable(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         table.setModel(new javax.swing.table.DefaultTableModel(
@@ -133,12 +136,16 @@ public class Supplier extends javax.swing.JInternalFrame {
         txtnama.setBorder(null);
         getContentPane().add(txtnama, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 270, 30));
 
+
+        txtid.setBackground(new java.awt.Color(0, 0, 0));
+        txtid.setForeground(new java.awt.Color(255, 255, 255));
         txtid.setBorder(null);
         getContentPane().add(txtid, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 270, 30));
 
         txtemail.setBorder(null);
         txtemail.setCaretColor(new java.awt.Color(255, 255, 255));
         getContentPane().add(txtemail, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, 270, 30));
+
 
         btambah.setText("Tambah");
         btambah.setBorder(null);
@@ -148,6 +155,7 @@ public class Supplier extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 580, 120, 30));
+
 
         bcari.setText("Cari");
         bcari.setBorder(null);

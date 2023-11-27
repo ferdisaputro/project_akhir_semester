@@ -73,6 +73,7 @@ public class Barang extends javax.swing.JInternalFrame {
         tbl.addColumn("Stok");
         tbl.addColumn("Deskripsi");
         tbl.addColumn("Satuan");
+        tbl.addColumn("Created At");
         tablebarang.setModel(tbl);
         try{
             Statement statement = koneksi.GetConnection().createStatement();
@@ -94,6 +95,7 @@ public class Barang extends javax.swing.JInternalFrame {
                     res.getString("jumlah_stok"),
                     res.getString("deskripsi"),
                     res.getString("satuan"),
+                    res.getString("created_at"),
                 });
                 tablebarang.setModel(tbl);
             }
@@ -147,6 +149,7 @@ public class Barang extends javax.swing.JInternalFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtidbarang.setBorder(null);
+        txtidbarang.setForeground(new java.awt.Color(255, 255, 255));
         txtidbarang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtidbarangActionPerformed(evt);
@@ -166,9 +169,9 @@ public class Barang extends javax.swing.JInternalFrame {
         txtstok.setBorder(null);
         getContentPane().add(txtstok, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 470, 260, 20));
 
-        btambah.setForeground(new java.awt.Color(255, 255, 255));
         btambah.setText("Tambah");
         btambah.setBorder(null);
+        btambah.setForeground(new java.awt.Color(255, 255, 255));
         btambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btambahActionPerformed(evt);
@@ -176,9 +179,9 @@ public class Barang extends javax.swing.JInternalFrame {
         });
         getContentPane().add(btambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 570, 110, 30));
 
-        bcari.setForeground(new java.awt.Color(255, 255, 255));
         bcari.setText("Cari");
         bcari.setBorder(null);
+        bcari.setForeground(new java.awt.Color(255, 255, 255));
         bcari.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bcariActionPerformed(evt);
@@ -186,9 +189,9 @@ public class Barang extends javax.swing.JInternalFrame {
         });
         getContentPane().add(bcari, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 570, 110, 30));
 
-        bhapus.setForeground(new java.awt.Color(255, 255, 255));
         bhapus.setText("Hapus");
         bhapus.setBorder(null);
+        bhapus.setForeground(new java.awt.Color(255, 255, 255));
         bhapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bhapusActionPerformed(evt);
@@ -196,9 +199,9 @@ public class Barang extends javax.swing.JInternalFrame {
         });
         getContentPane().add(bhapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 570, 110, 30));
 
-        bkeluar.setForeground(new java.awt.Color(255, 255, 255));
         bkeluar.setText("Keluar");
         bkeluar.setBorder(null);
+        bkeluar.setForeground(new java.awt.Color(255, 255, 255));
         bkeluar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bkeluarActionPerformed(evt);
@@ -237,6 +240,7 @@ public class Barang extends javax.swing.JInternalFrame {
         getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 160, 630, 380));
 
         txtdeskripsi.setBorder(null);
+        txtdeskripsi.setForeground(new java.awt.Color(255, 255, 255));
         txtdeskripsi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtdeskripsiActionPerformed(evt);
@@ -245,6 +249,7 @@ public class Barang extends javax.swing.JInternalFrame {
         getContentPane().add(txtdeskripsi, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 530, 260, 20));
 
         txtsatuan.setBorder(null);
+        txtsatuan.setForeground(new java.awt.Color(255, 255, 255));
         txtsatuan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtsatuanActionPerformed(evt);
@@ -252,9 +257,9 @@ public class Barang extends javax.swing.JInternalFrame {
         });
         getContentPane().add(txtsatuan, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 590, 260, 20));
 
-        breset.setForeground(new java.awt.Color(255, 255, 255));
         breset.setText("Reset");
         breset.setBorder(null);
+        breset.setForeground(new java.awt.Color(255, 255, 255));
         breset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bresetActionPerformed(evt);
@@ -262,9 +267,9 @@ public class Barang extends javax.swing.JInternalFrame {
         });
         getContentPane().add(breset, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 570, 120, 30));
 
-        bsimpan.setForeground(new java.awt.Color(255, 255, 255));
         bsimpan.setText("Simpan");
         bsimpan.setBorder(null);
+        bsimpan.setForeground(new java.awt.Color(255, 255, 255));
         bsimpan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bsimpanActionPerformed(evt);
@@ -289,6 +294,7 @@ public class Barang extends javax.swing.JInternalFrame {
         getContentPane().add(csupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, 110, 20));
 
         txtkategori.setBorder(null);
+        txtkategori.setForeground(new java.awt.Color(255, 255, 255));
         txtkategori.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 txtkategoriItemStateChanged(evt);

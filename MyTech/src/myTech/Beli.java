@@ -201,7 +201,7 @@ public class Beli extends javax.swing.JInternalFrame {
                 txtnamabarangActionPerformed(evt);
             }
         });
-        getContentPane().add(txtnamabarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(793, 102, 110, 40));
+        getContentPane().add(txtnamabarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(803, 102, 100, 40));
 
         txtkembalian.setBorder(null);
         txtkembalian.setForeground(new java.awt.Color(255, 255, 255));
@@ -232,7 +232,6 @@ public class Beli extends javax.swing.JInternalFrame {
         });
         getContentPane().add(txtjumlahbarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 102, 105, 40));
 
-        btambah.setText("tambah");
         btambah.setBorder(null);
         btambah.setForeground(new java.awt.Color(255, 255, 255));
         btambah.addActionListener(new java.awt.event.ActionListener() {
@@ -242,7 +241,6 @@ public class Beli extends javax.swing.JInternalFrame {
         });
         getContentPane().add(btambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 103, 40, 40));
 
-        bproses.setText("proses");
         bproses.setBorder(null);
         bproses.setForeground(new java.awt.Color(255, 255, 255));
         bproses.addActionListener(new java.awt.event.ActionListener() {
@@ -259,7 +257,7 @@ public class Beli extends javax.swing.JInternalFrame {
                 CsupplierActionPerformed(evt);
             }
         });
-        getContentPane().add(Csupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 102, 210, 30));
+        getContentPane().add(Csupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 102, 200, 40));
 
         jLabel3.setText("Nama Barang");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 110, -1, -1));
@@ -328,9 +326,8 @@ public class Beli extends javax.swing.JInternalFrame {
         });
         jScrollPane4.setViewportView(tablebarangfiks);
 
-        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 176, 530, 220));
+        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 170, 530, 230));
 
-        bhapus.setText("Hapus");
         bhapus.setBorder(null);
         bhapus.setForeground(new java.awt.Color(255, 255, 255));
         bhapus.addActionListener(new java.awt.event.ActionListener() {
@@ -353,7 +350,7 @@ public class Beli extends javax.swing.JInternalFrame {
                 txtidbarangActionPerformed(evt);
             }
         });
-        getContentPane().add(txtidbarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 102, 110, 40));
+        getContentPane().add(txtidbarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 102, 100, 40));
 
         jLabel4.setText("Id Barang");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 110, -1, -1));

@@ -101,7 +101,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="793" y="102" width="110" height="40"/>
+          <AbsoluteConstraints x="803" y="102" width="100" height="40"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -146,7 +146,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="btambah">
       <Properties>
-        <Property name="text" type="java.lang.String" value="tambah"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
@@ -165,7 +164,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="bproses">
       <Properties>
-        <Property name="text" type="java.lang.String" value="proses"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
@@ -202,7 +200,7 @@
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="50" y="102" width="210" height="30"/>
+          <AbsoluteConstraints x="60" y="102" width="200" height="40"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -338,7 +336,7 @@
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="670" y="176" width="530" height="220"/>
+          <AbsoluteConstraints x="670" y="170" width="530" height="230"/>
         </Constraint>
       </Constraints>
 
@@ -396,7 +394,6 @@
     </Container>
     <Component class="javax.swing.JButton" name="bhapus">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Hapus"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
@@ -449,7 +446,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="660" y="102" width="110" height="40"/>
+          <AbsoluteConstraints x="670" y="102" width="100" height="40"/>
         </Constraint>
       </Constraints>
     </Component>
