@@ -73,7 +73,6 @@ public class Barang extends javax.swing.JInternalFrame {
         tbl.addColumn("Stok");
         tbl.addColumn("Deskripsi");
         tbl.addColumn("Satuan");
-        tbl.addColumn("Created At");
         tablebarang.setModel(tbl);
         try{
             Statement statement = koneksi.GetConnection().createStatement();
@@ -95,7 +94,6 @@ public class Barang extends javax.swing.JInternalFrame {
                     res.getString("jumlah_stok"),
                     res.getString("deskripsi"),
                     res.getString("satuan"),
-                    res.getString("created_at"),
                 });
                 tablebarang.setModel(tbl);
             }
@@ -137,9 +135,11 @@ public class Barang extends javax.swing.JInternalFrame {
         txtsatuan = new javax.swing.JTextField();
         breset = new javax.swing.JButton();
         bsimpan = new javax.swing.JButton();
+        cadmin = new javax.swing.JLabel();
+        csupplier = new javax.swing.JLabel();
         txtkategori = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jLabel3 = new javax.swing.JLabel();
+        ckategori = new javax.swing.JLabel();
 
         setClosable(true);
         setMaximizable(true);
@@ -147,69 +147,64 @@ public class Barang extends javax.swing.JInternalFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtidbarang.setBorder(null);
-        txtidbarang.setForeground(new java.awt.Color(255, 255, 255));
         txtidbarang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtidbarangActionPerformed(evt);
             }
         });
-        getContentPane().add(txtidbarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 290, 30));
+        getContentPane().add(txtidbarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 260, 20));
 
         txtnamabarang.setBorder(null);
-        txtnamabarang.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(txtnamabarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 290, 30));
+        getContentPane().add(txtnamabarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, 260, 20));
 
         txthargajual.setBorder(null);
-        txthargajual.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(txthargajual, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 290, 30));
+        getContentPane().add(txthargajual, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 350, 260, 20));
 
         txthargabeli.setBorder(null);
-        txthargabeli.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(txthargabeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, 290, 30));
+        getContentPane().add(txthargabeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 410, 260, 20));
 
         txtstok.setBorder(null);
-        txtstok.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(txtstok, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, 290, 30));
+        getContentPane().add(txtstok, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 470, 260, 20));
 
+        btambah.setForeground(new java.awt.Color(255, 255, 255));
         btambah.setText("Tambah");
         btambah.setBorder(null);
-        btambah.setForeground(new java.awt.Color(255, 255, 255));
         btambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btambahActionPerformed(evt);
             }
         });
-        getContentPane().add(btambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 570, 130, 30));
+        getContentPane().add(btambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 570, 110, 30));
 
+        bcari.setForeground(new java.awt.Color(255, 255, 255));
         bcari.setText("Cari");
         bcari.setBorder(null);
-        bcari.setForeground(new java.awt.Color(255, 255, 255));
         bcari.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bcariActionPerformed(evt);
             }
         });
-        getContentPane().add(bcari, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 570, 130, 30));
+        getContentPane().add(bcari, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 570, 110, 30));
 
+        bhapus.setForeground(new java.awt.Color(255, 255, 255));
         bhapus.setText("Hapus");
         bhapus.setBorder(null);
-        bhapus.setForeground(new java.awt.Color(255, 255, 255));
         bhapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bhapusActionPerformed(evt);
             }
         });
-        getContentPane().add(bhapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 570, 130, 30));
+        getContentPane().add(bhapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 570, 110, 30));
 
+        bkeluar.setForeground(new java.awt.Color(255, 255, 255));
         bkeluar.setText("Keluar");
         bkeluar.setBorder(null);
-        bkeluar.setForeground(new java.awt.Color(255, 255, 255));
         bkeluar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bkeluarActionPerformed(evt);
             }
         });
-        getContentPane().add(bkeluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 640, 140, 30));
+        getContentPane().add(bkeluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 630, 120, 30));
 
         tablebarang.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -239,48 +234,61 @@ public class Barang extends javax.swing.JInternalFrame {
         });
         jScrollPane3.setViewportView(tablebarang);
 
-        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 50, 688, 450));
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 160, 630, 380));
 
         txtdeskripsi.setBorder(null);
-        txtdeskripsi.setForeground(new java.awt.Color(255, 255, 255));
         txtdeskripsi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtdeskripsiActionPerformed(evt);
             }
         });
-        getContentPane().add(txtdeskripsi, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 440, 290, 30));
+        getContentPane().add(txtdeskripsi, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 530, 260, 20));
 
         txtsatuan.setBorder(null);
-        txtsatuan.setForeground(new java.awt.Color(255, 255, 255));
         txtsatuan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtsatuanActionPerformed(evt);
             }
         });
-        getContentPane().add(txtsatuan, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 500, 290, 30));
+        getContentPane().add(txtsatuan, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 590, 260, 20));
 
+        breset.setForeground(new java.awt.Color(255, 255, 255));
         breset.setText("Reset");
         breset.setBorder(null);
-        breset.setForeground(new java.awt.Color(255, 255, 255));
         breset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bresetActionPerformed(evt);
             }
         });
-        getContentPane().add(breset, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 570, 140, 30));
+        getContentPane().add(breset, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 570, 120, 30));
 
+        bsimpan.setForeground(new java.awt.Color(255, 255, 255));
         bsimpan.setText("Simpan");
         bsimpan.setBorder(null);
-        bsimpan.setForeground(new java.awt.Color(255, 255, 255));
         bsimpan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bsimpanActionPerformed(evt);
             }
         });
-        getContentPane().add(bsimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 570, 120, 30));
+        getContentPane().add(bsimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 660, 110, 30));
+
+        cadmin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cadmin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cadminMouseClicked(evt);
+            }
+        });
+        getContentPane().add(cadmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 80, 110, 20));
+
+        csupplier.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        csupplier.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                csupplierMouseClicked(evt);
+            }
+        });
+        getContentPane().add(csupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, 110, 20));
 
         txtkategori.setBorder(null);
-        txtkategori.setForeground(new java.awt.Color(255, 255, 255));
         txtkategori.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 txtkategoriItemStateChanged(evt);
@@ -291,12 +299,18 @@ public class Barang extends javax.swing.JInternalFrame {
                 txtkategoriActionPerformed(evt);
             }
         });
-        getContentPane().add(txtkategori, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 290, 30));
+        getContentPane().add(txtkategori, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, 260, 20));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_component_asset/revisi barang.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -90, -1, -1));
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 620, 140, 90));
+        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 80, 110, 20));
+
+        ckategori.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_component_asset/Barang Fiks.png"))); // NOI18N
+        getContentPane().add(ckategori, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -458,6 +472,27 @@ public class Barang extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtdeskripsiActionPerformed
 
+    private void cadminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cadminMouseClicked
+        // TODO add your handling code here:
+        Admin a = new Admin();
+        a.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_cadminMouseClicked
+
+    private void csupplierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_csupplierMouseClicked
+        // TODO add your handling code here:
+        Supplier a = new Supplier();
+        a.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_csupplierMouseClicked
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        // TODO add your handling code here:
+        Kategori a = new Kategori();
+        a.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jLabel3MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bcari;
@@ -466,8 +501,10 @@ public class Barang extends javax.swing.JInternalFrame {
     private javax.swing.JButton breset;
     private javax.swing.JButton bsimpan;
     private javax.swing.JButton btambah;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel cadmin;
+    private javax.swing.JLabel ckategori;
+    private javax.swing.JLabel csupplier;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable tablebarang;
     private javax.swing.JTextField txtdeskripsi;
