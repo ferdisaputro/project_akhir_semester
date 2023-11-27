@@ -37,11 +37,11 @@ public class Home extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
-        jLabel1 = new javax.swing.JLabel();
         bdatamaster = new javax.swing.JButton();
         btransaksi = new javax.swing.JButton();
         blaporan = new javax.swing.JButton();
         bkeluar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         jMenuItem3.setText("jMenuItem3");
 
@@ -50,9 +50,6 @@ public class Home extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_component_asset/Home.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 0, -1, -1));
-
         bdatamaster.setForeground(new java.awt.Color(255, 255, 255));
         bdatamaster.setBorder(null);
         bdatamaster.addActionListener(new java.awt.event.ActionListener() {
@@ -60,7 +57,7 @@ public class Home extends javax.swing.JFrame {
                 bdatamasterActionPerformed(evt);
             }
         });
-        getContentPane().add(bdatamaster, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, 140, -1));
+        getContentPane().add(bdatamaster, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 140, 40));
 
         btransaksi.setForeground(new java.awt.Color(255, 255, 255));
         btransaksi.setBorder(null);
@@ -69,7 +66,7 @@ public class Home extends javax.swing.JFrame {
                 btransaksiActionPerformed(evt);
             }
         });
-        getContentPane().add(btransaksi, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, 110, -1));
+        getContentPane().add(btransaksi, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 30, 110, 40));
 
         blaporan.setForeground(new java.awt.Color(255, 255, 255));
         blaporan.setBorder(null);
@@ -89,11 +86,15 @@ public class Home extends javax.swing.JFrame {
         });
         getContentPane().add(bkeluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1035, 633, 130, 30));
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_component_asset/Home.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 0, -1, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void bdatamasterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bdatamasterActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_bdatamasterActionPerformed
 
     private void btransaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btransaksiActionPerformed

@@ -141,10 +141,10 @@ public class Beli extends javax.swing.JInternalFrame {
         tglpembelian = new com.github.lgooddatepicker.components.DatePicker();
         jLabel18 = new javax.swing.JLabel();
         txtidbarang = new javax.swing.JTextField();
+        BJual = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        BJual = new javax.swing.JButton();
 
         setClosable(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -345,6 +345,15 @@ public class Beli extends javax.swing.JInternalFrame {
         });
         getContentPane().add(txtidbarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 150, 80, 30));
 
+        BJual.setBorder(null);
+        BJual.setForeground(new java.awt.Color(255, 255, 255));
+        BJual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BJualActionPerformed(evt);
+            }
+        });
+        getContentPane().add(BJual, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 10, 120, 40));
+
         jLabel4.setText("Id Barang");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 130, -1, -1));
 
@@ -353,15 +362,6 @@ public class Beli extends javax.swing.JInternalFrame {
 
         jLabel1.setText("Nama Supplier");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, -1, -1));
-
-        BJual.setForeground(new java.awt.Color(255, 255, 255));
-        BJual.setBorder(null);
-        BJual.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BJualActionPerformed(evt);
-            }
-        });
-        getContentPane().add(BJual, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 20, 120, 20));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
