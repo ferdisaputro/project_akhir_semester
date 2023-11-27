@@ -48,15 +48,15 @@ public class Login extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        username.setForeground(new java.awt.Color(255, 255, 255));
         username.setBorder(null);
         username.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        username.setForeground(new java.awt.Color(255, 255, 255));
         username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 usernameActionPerformed(evt);
             }
         });
-        getContentPane().add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 340, 70));
+        getContentPane().add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 360, 270, 60));
 
         jButton1.setForeground(new Color(0,0,0,0));
         jButton1.setBorder(null);
@@ -68,8 +68,8 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 600, 360, 50));
 
         showPassword.setBackground(new java.awt.Color(255, 255, 255));
-        showPassword.setForeground(new Color(0,0,0,0));
         showPassword.setBorder(null);
+        showPassword.setForeground(new Color(0,0,0,0));
         showPassword.setMargin(new java.awt.Insets(4, 4, 4, 4));
         showPassword.setPreferredSize(new java.awt.Dimension(20, 20));
         showPassword.addActionListener(new java.awt.event.ActionListener() {
@@ -77,11 +77,11 @@ public class Login extends javax.swing.JFrame {
                 showPasswordActionPerformed(evt);
             }
         });
-        getContentPane().add(showPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 500, 20, 20));
+        getContentPane().add(showPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 530, 20, 20));
 
-        password.setForeground(new java.awt.Color(255, 255, 255));
         password.setBorder(null);
-        getContentPane().add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 420, 340, 70));
+        password.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 460, 270, 50));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_component_asset/Login.png"))); // NOI18N
         jLabel1.setText("    ");
