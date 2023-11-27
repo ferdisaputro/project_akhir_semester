@@ -5,6 +5,7 @@
  */
 package myTech;
 
+import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.sql.*;
 import java.time.LocalDate;
@@ -26,6 +27,32 @@ public class Jual extends javax.swing.JInternalFrame {
     public Jual() {
         initComponents();
         datatable("");
+        txtidbarang.setBackground(new Color (0,0,0,0));
+        txtidbarang.setBorder(null);
+        txtnamabarang.setBackground(new Color (0,0,0,0));
+        txtnamabarang.setBorder(null);
+        txthargasatuan.setBackground(new Color (0,0,0,0));
+        txthargasatuan.setBorder(null);
+        txtjumlahbarang.setBackground(new Color (0,0,0,0));
+        txtjumlahbarang.setBorder(null);
+        txttotalharga.setBackground(new Color (0,0,0,0));
+        txttotalharga.setBorder(null);
+        txtdiskon.setBackground(new Color (0,0,0,0));
+        txtdiskon.setBorder(null);
+        txttotalpembayaran.setBackground(new Color (0,0,0,0));
+        txttotalpembayaran.setBorder(null);
+        txtuang.setBackground(new Color (0,0,0,0));
+        txtuang.setBorder(null);
+        txtkembalian.setBackground(new Color (0,0,0,0));
+        txtkembalian.setBorder(null);
+        tglpenjualan.setBackground(new Color (0,0,0,0));
+        tglpenjualan.setBorder(null);
+        btambah.setBackground(new Color (0,0,0,0));
+        btambah.setBorder(null);
+        bproses.setBackground(new Color (0,0,0,0));
+        bproses.setBorder(null);
+        bhapus.setBackground(new Color (0,0,0,0));
+        bhapus.setBorder(null);
     }
 
     
@@ -106,64 +133,59 @@ public class Jual extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         bproses = new javax.swing.JButton();
         txtdiskon = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         txttotalharga = new javax.swing.JTextField();
         txtuang = new javax.swing.JTextField();
         txtnamabarang = new javax.swing.JTextField();
         txtkembalian = new javax.swing.JTextField();
         txtjumlahbarang = new javax.swing.JTextField();
         btambah = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tablebarangsementara = new javax.swing.JTable();
         txthargasatuan = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         bhapus = new javax.swing.JButton();
         txtidbarang = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
         tglpenjualan = new com.github.lgooddatepicker.components.DatePicker();
-        jLabel12 = new javax.swing.JLabel();
         txttotalpembayaran = new javax.swing.JTextField();
-        jLabel13 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablebarangfiks1 = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
 
-        jLabel1.setText("PENJUALAN");
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-
-        jLabel7.setText("uang kembalian");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         bproses.setText("proses");
+        bproses.setBorder(null);
+        getContentPane().add(bproses, new org.netbeans.lib.awtextra.AbsoluteConstraints(1092, 720, 140, 30));
 
-        jLabel4.setText("diskon");
+        txtdiskon.setBorder(null);
+        getContentPane().add(txtdiskon, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 540, 360, 30));
 
-        jLabel5.setText("total harga");
-
+        txttotalharga.setBorder(null);
         txttotalharga.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txttotalhargaActionPerformed(evt);
             }
         });
+        getContentPane().add(txttotalharga, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 480, 360, 30));
 
+        txtuang.setBorder(null);
         txtuang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtuangActionPerformed(evt);
             }
         });
+        getContentPane().add(txtuang, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 660, 360, 30));
 
+        txtnamabarang.setBorder(null);
         txtnamabarang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtnamabarangActionPerformed(evt);
             }
         });
+        getContentPane().add(txtnamabarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 110, 103, 30));
 
+        txtkembalian.setBorder(null);
         txtkembalian.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtkembalianActionPerformed(evt);
@@ -174,15 +196,19 @@ public class Jual extends javax.swing.JInternalFrame {
                 txtkembalianKeyTyped(evt);
             }
         });
+        getContentPane().add(txtkembalian, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 720, 360, 30));
+
+        txtjumlahbarang.setBorder(null);
+        getContentPane().add(txtjumlahbarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 110, 105, 30));
 
         btambah.setText("tambah");
+        btambah.setBorder(null);
         btambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btambahActionPerformed(evt);
             }
         });
-
-        jLabel6.setText("uang yang dibayar");
+        getContentPane().add(btambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 120, 20, -1));
 
         tablebarangsementara.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -199,29 +225,32 @@ public class Jual extends javax.swing.JInternalFrame {
         });
         jScrollPane3.setViewportView(tablebarangsementara);
 
-        jLabel8.setText("Nama Barang");
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 580, 590));
 
-        jLabel9.setText("Harga Satuan");
-
-        jLabel10.setText("jumlah Barang");
+        txthargasatuan.setBorder(null);
+        getContentPane().add(txthargasatuan, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 110, 105, 30));
 
         bhapus.setText("Hapus");
+        bhapus.setBorder(null);
         bhapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bhapusActionPerformed(evt);
             }
         });
+        getContentPane().add(bhapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 450, 130, 40));
 
+        txtidbarang.setBorder(null);
         txtidbarang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtidbarangActionPerformed(evt);
             }
         });
+        getContentPane().add(txtidbarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 110, 103, 30));
 
-        jLabel11.setText("Id Barang");
+        tglpenjualan.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(tglpenjualan, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 340, 30));
 
-        jLabel12.setText("Tanggal Transaksi Penjualan");
-
+        txttotalpembayaran.setBorder(null);
         txttotalpembayaran.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txttotalpembayaranActionPerformed(evt);
@@ -232,8 +261,7 @@ public class Jual extends javax.swing.JInternalFrame {
                 txttotalpembayaranKeyTyped(evt);
             }
         });
-
-        jLabel13.setText("total pembayaran");
+        getContentPane().add(txttotalpembayaran, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 600, 360, 30));
 
         tablebarangfiks1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -494,17 +522,7 @@ public class Jual extends javax.swing.JInternalFrame {
     private javax.swing.JButton bhapus;
     private javax.swing.JButton bproses;
     private javax.swing.JButton btambah;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable tablebarangfiks1;

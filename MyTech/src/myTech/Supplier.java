@@ -21,7 +21,25 @@ public class Supplier extends javax.swing.JInternalFrame {
     public Supplier() {
         initComponents();
         datatable("");
-        reset();
+        reset();   
+        txtid.setBackground (new Color(0,0,0,0));
+        txtnama.setBackground (new Color(0,0,0,0));
+        txtemail.setBackground (new Color(0,0,0,0));
+        txtno.setBackground (new Color(0,0,0,0));
+        btambah.setBackground (new Color(0,0,0,0));
+        bupdate.setBackground (new Color(0,0,0,0));
+        bcari.setBackground (new Color(0,0,0,0));
+        bhapus.setBackground (new Color(0,0,0,0));
+        bkeluar.setBackground (new Color(0,0,0,0));
+        txtid.setBorder (null);
+        txtnama.setBorder (null);
+        txtemail.setBorder (null);
+        txtno.setBorder (null);
+        btambah.setBorder (null);
+        bupdate.setBorder (null);
+        bcari.setBorder (null);
+        bhapus.setBorder (null);
+        bkeluar.setBorder (null);
     }
         public void reset(){
             txtalamat.setText("");
@@ -78,8 +96,11 @@ public class Supplier extends javax.swing.JInternalFrame {
         bcari = new javax.swing.JButton();
         bhapus = new javax.swing.JButton();
         bkeluar = new javax.swing.JButton();
+        Cbarang = new javax.swing.JLabel();
+        cadmin = new javax.swing.JLabel();
         bupdate = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
+        ckategori = new javax.swing.JLabel();
+        ckaregori = new javax.swing.JLabel();
 
         setClosable(true);
         setMaximizable(true);
@@ -104,87 +125,100 @@ public class Supplier extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(table);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, 710, 300));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 160, 660, 380));
 
-        txtalamat.setBackground(new java.awt.Color(0, 0, 0));
-        txtalamat.setForeground(new java.awt.Color(255, 255, 255));
         txtalamat.setBorder(null);
-        getContentPane().add(txtalamat, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 380, 290, 30));
+        getContentPane().add(txtalamat, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 500, 270, 30));
 
-        txtno.setBackground(new java.awt.Color(0, 0, 0));
-        txtno.setForeground(new java.awt.Color(255, 255, 255));
         txtno.setBorder(null);
-        getContentPane().add(txtno, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, 290, 30));
+        getContentPane().add(txtno, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 420, 270, 30));
 
-        txtnama.setBackground(new java.awt.Color(0, 0, 0));
-        txtnama.setForeground(new java.awt.Color(255, 255, 255));
         txtnama.setBorder(null);
-        txtnama.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtnamaActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtnama, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 290, 30));
+        getContentPane().add(txtnama, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 270, 30));
+
 
         txtid.setBackground(new java.awt.Color(0, 0, 0));
         txtid.setForeground(new java.awt.Color(255, 255, 255));
         txtid.setBorder(null);
-        getContentPane().add(txtid, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 290, 30));
+        getContentPane().add(txtid, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 270, 30));
 
-        txtemail.setBackground(new java.awt.Color(0, 0, 0));
-        txtemail.setForeground(new java.awt.Color(255, 255, 255));
         txtemail.setBorder(null);
-        txtemail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtemailActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtemail, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, 290, 30));
+        txtemail.setCaretColor(new java.awt.Color(255, 255, 255));
+        getContentPane().add(txtemail, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, 270, 30));
+
 
         btambah.setText("Tambah");
+        btambah.setBorder(null);
         btambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btambahActionPerformed(evt);
             }
         });
-        getContentPane().add(btambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 580, 130, 40));
+        getContentPane().add(btambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 580, 120, 30));
+
 
         bcari.setText("Cari");
+        bcari.setBorder(null);
         bcari.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bcariActionPerformed(evt);
             }
         });
-        getContentPane().add(bcari, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 580, 130, 40));
+        getContentPane().add(bcari, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 580, 120, 30));
 
         bhapus.setText("Hapus");
+        bhapus.setBorder(null);
         bhapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bhapusActionPerformed(evt);
             }
         });
-        getContentPane().add(bhapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(1075, 580, 130, 40));
+        getContentPane().add(bhapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 580, 120, 30));
 
         bkeluar.setText("Keluar");
+        bkeluar.setBorder(null);
         bkeluar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bkeluarActionPerformed(evt);
             }
         });
-        getContentPane().add(bkeluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 650, 140, 30));
+        getContentPane().add(bkeluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 640, 110, 30));
+
+        Cbarang.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Cbarang.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CbarangMouseClicked(evt);
+            }
+        });
+        getContentPane().add(Cbarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 70, 120, 30));
+
+        cadmin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cadmin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cadminMouseClicked(evt);
+            }
+        });
+        getContentPane().add(cadmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, 120, 30));
 
         bupdate.setText("Update");
+        bupdate.setBorder(null);
         bupdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bupdateActionPerformed(evt);
             }
         });
-        getContentPane().add(bupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 580, 130, 40));
+        getContentPane().add(bupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 620, 110, 30));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_component_asset/revisi supplier.png"))); // NOI18N
-        jLabel7.setText("jLabel7");
-        jLabel7.setBorder(null);
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -80, -1, -1));
+        ckategori.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ckategori.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ckategoriMouseClicked(evt);
+            }
+        });
+        getContentPane().add(ckategori, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 70, 110, 30));
+
+        ckaregori.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_component_asset/Supplier fiks.png"))); // NOI18N
+        getContentPane().add(ckaregori, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -294,22 +328,38 @@ public class Supplier extends javax.swing.JInternalFrame {
         txtalamat.setText(tableModel.getValueAt(row, 4).toString());
     }//GEN-LAST:event_tableMouseReleased
 
-    private void txtnamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnamaActionPerformed
+    private void CbarangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CbarangMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtnamaActionPerformed
+        Barang a = new Barang();
+        a.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_CbarangMouseClicked
 
-    private void txtemailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtemailActionPerformed
+    private void cadminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cadminMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtemailActionPerformed
+        Admin a = new Admin();
+        a.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_cadminMouseClicked
+
+    private void ckategoriMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ckategoriMouseClicked
+        // TODO add your handling code here:
+        Kategori a = new Kategori();
+        a.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_ckategoriMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Cbarang;
     private javax.swing.JButton bcari;
     private javax.swing.JButton bhapus;
     private javax.swing.JButton bkeluar;
     private javax.swing.JButton btambah;
     private javax.swing.JButton bupdate;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel cadmin;
+    private javax.swing.JLabel ckaregori;
+    private javax.swing.JLabel ckategori;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable table;
     private javax.swing.JTextField txtalamat;
