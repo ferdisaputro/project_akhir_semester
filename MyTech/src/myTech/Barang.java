@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
-public class Barang extends javax.swing.JInternalFrame {
+public class Barang extends javax.swing.JFrame {
     Koneksi koneksi = new Koneksi();
     String sql;
     private Object tabel;
@@ -141,9 +141,6 @@ public class Barang extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         ckategori = new javax.swing.JLabel();
 
-        setClosable(true);
-        setMaximizable(true);
-        setResizable(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtidbarang.setBorder(null);
@@ -167,7 +164,6 @@ public class Barang extends javax.swing.JInternalFrame {
         getContentPane().add(txtstok, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 470, 260, 20));
 
         btambah.setForeground(new java.awt.Color(255, 255, 255));
-        btambah.setText("Tambah");
         btambah.setBorder(null);
         btambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -177,7 +173,6 @@ public class Barang extends javax.swing.JInternalFrame {
         getContentPane().add(btambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 570, 110, 30));
 
         bcari.setForeground(new java.awt.Color(255, 255, 255));
-        bcari.setText("Cari");
         bcari.setBorder(null);
         bcari.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -187,7 +182,6 @@ public class Barang extends javax.swing.JInternalFrame {
         getContentPane().add(bcari, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 570, 110, 30));
 
         bhapus.setForeground(new java.awt.Color(255, 255, 255));
-        bhapus.setText("Hapus");
         bhapus.setBorder(null);
         bhapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -197,7 +191,6 @@ public class Barang extends javax.swing.JInternalFrame {
         getContentPane().add(bhapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 570, 110, 30));
 
         bkeluar.setForeground(new java.awt.Color(255, 255, 255));
-        bkeluar.setText("Keluar");
         bkeluar.setBorder(null);
         bkeluar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -253,7 +246,6 @@ public class Barang extends javax.swing.JInternalFrame {
         getContentPane().add(txtsatuan, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 590, 260, 20));
 
         breset.setForeground(new java.awt.Color(255, 255, 255));
-        breset.setText("Reset");
         breset.setBorder(null);
         breset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -262,6 +254,7 @@ public class Barang extends javax.swing.JInternalFrame {
         });
         getContentPane().add(breset, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 570, 120, 30));
 
+        bsimpan.setBackground(new java.awt.Color(0, 153, 102));
         bsimpan.setForeground(new java.awt.Color(255, 255, 255));
         bsimpan.setText("Simpan");
         bsimpan.setBorder(null);
@@ -270,7 +263,7 @@ public class Barang extends javax.swing.JInternalFrame {
                 bsimpanActionPerformed(evt);
             }
         });
-        getContentPane().add(bsimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 660, 110, 30));
+        getContentPane().add(bsimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 610, 110, 30));
 
         cadmin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cadmin.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -286,7 +279,7 @@ public class Barang extends javax.swing.JInternalFrame {
                 csupplierMouseClicked(evt);
             }
         });
-        getContentPane().add(csupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, 110, 20));
+        getContentPane().add(csupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, 120, 20));
 
         txtkategori.setBorder(null);
         txtkategori.addItemListener(new java.awt.event.ItemListener() {
@@ -332,6 +325,7 @@ public class Barang extends javax.swing.JInternalFrame {
                     + "VALUES ('" + namabarang + "', '"+kategori+"', '" + hargajual + "', '" 
                     + hargabeli + "', '" + stok +"', '" + deskripsi + "', '"+ satuan +"', '"+ currentDate +"')"); 
             datatable("");
+            reset();
         } catch (Exception e){
             JOptionPane.showMessageDialog(null, e);
         }
@@ -398,7 +392,9 @@ public class Barang extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_bhapusActionPerformed
 
     private void bkeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bkeluarActionPerformed
-            dispose();
+        Home home = new Home();
+        home.setVisible(true);
+        dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_bkeluarActionPerformed
 
@@ -447,6 +443,7 @@ public class Barang extends javax.swing.JInternalFrame {
             statement.executeUpdate(query);
             datatable("");
             JOptionPane.showMessageDialog(null, "Perubahan berhasil disimpan");
+            reset();
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "gagal "+e);
         }
@@ -477,6 +474,7 @@ public class Barang extends javax.swing.JInternalFrame {
         Admin a = new Admin();
         a.setVisible(true);
         dispose();
+        a.setExtendedState(Admin.MAXIMIZED_BOTH);
     }//GEN-LAST:event_cadminMouseClicked
 
     private void csupplierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_csupplierMouseClicked
@@ -484,6 +482,7 @@ public class Barang extends javax.swing.JInternalFrame {
         Supplier a = new Supplier();
         a.setVisible(true);
         dispose();
+        a.setExtendedState(Supplier.MAXIMIZED_BOTH);
     }//GEN-LAST:event_csupplierMouseClicked
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
@@ -493,7 +492,44 @@ public class Barang extends javax.swing.JInternalFrame {
         dispose();
     }//GEN-LAST:event_jLabel3MouseClicked
 
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
 
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                if (admin.UserAdmin.getName() == null) {
+                    Login login = new Login();
+                    login.setVisible(true);
+                    login.setExtendedState(Login.MAXIMIZED_BOTH);
+                } else {
+                    new Barang().setVisible(true);
+                }
+            }
+        });
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bcari;
     private javax.swing.JButton bhapus;

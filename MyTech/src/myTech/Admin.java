@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package myTech;
+import java.awt.Color;
 import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -15,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author USER
  */
-public class Admin extends javax.swing.JInternalFrame {
+public class Admin extends javax.swing.JFrame {
     Koneksi conek = new Koneksi();
     /**
      * Creates new form Admin
@@ -23,6 +24,20 @@ public class Admin extends javax.swing.JInternalFrame {
     public Admin() {
         initComponents();
         datatable();
+        IDADMIN.setBackground(new Color (0,0,0,0));
+        IDADMIN.setBorder(null);
+        NAMAADMIN.setBackground(new Color (0,0,0,0));
+        NAMAADMIN.setBorder(null);
+        USERNAME.setBackground(new Color (0,0,0,0));
+        USERNAME.setBorder(null);
+        PASSWORD.setBackground(new Color (0,0,0,0));
+        PASSWORD.setBorder(null);
+        NOTELPON.setBackground(new Color (0,0,0,0));
+        NOTELPON.setBorder(null);
+        TTL.setBackground(new Color (0,0,0,0));
+        TTL.setBorder(null);
+        ALAMAT.setBackground(new Color (0,0,0,0));
+        ALAMAT.setBorder(null);
     }
     
     void datatable() {
@@ -74,18 +89,18 @@ public class Admin extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton6 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        breset = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
         ALAMAT = new javax.swing.JTextField();
         IDADMIN = new javax.swing.JTextField();
         NAMAADMIN = new javax.swing.JTextField();
         USERNAME = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         PASSWORD = new javax.swing.JTextField();
         NOTELPON = new javax.swing.JTextField();
         TTL = new com.github.lgooddatepicker.components.DatePicker();
@@ -94,61 +109,16 @@ public class Admin extends javax.swing.JInternalFrame {
         cbarang = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
-        setClosable(true);
-        setMaximizable(true);
-        setResizable(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton6.setText("tambah");
-        jButton6.setBorder(null);
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 540, 110, 30));
-
-        jButton9.setText("hapus");
-        jButton9.setBorder(null);
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(842, 540, 110, 30));
-
-        jButton10.setText("keluar");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 600, 110, 30));
-
-        breset.setText("reset");
-        breset.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bresetActionPerformed(evt);
-            }
-        });
-        getContentPane().add(breset, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 540, 110, 30));
-
-        jButton7.setText("edit");
+        jButton7.setText("Edit");
+        jButton7.setBackground(new java.awt.Color(0, 153, 153));
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 590, 100, 30));
-
-        jButton8.setText("cari");
-        jButton8.setBorder(null);
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 540, 110, 30));
+        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 580, 110, 30));
 
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -168,8 +138,8 @@ public class Admin extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(table);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 140, 620, 370));
-        getContentPane().add(ALAMAT, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 490, 240, -1));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, 620, 360));
+        getContentPane().add(ALAMAT, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 480, 240, -1));
 
         IDADMIN.setBorder(null);
         IDADMIN.addActionListener(new java.awt.event.ActionListener() {
@@ -180,6 +150,41 @@ public class Admin extends javax.swing.JInternalFrame {
         getContentPane().add(IDADMIN, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 156, 240, 30));
         getContentPane().add(NAMAADMIN, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 240, -1));
         getContentPane().add(USERNAME, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 240, -1));
+
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel2MousePressed(evt);
+            }
+        });
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 540, 110, 30));
+
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 540, 110, 30));
+
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 540, 110, 30));
+
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 540, 110, 30));
+
+        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel6MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 600, 110, 30));
         getContentPane().add(PASSWORD, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, 240, -1));
         getContentPane().add(NOTELPON, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 370, 240, -1));
         getContentPane().add(TTL, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 430, 250, -1));
@@ -198,7 +203,7 @@ public class Admin extends javax.swing.JInternalFrame {
                 ckategoriMouseClicked(evt);
             }
         });
-        getContentPane().add(ckategori, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 70, 110, 20));
+        getContentPane().add(ckategori, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 60, 110, 30));
 
         cbarang.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cbarang.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -213,25 +218,6 @@ public class Admin extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-       String nama = NAMAADMIN.getText();
-       String user = USERNAME.getText();
-       String password = PASSWORD.getText();
-       String notelf = NOTELPON.getText();
-       String ttl = TTL.getDate().toString();
-       String alamat = ALAMAT.getText();
-       LocalDate currentDate = LocalDate.now();
-       Koneksi cn = new Koneksi();
-       try {
-           Statement statement = conek.GetConnection().createStatement();
-           statement.executeUpdate("insert into admin(nama,tanggal_lahir,no_telp,alamat,password,username,created_at) VALUES ('"+nama+"','"+ttl+"','"+notelf+"','"+alamat+"','"+password+"','"+user+"', '"+currentDate+"')");
-           datatable();
-           reset();
-       } catch(Exception e) {
-           JOptionPane.showMessageDialog(null, e);
-      }
-    }//GEN-LAST:event_jButton6ActionPerformed
     
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
@@ -254,10 +240,70 @@ public class Admin extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jButton7ActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void IDADMINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDADMINActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_IDADMINActionPerformed
+
+    private void cbarangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbarangMouseClicked
+        // TODO add your handling code here:
+        Barang a = new Barang();
+        a.setVisible(true);
+        dispose();
+        a.setExtendedState(Barang.MAXIMIZED_BOTH);
+    }//GEN-LAST:event_cbarangMouseClicked
+
+    private void csupplierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_csupplierMouseClicked
+        // TODO add your handling code here:
+        Supplier a = new Supplier();
+        a.setVisible(true);
+        dispose();
+        a.setExtendedState(Supplier.MAXIMIZED_BOTH);
+    }//GEN-LAST:event_csupplierMouseClicked
+
+    private void ckategoriMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ckategoriMouseClicked
+        // TODO add your handling code here:
+        Kategori a = new Kategori();
+        a.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_ckategoriMouseClicked
+
+    private void tableMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseReleased
+        int row = table.getSelectedRow();
+        DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
+        IDADMIN.setText(tableModel.getValueAt(row, 0).toString());
+        NAMAADMIN.setText(tableModel.getValueAt(row, 1).toString());
+        USERNAME.setText(tableModel.getValueAt(row, 2).toString());
+        LocalDate date = LocalDate.parse(tableModel.getValueAt(row, 3).toString());
+        TTL.setDate(date);
+        NOTELPON.setText(tableModel.getValueAt(row, 4).toString());
+        ALAMAT.setText(tableModel.getValueAt(row, 5).toString());
+    }//GEN-LAST:event_tableMouseReleased
+
+    private void jLabel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MousePressed
+        // TODO add your handling code here:
+        String nama = NAMAADMIN.getText();
+        String user = USERNAME.getText();
+        String password = PASSWORD.getText();
+        String notelf = NOTELPON.getText();
+        String ttl = TTL.getDate().toString();
+        String alamat = ALAMAT.getText();
+        LocalDate currentDate = LocalDate.now();
+        Koneksi cn = new Koneksi();
+        try {
+            Statement statement = conek.GetConnection().createStatement();
+            statement.executeUpdate("insert into admin(nama,tanggal_lahir,no_telp,alamat,password,username,created_at) VALUES ('"+nama+"','"+ttl+"','"+notelf+"','"+alamat+"','"+password+"','"+user+"', '"+currentDate+"')");
+            datatable();
+            reset();
+        } catch(Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+       }
+    }//GEN-LAST:event_jLabel2MousePressed
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        // TODO add your handling code here:
         try {
             Statement statement=conek.GetConnection().createStatement();
-            ResultSet res = (ResultSet) statement.executeQuery("select * from admin");
+            ResultSet res = (ResultSet) statement.executeQuery("select * from admin where id_admin = '"+IDADMIN.getText()+"'");
             DefaultTableModel tbl = new DefaultTableModel();
             tbl.addColumn("id admin");
             tbl.addColumn("nama");
@@ -282,9 +328,9 @@ public class Admin extends javax.swing.JInternalFrame {
         }catch (Exception e) {
             JOptionPane.showMessageDialog(null, "salah "+e);
         }
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_jLabel3MouseClicked
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         // TODO add your handling code here:
         String idadmin = IDADMIN.getText();
         try {
@@ -296,54 +342,56 @@ public class Admin extends javax.swing.JInternalFrame {
         }catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Data gagal di HAPUS" + e);
         }
-    }//GEN-LAST:event_jButton9ActionPerformed
+    }//GEN-LAST:event_jLabel4MouseClicked
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        dispose();
-    }//GEN-LAST:event_jButton10ActionPerformed
-
-    private void IDADMINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDADMINActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_IDADMINActionPerformed
-
-    private void tableMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseReleased
-        int row = table.getSelectedRow();
-        DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
-        IDADMIN.setText(tableModel.getValueAt(row, 0).toString());
-        NAMAADMIN.setText(tableModel.getValueAt(row, 1).toString());
-        USERNAME.setText(tableModel.getValueAt(row, 2).toString());
-        LocalDate date = LocalDate.parse(tableModel.getValueAt(row, 3).toString());        
-        TTL.setDate(date);
-        NOTELPON.setText(tableModel.getValueAt(row, 4).toString());
-        ALAMAT.setText(tableModel.getValueAt(row, 5).toString());
-    }//GEN-LAST:event_tableMouseReleased
-
-    private void bresetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bresetActionPerformed
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         // TODO add your handling code here:
         reset();
-    }//GEN-LAST:event_bresetActionPerformed
+    }//GEN-LAST:event_jLabel5MouseClicked
 
-    private void cbarangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbarangMouseClicked
-        // TODO add your handling code here:
-        Barang a = new Barang();
-        a.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_cbarangMouseClicked
+    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+        Home home = new Home();
+        home.setVisible(true);
+        home.setExtendedState(Home.MAXIMIZED_BOTH);
+    }//GEN-LAST:event_jLabel6MouseClicked
 
-    private void csupplierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_csupplierMouseClicked
-        // TODO add your handling code here:
-        Supplier a = new Supplier();
-        a.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_csupplierMouseClicked
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
 
-    private void ckategoriMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ckategoriMouseClicked
-        // TODO add your handling code here:
-        Kategori a = new Kategori();
-        a.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_ckategoriMouseClicked
-
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                if (admin.UserAdmin.getName() == null) {
+                    Login login = new Login();
+                    login.setVisible(true);
+                    login.setExtendedState(Login.MAXIMIZED_BOTH);
+                } else {
+                    new Admin().setVisible(true);
+                }
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ALAMAT;
@@ -353,16 +401,16 @@ public class Admin extends javax.swing.JInternalFrame {
     private javax.swing.JTextField PASSWORD;
     private com.github.lgooddatepicker.components.DatePicker TTL;
     private javax.swing.JTextField USERNAME;
-    private javax.swing.JButton breset;
     private javax.swing.JLabel cbarang;
     private javax.swing.JLabel ckategori;
     private javax.swing.JLabel csupplier;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable table;
     // End of variables declaration//GEN-END:variables

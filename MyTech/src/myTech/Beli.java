@@ -16,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author USER
  */
-public class Beli extends javax.swing.JInternalFrame {
+public class Beli extends javax.swing.JFrame {
     Koneksi koneksi = new Koneksi();
     String sql;
     /**
@@ -26,7 +26,6 @@ public class Beli extends javax.swing.JInternalFrame {
         initComponents();
         datatable("");
         setSupplier();
-        autosum(); 
         txtidbarang.setBackground(new Color (0,0,0,0));
         txtidbarang.setBorder(null);
         txtnamabarang.setBackground(new Color (0,0,0,0));
@@ -57,10 +56,24 @@ public class Beli extends javax.swing.JInternalFrame {
         try {
             Statement stat = koneksi.GetConnection().createStatement();
             ResultSet res = stat.executeQuery("SELECT * FROM supplier");
-            while(res.next()) Csupplier.addItem(res.getString("nama"));
+            while(res.next()) Csupplier.addItem(res.getString("id_supplier").concat(". "+res.getString("nama")));
         } catch(Exception e) {
             JOptionPane.showMessageDialog(null, "error "+e);
         }
+    }
+    
+    void resetTambah() {
+        txtidbarang.setText("");
+        txtnamabarang.setText("");
+        txthargasatuan.setText("");
+        txtjumlahbarang.setText("");
+    }
+    
+    void resetJual() {
+        DefaultTableModel tableModel = (DefaultTableModel) tablebarangfiks.getModel();
+        tableModel.setRowCount(0);
+        autosum();
+        txtuang.setText("0");
     }
  
     private void autosum (){
@@ -111,7 +124,14 @@ public class Beli extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(rootPane,"salah" +e);
         }
     }    
-
+    
+    void reset() {
+        DefaultTableModel tableModel = (DefaultTableModel) tablebarangfiks.getModel();
+        tableModel.setRowCount(0);
+        txtuang.setText("");
+        txtkembalian.setText("");
+        txttotal.setText("");
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -121,6 +141,7 @@ public class Beli extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel5 = new javax.swing.JLabel();
         txttotal = new javax.swing.JTextField();
         txtuang = new javax.swing.JTextField();
         txtnamabarang = new javax.swing.JTextField();
@@ -140,17 +161,23 @@ public class Beli extends javax.swing.JInternalFrame {
         bhapus = new javax.swing.JButton();
         tglpembelian = new com.github.lgooddatepicker.components.DatePicker();
         jLabel18 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        txtNoFaktur = new javax.swing.JTextField();
         txtidbarang = new javax.swing.JTextField();
-        BJual = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
-        setClosable(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 10, 120, 40));
+
         txttotal.setBorder(null);
-        txttotal.setForeground(new java.awt.Color(255, 255, 255));
         txttotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txttotalActionPerformed(evt);
@@ -159,7 +186,6 @@ public class Beli extends javax.swing.JInternalFrame {
         getContentPane().add(txttotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 430, 290, 30));
 
         txtuang.setBorder(null);
-        txtuang.setForeground(new java.awt.Color(255, 255, 255));
         txtuang.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtuangCaretUpdate(evt);
@@ -197,7 +223,6 @@ public class Beli extends javax.swing.JInternalFrame {
         getContentPane().add(txtnamabarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 150, 80, 30));
 
         txtkembalian.setBorder(null);
-        txtkembalian.setForeground(new java.awt.Color(255, 255, 255));
         txtkembalian.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtkembalianActionPerformed(evt);
@@ -336,6 +361,18 @@ public class Beli extends javax.swing.JInternalFrame {
         jLabel18.setText("Tanggal Transaksi Pembelian");
         getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 130, 166, -1));
 
+        jLabel6.setText("No faktur");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, -1, -1));
+
+        txtNoFaktur.setBackground(new java.awt.Color(0, 153, 153));
+        txtNoFaktur.setBorder(null);
+        txtNoFaktur.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNoFakturActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtNoFaktur, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 160, 30));
+
         txtidbarang.setBorder(null);
         txtidbarang.setForeground(new java.awt.Color(255, 255, 255));
         txtidbarang.addActionListener(new java.awt.event.ActionListener() {
@@ -344,15 +381,6 @@ public class Beli extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(txtidbarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 150, 80, 30));
-
-        BJual.setBorder(null);
-        BJual.setForeground(new java.awt.Color(255, 255, 255));
-        BJual.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BJualActionPerformed(evt);
-            }
-        });
-        getContentPane().add(BJual, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 10, 120, 40));
 
         jLabel4.setText("Id Barang");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 130, -1, -1));
@@ -390,6 +418,7 @@ public class Beli extends javax.swing.JInternalFrame {
             String.valueOf(jumlahbarang),
             String.valueOf(subtotal)
         });
+        resetTambah();
         autosum();
     }//GEN-LAST:event_btambahActionPerformed
 
@@ -457,38 +486,44 @@ public class Beli extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtuangActionPerformed
 
     private void bprosesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bprosesActionPerformed
-        int uangpembayaran = Integer.parseInt(txtuang.getText());
-        int total = Integer.parseInt(txttotal.getText());
-        int uangkembalian = Integer.parseInt(txtkembalian.getText());
-        LocalDate tgltransaksi = tglpembelian.getDate();
-        int jumlahbarang = Integer.parseInt(txtjumlahbarang.getText());
-        int subtotal = Integer.getInteger(sql);
+        int idAdmin = admin.UserAdmin.getId();
+        String noFaktur = txtNoFaktur.getText();
+        String uangpembayaran = txtuang.getText();
+        String total = txttotal.getText();
+        String uangkembalian = txtkembalian.getText();
+        String tgltransaksi = tglpembelian.getDateStringOrEmptyString();
+        if (tgltransaksi.equals("")) {
+            JOptionPane.showMessageDialog(null, "Tanggal tidak boleh kosong");
+            return;
+        }
         LocalDate currentDate = LocalDate.now();
+        String id_supplier = Csupplier.getSelectedItem().toString().split(". ")[0];
 
         Koneksi cn = new Koneksi();
         try {
            Statement statement = koneksi.GetConnection().createStatement();
-           statement.executeUpdate("insert into pembelian(total,uang,kembalian,tanggal_transaksi) "
-                   + "VALUES ('"+total+"','"+uangpembayaran+"','"+uangkembalian+"','"+tgltransaksi+"')"); 
-           ResultSet res =  statement.executeQuery("SELECT * FROM pembelian WHERE total = '"+total+"' AND uang = '"+uangpembayaran+"' AND kembalian = '"+uangkembalian+"' AND tanggal_transaksi = '"+tgltransaksi+"'"); 
-            if (res.next()) {
-                String idpembelian = res.getString("id_pembelian");
-                
+           statement.executeUpdate("insert into pembelian(id_supplier,id_admin,no_faktur,total,uang,kembalian,tanggal_transaksi) "
+                   + "VALUES ('"+id_supplier+"', '"+idAdmin+"','"+noFaktur+"','"+total+"','"+uangpembayaran+"','"+uangkembalian+"','"+tgltransaksi+"')", Statement.RETURN_GENERATED_KEYS); 
+           ResultSet generatedKey = statement.getGeneratedKeys();
+            if (generatedKey.next()) {
+                String idpembelian = generatedKey.getString(1);
                 for (int i = 0; i <tablebarangfiks.getRowCount(); i++){
-                String idbarang = tablebarangfiks.getValueAt(i,0).toString();
-                String namabarang = tablebarangfiks.getValueAt(i,1).toString();
-                String jumlahbarang1 = tablebarangfiks.getValueAt(i,3).toString();
-                String subtotal1 = tablebarangfiks.getValueAt(i,4).toString();
-                } 
+                    String idbarang = tablebarangfiks.getValueAt(i,0).toString();
+                    int jumlahbarang = Integer.valueOf(tablebarangfiks.getValueAt(i,3).toString());
+                    String subtotal = tablebarangfiks.getValueAt(i,4).toString();
+                    statement.executeUpdate("insert into detail_pembelian(id_pembelian, id_barang,jumlah_barang,sub_total,created_at) "
+                        + "VALUES ('"+idpembelian+"','"+idbarang+"','"+jumlahbarang+"','"+subtotal+"','"+currentDate+"')");
+                    statement.executeUpdate("update barang set jumlah_stok = jumlah_stok + "+jumlahbarang+" where id_barang = '"+idbarang+"'");
+                }
             }
-            statement.executeUpdate("insert into detail_pembelian(jumlah_barang,sub_total,created_at) "
-                   + "VALUES ('"+jumlahbarang+"','"+subtotal+"','"+currentDate+"')");
-        datatable("");
+            JOptionPane.showMessageDialog(null, "Pembelian berhasil");
+            datatable("");
+            Beli beli = new Beli();
+            beli.setVisible(true);
+            dispose();
         } catch(Exception e) {
            JOptionPane.showMessageDialog(null, e);
         }
-        dispose();
-        // TODO add your handling code here:
     }//GEN-LAST:event_bprosesActionPerformed
 
     private void txtuangKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtuangKeyTyped
@@ -520,13 +555,56 @@ public class Beli extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtjumlahbarangActionPerformed
 
-    private void BJualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BJualActionPerformed
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_BJualActionPerformed
+        Jual jual = new Jual();
+        jual.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jLabel5MouseClicked
 
+    private void txtNoFakturActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNoFakturActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNoFakturActionPerformed
+    
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                if (admin.UserAdmin.getName() == null) {
+                    Login login = new Login();
+                    login.setVisible(true);
+                    login.setExtendedState(Login.MAXIMIZED_BOTH);
+                } else {
+                    new Beli().setVisible(true);
+                }
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BJual;
     private javax.swing.JComboBox<String> Csupplier;
     private javax.swing.JButton bhapus;
     private javax.swing.JButton bproses;
@@ -536,6 +614,8 @@ public class Beli extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane3;
@@ -543,6 +623,7 @@ public class Beli extends javax.swing.JInternalFrame {
     private javax.swing.JTable tablebarangfiks;
     private javax.swing.JTable tablebarangsementara;
     private com.github.lgooddatepicker.components.DatePicker tglpembelian;
+    private javax.swing.JTextField txtNoFaktur;
     private javax.swing.JTextField txthargasatuan;
     private javax.swing.JTextField txtidbarang;
     private javax.swing.JTextField txtjumlahbarang;

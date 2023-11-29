@@ -9,25 +9,28 @@ package admin;
  * @author USER
  */
 public class UserAdmin {
-    private int id;
-    private String name;
-    private String username;
+    private static int id;
+    private static String name;
+    private static String username;
     
-    public UserAdmin (int id, String name, String username) {
-        this.id = id;
-        this.name = name;
-        this.username = username;
+    public static void setId(int id) {
+        UserAdmin.id = id;
     }
-    
-    public int getId() 
+    public static void setName(String name) {
+        UserAdmin.name = name;
+    }
+    public static void setUsername(String username) {
+        UserAdmin.username = username;
+    }
+    public static int getId() 
     {
         return id;
     }
-    public String getName()
+    public static String getName()
     {
         return name;
     }    
-    public String getUsername()
+    public static String getUsername()
     {
         return username;
     }

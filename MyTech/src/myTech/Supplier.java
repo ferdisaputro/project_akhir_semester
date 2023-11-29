@@ -13,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author USER
  */
-public class Supplier extends javax.swing.JInternalFrame {
+public class Supplier extends javax.swing.JFrame {
     Koneksi koneksi = new Koneksi();
     /**
      * Creates new form Supplier
@@ -31,6 +31,8 @@ public class Supplier extends javax.swing.JInternalFrame {
         bcari.setBackground (new Color(0,0,0,0));
         bhapus.setBackground (new Color(0,0,0,0));
         bkeluar.setBackground (new Color(0,0,0,0));
+        txtalamat.setBackground(new Color(0, 0, 0, 0));
+        reset.setBackground(new Color(0, 0, 0, 0));
         txtid.setBorder (null);
         txtnama.setBorder (null);
         txtemail.setBorder (null);
@@ -40,6 +42,8 @@ public class Supplier extends javax.swing.JInternalFrame {
         bcari.setBorder (null);
         bhapus.setBorder (null);
         bkeluar.setBorder (null);
+        txtalamat.setBorder (null);
+        reset.setBorder (null);
     }
         public void reset(){
             txtalamat.setText("");
@@ -94,12 +98,13 @@ public class Supplier extends javax.swing.JInternalFrame {
         txtemail = new javax.swing.JTextField();
         btambah = new javax.swing.JButton();
         bcari = new javax.swing.JButton();
+        ckategori = new javax.swing.JLabel();
         bhapus = new javax.swing.JButton();
         bkeluar = new javax.swing.JButton();
         Cbarang = new javax.swing.JLabel();
+        reset = new javax.swing.JButton();
         cadmin = new javax.swing.JLabel();
         bupdate = new javax.swing.JButton();
-        ckategori = new javax.swing.JLabel();
         ckaregori = new javax.swing.JLabel();
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -140,7 +145,6 @@ public class Supplier extends javax.swing.JInternalFrame {
         txtemail.setCaretColor(new java.awt.Color(255, 255, 255));
         getContentPane().add(txtemail, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, 270, 30));
 
-        btambah.setText("Tambah");
         btambah.setBorder(null);
         btambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -149,7 +153,6 @@ public class Supplier extends javax.swing.JInternalFrame {
         });
         getContentPane().add(btambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 580, 120, 30));
 
-        bcari.setText("Cari");
         bcari.setBorder(null);
         bcari.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,7 +161,14 @@ public class Supplier extends javax.swing.JInternalFrame {
         });
         getContentPane().add(bcari, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 580, 120, 30));
 
-        bhapus.setText("Hapus");
+        ckategori.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ckategori.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ckategoriMouseClicked(evt);
+            }
+        });
+        getContentPane().add(ckategori, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 70, 110, 30));
+
         bhapus.setBorder(null);
         bhapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,6 +194,13 @@ public class Supplier extends javax.swing.JInternalFrame {
         });
         getContentPane().add(Cbarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 70, 120, 30));
 
+        reset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resetActionPerformed(evt);
+            }
+        });
+        getContentPane().add(reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 580, 110, 30));
+
         cadmin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cadmin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -192,6 +209,8 @@ public class Supplier extends javax.swing.JInternalFrame {
         });
         getContentPane().add(cadmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, 120, 30));
 
+        bupdate.setBackground(new java.awt.Color(0, 153, 153));
+        bupdate.setForeground(new java.awt.Color(255, 255, 255));
         bupdate.setText("Update");
         bupdate.setBorder(null);
         bupdate.addActionListener(new java.awt.event.ActionListener() {
@@ -200,14 +219,6 @@ public class Supplier extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(bupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 620, 110, 30));
-
-        ckategori.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        ckategori.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ckategoriMouseClicked(evt);
-            }
-        });
-        getContentPane().add(ckategori, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 70, 110, 30));
 
         ckaregori.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_component_asset/Supplier fiks.png"))); // NOI18N
         getContentPane().add(ckaregori, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -284,7 +295,9 @@ public class Supplier extends javax.swing.JInternalFrame {
 
     private void bkeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bkeluarActionPerformed
         // TODO add your handling code here:
-        dispose();
+        Home home = new Home();
+        home.setVisible(true);
+        home.setExtendedState(Home.MAXIMIZED_BOTH);
     }//GEN-LAST:event_bkeluarActionPerformed
 
     private void bupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bupdateActionPerformed
@@ -325,6 +338,7 @@ public class Supplier extends javax.swing.JInternalFrame {
         Barang a = new Barang();
         a.setVisible(true);
         dispose();
+        a.setExtendedState(Barang.MAXIMIZED_BOTH);
     }//GEN-LAST:event_CbarangMouseClicked
 
     private void cadminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cadminMouseClicked
@@ -332,6 +346,7 @@ public class Supplier extends javax.swing.JInternalFrame {
         Admin a = new Admin();
         a.setVisible(true);
         dispose();
+        a.setExtendedState(Admin.MAXIMIZED_BOTH);
     }//GEN-LAST:event_cadminMouseClicked
 
     private void ckategoriMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ckategoriMouseClicked
@@ -341,7 +356,49 @@ public class Supplier extends javax.swing.JInternalFrame {
         dispose();
     }//GEN-LAST:event_ckategoriMouseClicked
 
+    private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
+        // TODO add your handling code here:
+        reset();
+    }//GEN-LAST:event_resetActionPerformed
 
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                if (admin.UserAdmin.getName() == null) {
+                    Login login = new Login();
+                    login.setVisible(true);
+                    login.setExtendedState(Login.MAXIMIZED_BOTH);
+                } else {
+                    new Supplier().setVisible(true);
+                }
+            }
+        });
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Cbarang;
     private javax.swing.JButton bcari;
@@ -353,6 +410,7 @@ public class Supplier extends javax.swing.JInternalFrame {
     private javax.swing.JLabel ckaregori;
     private javax.swing.JLabel ckategori;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton reset;
     private javax.swing.JTable table;
     private javax.swing.JTextField txtalamat;
     private javax.swing.JTextField txtemail;

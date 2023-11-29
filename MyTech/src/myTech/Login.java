@@ -48,15 +48,15 @@ public class Login extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        username.setForeground(new java.awt.Color(255, 255, 255));
         username.setBorder(null);
         username.setDisabledTextColor(new java.awt.Color(255, 255, 255));
-        username.setForeground(new java.awt.Color(255, 255, 255));
         username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 usernameActionPerformed(evt);
             }
         });
-        getContentPane().add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 270, 50));
+        getContentPane().add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, 260, 50));
 
         jButton1.setBorder(null);
         jButton1.setForeground(new Color(0,0,0,0));
@@ -68,8 +68,8 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 550, 290, 40));
 
         showPassword.setBackground(new java.awt.Color(255, 255, 255));
-        showPassword.setBorder(null);
         showPassword.setForeground(new Color(0,0,0,0));
+        showPassword.setBorder(null);
         showPassword.setMargin(new java.awt.Insets(4, 4, 4, 4));
         showPassword.setPreferredSize(new java.awt.Dimension(20, 20));
         showPassword.addActionListener(new java.awt.event.ActionListener() {
@@ -79,9 +79,9 @@ public class Login extends javax.swing.JFrame {
         });
         getContentPane().add(showPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 480, 20, 20));
 
-        password.setBorder(null);
         password.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 410, 270, 60));
+        password.setBorder(null);
+        getContentPane().add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 410, 260, 60));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_component_asset/Login.png"))); // NOI18N
         jLabel1.setText("    ");
@@ -105,14 +105,14 @@ public class Login extends javax.swing.JFrame {
             + "password = '"+password.getText()+"';";
             ResultSet res = stat.executeQuery(sql);
             if (res.next()) {
-                admin.UserAdmin userAdmin = new admin.UserAdmin(
-                    res.getInt("id_admin"),
-                    res.getString("nama"),
-                    res.getString("username")
-                );
-                Home home = new Home(userAdmin);
+                admin.UserAdmin userAdmin = new admin.UserAdmin();
+                admin.UserAdmin.setId(res.getInt("id_admin"));
+                admin.UserAdmin.setName(res.getString("nama"));
+                admin.UserAdmin.setUsername(res.getString("username"));
+                Home home = new Home();
                 home.setSize(1200, 700);
                 home.setVisible(true);
+                home.setExtendedState(Home.MAXIMIZED_BOTH);
                 dispose();
             } else {
                 JOptionPane.showMessageDialog(null, "Username/password salah");

@@ -11,18 +11,14 @@ import javax.swing.JOptionPane;
  * @author Muhammad Alfin Eka P
  */
 public class Home extends javax.swing.JFrame {
-    static private admin.UserAdmin userAdmin;
     /**
      * Creates new form Button
      */
-    public Home(admin.UserAdmin userAdmin) {
+    public Home() {
         initComponents();
-        if (userAdmin != null) {
-            this.userAdmin = userAdmin;
-            System.out.println(this.userAdmin.getId());
-            System.out.println(this.userAdmin.getName());
-            System.out.println(this.userAdmin.getUsername());
-        }
+//        JOptionPane.showMessageDialog(null, admin.UserAdmin.getId());
+//        JOptionPane.showMessageDialog(null, admin.UserAdmin.getName());
+//        JOptionPane.showMessageDialog(null, admin.UserAdmin.getUsername());
     }
 
     /**
@@ -37,9 +33,9 @@ public class Home extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
-        bdatamaster = new javax.swing.JButton();
-        btransaksi = new javax.swing.JButton();
-        blaporan = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         bkeluar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -50,32 +46,26 @@ public class Home extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        bdatamaster.setForeground(new java.awt.Color(255, 255, 255));
-        bdatamaster.setBorder(null);
-        bdatamaster.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bdatamasterActionPerformed(evt);
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
             }
         });
-        getContentPane().add(bdatamaster, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 140, 40));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 140, 40));
 
-        btransaksi.setForeground(new java.awt.Color(255, 255, 255));
-        btransaksi.setBorder(null);
-        btransaksi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btransaksiActionPerformed(evt);
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
             }
         });
-        getContentPane().add(btransaksi, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 30, 110, 40));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 30, 110, 40));
 
-        blaporan.setForeground(new java.awt.Color(255, 255, 255));
-        blaporan.setBorder(null);
-        blaporan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                blaporanActionPerformed(evt);
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
             }
         });
-        getContentPane().add(blaporan, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 33, 100, 40));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 30, 90, 40));
 
         bkeluar.setForeground(new java.awt.Color(255, 255, 255));
         bkeluar.setBorder(null);
@@ -92,22 +82,27 @@ public class Home extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bdatamasterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bdatamasterActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_bdatamasterActionPerformed
-
-    private void btransaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btransaksiActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btransaksiActionPerformed
-
-    private void blaporanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_blaporanActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_blaporanActionPerformed
-
     private void bkeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bkeluarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bkeluarActionPerformed
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        Barang barang = new Barang();
+        barang.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jLabel2MouseClicked
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        Laporan laporan = new Laporan();
+        laporan.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        Jual jual = new Jual();
+        jual.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jLabel4MouseClicked
 
     /**
      * @param args the command line arguments
@@ -139,23 +134,23 @@ public class Home extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                if (userAdmin == null) {
+                if (admin.UserAdmin.getName() == null) {
                     Login login = new Login();
-                    login.setSize(450, 350);
                     login.setVisible(true);
+                    login.setExtendedState(Login.MAXIMIZED_BOTH);
                 } else {
-                    new Home(userAdmin).setVisible(true);
+                    new Home().setVisible(true);
                 }
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bdatamaster;
     private javax.swing.JButton bkeluar;
-    private javax.swing.JButton blaporan;
-    private javax.swing.JButton btransaksi;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JSeparator jSeparator1;
