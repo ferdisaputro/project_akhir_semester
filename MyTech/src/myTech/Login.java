@@ -43,7 +43,7 @@ public class Login extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         showPassword = new javax.swing.JCheckBox();
         password = new javax.swing.JPasswordField();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -56,7 +56,7 @@ public class Login extends javax.swing.JFrame {
                 usernameActionPerformed(evt);
             }
         });
-        getContentPane().add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 340, 70));
+        getContentPane().add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, 270, 50));
 
         jButton1.setForeground(new Color(0,0,0,0));
         jButton1.setText("Login");
@@ -66,7 +66,7 @@ public class Login extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 600, 360, 50));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 530, 290, 40));
 
         showPassword.setForeground(new Color(0,0,0,0));
         showPassword.setBorder(null);
@@ -75,15 +75,14 @@ public class Login extends javax.swing.JFrame {
                 showPasswordActionPerformed(evt);
             }
         });
-        getContentPane().add(showPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 480, 20, 30));
+        getContentPane().add(showPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 450, 30, 40));
 
         password.setForeground(new java.awt.Color(255, 255, 255));
         password.setBorder(null);
-        getContentPane().add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 390, 340, 70));
+        getContentPane().add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 400, 260, 40));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_component_asset/Login.png"))); // NOI18N
-        jLabel1.setText("    ");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 800));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_component_asset/login fiks.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, -20, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -160,7 +159,7 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPasswordField password;
     private javax.swing.JCheckBox showPassword;
     private javax.swing.JTextField username;
