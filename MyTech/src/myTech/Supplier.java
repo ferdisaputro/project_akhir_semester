@@ -209,16 +209,16 @@ public class Supplier extends javax.swing.JFrame {
         });
         getContentPane().add(cadmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, 120, 30));
 
-        bupdate.setBackground(new java.awt.Color(0, 153, 153));
+        bupdate.setBackground(new java.awt.Color(0, 102, 102));
         bupdate.setForeground(new java.awt.Color(255, 255, 255));
-        bupdate.setText("Update");
+        bupdate.setText("EDIT");
         bupdate.setBorder(null);
         bupdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bupdateActionPerformed(evt);
             }
         });
-        getContentPane().add(bupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 620, 110, 30));
+        getContentPane().add(bupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 630, 120, 30));
 
         ckaregori.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_component_asset/Supplier fiks.png"))); // NOI18N
         getContentPane().add(ckaregori, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));

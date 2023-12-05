@@ -4,6 +4,7 @@
  */
 package myTech;
 
+import java.awt.Color;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,6 +20,8 @@ public class Home extends javax.swing.JFrame {
 //        JOptionPane.showMessageDialog(null, admin.UserAdmin.getId());
 //        JOptionPane.showMessageDialog(null, admin.UserAdmin.getName());
 //        JOptionPane.showMessageDialog(null, admin.UserAdmin.getUsername());
+        bkeluar.setBackground(new Color(0, 0, 0, 0));
+        bkeluar.setBorder(null);
     }
 
     /**

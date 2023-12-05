@@ -111,8 +111,9 @@ public class Admin extends javax.swing.JFrame {
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton7.setText("Edit");
-        jButton7.setBackground(new java.awt.Color(0, 153, 153));
+        jButton7.setText("EDIT");
+        jButton7.setBackground(new java.awt.Color(0, 102, 102));
+        jButton7.setForeground(new java.awt.Color(255, 255, 255));
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);

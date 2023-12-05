@@ -42,8 +42,6 @@ public class Barang extends javax.swing.JFrame {
         btambah.setBorder(null);
         bcari.setBackground(new Color (0,0,0,0));
         bcari.setBorder(null);
-        bsimpan.setBackground(new Color (0,0,0,0));
-        bsimpan.setBorder(null);
         bhapus.setBackground(new Color (0,0,0,0));
         bhapus.setBorder(null);
         breset.setBackground(new Color (0,0,0,0));
@@ -56,7 +54,7 @@ public class Barang extends javax.swing.JFrame {
         try {
             Statement stat = koneksi.GetConnection().createStatement();
             ResultSet res = stat.executeQuery("SELECT * FROM kategori");
-            while(res.next()) txtkategori.addItem(res.getString("nama"));
+            while(res.next()) txtkategori.addItem(res.getString("id_kategori").concat(". "+res.getString("nama")));
         } catch(Exception e) {
             JOptionPane.showMessageDialog(null, "error "+e);
         }
@@ -77,7 +75,7 @@ public class Barang extends javax.swing.JFrame {
         try{
             Statement statement = koneksi.GetConnection().createStatement();
             if (select_from_barang.equals("")) {
-                sql = "SELECT barang.*, kategori.nama as kategori FROM `barang` inner join kategori on barang.id_kategori = kategori.id_kategori";
+                sql = "SELECT barang.*, kategori.nama as kategori FROM `barang` inner join kategori on barang.id_kategori = kategori.id_kategori order by id_barang asc";
             } else {
                 sql = select_from_barang;
             }
@@ -149,19 +147,19 @@ public class Barang extends javax.swing.JFrame {
                 txtidbarangActionPerformed(evt);
             }
         });
-        getContentPane().add(txtidbarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 260, 20));
+        getContentPane().add(txtidbarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 260, 30));
 
         txtnamabarang.setBorder(null);
-        getContentPane().add(txtnamabarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, 260, 20));
+        getContentPane().add(txtnamabarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 260, 30));
 
         txthargajual.setBorder(null);
-        getContentPane().add(txthargajual, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 350, 260, 20));
+        getContentPane().add(txthargajual, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, 260, 30));
 
         txthargabeli.setBorder(null);
-        getContentPane().add(txthargabeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 410, 260, 20));
+        getContentPane().add(txthargabeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 400, 260, 30));
 
         txtstok.setBorder(null);
-        getContentPane().add(txtstok, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 470, 260, 20));
+        getContentPane().add(txtstok, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 460, 260, 30));
 
         btambah.setForeground(new java.awt.Color(255, 255, 255));
         btambah.setBorder(null);
@@ -235,7 +233,7 @@ public class Barang extends javax.swing.JFrame {
                 txtdeskripsiActionPerformed(evt);
             }
         });
-        getContentPane().add(txtdeskripsi, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 530, 260, 20));
+        getContentPane().add(txtdeskripsi, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 520, 260, 30));
 
         txtsatuan.setBorder(null);
         txtsatuan.addActionListener(new java.awt.event.ActionListener() {
@@ -243,7 +241,7 @@ public class Barang extends javax.swing.JFrame {
                 txtsatuanActionPerformed(evt);
             }
         });
-        getContentPane().add(txtsatuan, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 590, 260, 20));
+        getContentPane().add(txtsatuan, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 580, 260, 30));
 
         breset.setForeground(new java.awt.Color(255, 255, 255));
         breset.setBorder(null);
@@ -254,16 +252,17 @@ public class Barang extends javax.swing.JFrame {
         });
         getContentPane().add(breset, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 570, 120, 30));
 
-        bsimpan.setBackground(new java.awt.Color(0, 153, 102));
+        bsimpan.setBackground(new java.awt.Color(0, 102, 102));
         bsimpan.setForeground(new java.awt.Color(255, 255, 255));
         bsimpan.setText("Simpan");
         bsimpan.setBorder(null);
+        bsimpan.setBorderPainted(false);
         bsimpan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bsimpanActionPerformed(evt);
             }
         });
-        getContentPane().add(bsimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 610, 110, 30));
+        getContentPane().add(bsimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 610, 120, 30));
 
         cadmin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cadmin.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -292,7 +291,7 @@ public class Barang extends javax.swing.JFrame {
                 txtkategoriActionPerformed(evt);
             }
         });
-        getContentPane().add(txtkategori, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, 260, 20));
+        getContentPane().add(txtkategori, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, 260, 30));
 
         jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -311,7 +310,7 @@ public class Barang extends javax.swing.JFrame {
     private void btambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btambahActionPerformed
         String idbarang = txtidbarang.getText();
         String namabarang = txtnamabarang.getText();
-        int kategori = txtkategori.getSelectedIndex()+1;
+        String kategori = txtkategori.getSelectedItem().toString().split(". ")[0];
         String hargajual = txthargajual.getText();
         String hargabeli = txthargabeli.getText();
         String stok = txtstok.getText();
@@ -519,13 +518,13 @@ public class Barang extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                if (admin.UserAdmin.getName() == null) {
-                    Login login = new Login();
-                    login.setVisible(true);
-                    login.setExtendedState(Login.MAXIMIZED_BOTH);
-                } else {
+//                if (admin.UserAdmin.getName() == null) {
+//                    Login login = new Login();
+//                    login.setVisible(true);
+//                    login.setExtendedState(Login.MAXIMIZED_BOTH);
+//                } else {
                     new Barang().setVisible(true);
-                }
+//                }
             }
         });
     }

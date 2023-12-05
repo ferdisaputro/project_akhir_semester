@@ -138,6 +138,7 @@ public class Jual extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
         bproses = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         txtdiskon = new javax.swing.JTextField();
@@ -165,6 +166,17 @@ public class Jual extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton1.setText("Keluar");
+        jButton1.setBackground(new java.awt.Color(0, 102, 102));
+        jButton1.setBorder(null);
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 650, 110, 30));
 
         bproses.setForeground(new java.awt.Color(255, 255, 255));
         bproses.setBorder(null);
@@ -356,8 +368,8 @@ public class Jual extends javax.swing.JFrame {
         }
         try {
             stat = koneksi.GetConnection().createStatement();
-            sql = "INSERT INTO penjualan(id_admin, total, uang, diskon, kembalian, tanggal_transaksi) VALUES "
-            + "('"+idAdmin+"','"+total+"','"+uang+"','"+diskon+"','"+kembalian+"','"+tglTransaksi+"')";
+            sql = "INSERT INTO penjualan(id_admin, total, diskon, tanggal_transaksi) VALUES "
+            + "('"+idAdmin+"','"+total+"','"+diskon+"','"+tglTransaksi+"')";
             stat.executeUpdate(sql, stat.RETURN_GENERATED_KEYS);
             ResultSet res = stat.getGeneratedKeys();
             if (res.next()) {
@@ -510,6 +522,13 @@ public class Jual extends javax.swing.JFrame {
         txtkembalian.setText(String.valueOf(uangkembalian)); 
     }//GEN-LAST:event_txtuangCaretUpdate
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        Home home = new Home();
+        home.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -555,6 +574,7 @@ public class Jual extends javax.swing.JFrame {
     private javax.swing.JButton bhapus;
     private javax.swing.JButton bproses;
     private javax.swing.JButton btambah;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

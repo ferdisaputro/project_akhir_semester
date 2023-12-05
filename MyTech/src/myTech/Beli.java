@@ -144,6 +144,7 @@ public class Beli extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         txttotal = new javax.swing.JTextField();
         txtuang = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         txtnamabarang = new javax.swing.JTextField();
         txtkembalian = new javax.swing.JTextField();
         txtjumlahbarang = new javax.swing.JTextField();
@@ -212,6 +213,17 @@ public class Beli extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtuang, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 490, 290, 30));
+
+        jButton1.setBackground(new java.awt.Color(0, 102, 102));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("KELUAR");
+        jButton1.setBorder(null);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 600, 110, 30));
 
         txtnamabarang.setBorder(null);
         txtnamabarang.setForeground(new java.awt.Color(255, 255, 255));
@@ -442,12 +454,6 @@ public class Beli extends javax.swing.JFrame {
     }//GEN-LAST:event_tablebarangfiksMouseReleased
 
     private void bhapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bhapusActionPerformed
-        String idbarang = txtidbarang.getText();                               
-        String namabarang = txtnamabarang.getText();
-        int hargasatuan = Integer.parseInt(txthargasatuan.getText());
-        int jumlahbarang = Integer.parseInt(txtjumlahbarang.getText());
-        int subtotal = hargasatuan*jumlahbarang;
-        
         int row = tablebarangfiks.getSelectedRow();
         DefaultTableModel table = (DefaultTableModel) tablebarangfiks.getModel();
         table.removeRow(row);
@@ -502,8 +508,8 @@ public class Beli extends javax.swing.JFrame {
         Koneksi cn = new Koneksi();
         try {
            Statement statement = koneksi.GetConnection().createStatement();
-           statement.executeUpdate("insert into pembelian(id_supplier,id_admin,no_faktur,total,uang,kembalian,tanggal_transaksi) "
-                   + "VALUES ('"+id_supplier+"', '"+idAdmin+"','"+noFaktur+"','"+total+"','"+uangpembayaran+"','"+uangkembalian+"','"+tgltransaksi+"')", Statement.RETURN_GENERATED_KEYS); 
+           statement.executeUpdate("insert into pembelian(id_supplier,id_admin,no_faktur,total,tanggal_transaksi) "
+                   + "VALUES ('"+id_supplier+"', '"+idAdmin+"','"+noFaktur+"','"+total+"','"+tgltransaksi+"')", Statement.RETURN_GENERATED_KEYS); 
            ResultSet generatedKey = statement.getGeneratedKeys();
             if (generatedKey.next()) {
                 String idpembelian = generatedKey.getString(1);
@@ -565,6 +571,13 @@ public class Beli extends javax.swing.JFrame {
     private void txtNoFakturActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNoFakturActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNoFakturActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        Home home = new Home();
+        home.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -609,6 +622,7 @@ public class Beli extends javax.swing.JFrame {
     private javax.swing.JButton bhapus;
     private javax.swing.JButton bproses;
     private javax.swing.JButton btambah;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
